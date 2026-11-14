@@ -10,3 +10,4 @@ dbt/taxi_copilot/logs/
 dbt/taxi_copilot/dbt_packages/
 dbt/taxi_copilot/profiles/.user.yml
 logs/
+results/runs/
