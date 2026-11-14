@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: fct_trips
+    description: >
+      One row per cleaned 2023 NYC Yellow Taxi trip (35,574,647 rows). Zone names and
+      code labels are already joined in. Column meanings are defined once, in
+      models/semantic/trips.yml, and reused for both the written docs (setup 3) and
+      the semantic layer (setup 4).
+
+  - name: dim_zones
+    description: "The 265 TLC taxi zones. Join to fct_trips or trips_hourly_demand on zone_id."
+    columns:
+      - name: zone_id
+        description: "TLC taxi zone number, 1-265. 264 and 265 mean the zone is unknown."
+        data_tests: [unique, not_null]
+      - name: zone_name
+        description: "Name of the taxi zone, for example 'JFK Airport'."
+      - name: borough
+        description: "Borough of the zone: Manhattan, Queens, Brooklyn, Bronx, Staten Island, EWR (Newark Airport), or Unknown."
+
+  - name: trips_hourly_demand
+    description: >
+      A summary of fct_trips: one row per pickup date, pickup hour and pickup zone that
+      had at least one trip. Averages here are per zone-hour; averaging them again does
+      NOT give the average over trips (weight by trip_count, or use fct_trips).
+    columns:
+      - name: pickup_date
+        description: "Calendar date of the pickups."
+      - name: pickup_hour
+        description: "Hour of day of the pickups, 0-23."
+      - name: pickup_zone_id
+        description: "TLC zone where the trips started. Join to dim_zones.zone_id."
+      - name: trip_count
+        description: "Number of trips in that zone and hour."
+      - name: avg_fare
+        description: "Average fare_amount of those trips, in US dollars."
+      - name: avg_trip_distance
+        description: "Average trip distance of those trips, in miles."
+      - name: total_revenue
+        description: "Sum of total_amount of those trips, in US dollars."
+
+  - name: metricflow_time_spine
+    description: "Calendar table, one row per day of 2023. Used only by MetricFlow."
+    time_spine:
+      standard_granularity_column: date_day
+    columns:
+      - name: date_day
+        granularity: day

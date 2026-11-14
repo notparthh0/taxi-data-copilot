@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: lake
+    description: "The existing Iceberg lakehouse built by nyc-taxi-elt-pipeline (read-only here)."
+    tables:
+      - name: trips_cleaned
+        description: >
+          One row per 2023 Yellow Taxi trip that passed the 7 PySpark cleaning rules
+          (see knowledge/cleaning_rules.yml).
+        meta:
+          external_location: "iceberg_scan('{{ env_var('ICEBERG_WAREHOUSE') }}/nyc/trips_cleaned')"

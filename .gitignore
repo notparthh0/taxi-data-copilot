@@ -1,0 +1,12 @@
+.env
+.venv/
+data/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+dbt/taxi_copilot/target/
+dbt/taxi_copilot/logs/
+dbt/taxi_copilot/dbt_packages/
+dbt/taxi_copilot/profiles/.user.yml
+logs/

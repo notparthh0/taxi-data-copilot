@@ -1,0 +1,71 @@
+{
+  "generated_at_utc": "2026-11-14T20:39:33+00:00",
+  "raw": {
+    "rows": 38310226,
+    "fare_negative_rows": 381650,
+    "fare_zero_rows": 12853,
+    "distance_zero_or_less_rows": 773457,
+    "passenger_count_null_rows": 1309356,
+    "passenger_count_zero_rows": 583005,
+    "dropoff_not_after_pickup_rows": 15569,
+    "longer_than_180_min_rows": 35157,
+    "pickup_outside_file_month_rows": 730,
+    "pickup_not_in_2023_rows": 104,
+    "earliest_pickup": "2001-01-01 00:06:49",
+    "latest_pickup": "2024-01-03 19:42:57",
+    "avg_fare": 19.522250636414135,
+    "avg_trip_distance_miles": 4.088946216083151,
+    "max_trip_distance_miles": 345729.44,
+    "avg_passengers": 1.3704258575541601,
+    "total_revenue": 1090383411.887084,
+    "avg_duration_minutes": 16.71684913796471
+  },
+  "clean": {
+    "rows": 35574647,
+    "earliest_pickup": "2023-01-01 00:00:05",
+    "latest_pickup": "2023-12-31 23:59:59",
+    "avg_fare": 19.744062762446973,
+    "avg_trip_distance_miles": 3.6336717809170973,
+    "max_trip_distance_miles": 161726.1,
+    "avg_passengers": 1.3926976984479986,
+    "total_revenue": 1028974146.577177,
+    "avg_duration_minutes": 16.399173181957206
+  },
+  "same_question_both_layers": {
+    "rows": {
+      "raw": 38310226,
+      "clean": 35574647,
+      "raw_vs_clean_percent": 7.69
+    },
+    "avg_fare": {
+      "raw": 19.522250636414135,
+      "clean": 19.744062762446973,
+      "raw_vs_clean_percent": -1.123
+    },
+    "avg_trip_distance_miles": {
+      "raw": 4.088946216083151,
+      "clean": 3.6336717809170973,
+      "raw_vs_clean_percent": 12.529
+    },
+    "max_trip_distance_miles": {
+      "raw": 345729.44,
+      "clean": 161726.1,
+      "raw_vs_clean_percent": 113.775
+    },
+    "avg_passengers": {
+      "raw": 1.3704258575541601,
+      "clean": 1.3926976984479986,
+      "raw_vs_clean_percent": -1.599
+    },
+    "total_revenue": {
+      "raw": 1090383411.887084,
+      "clean": 1028974146.577177,
+      "raw_vs_clean_percent": 5.968
+    },
+    "avg_duration_minutes": {
+      "raw": 16.71684913796471,
+      "clean": 16.399173181957206,
+      "raw_vs_clean_percent": 1.937
+    }
+  }
+}

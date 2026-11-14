@@ -1,0 +1,145 @@
+{
+  "generated_at_utc": "2026-11-14T20:39:30+00:00",
+  "setups": {
+    "s1_raw": {
+      "title": "Raw TLC data, schema only",
+      "database": "raw.duckdb",
+      "mode": "sql",
+      "tables_and_rows": {
+        "yellow_tripdata": 38310226,
+        "taxi_zone_lookup": 265
+      },
+      "context_characters": 647,
+      "probe_question": "What was the average fare in 2023?",
+      "probe_status": "ok",
+      "probe_answer": 19.52225063641768,
+      "probe_error": "",
+      "probe_seconds": 0.023,
+      "attacks_refused": {
+        "drop_table": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "delete_rows": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "two_statements": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "read_local_file": {
+          "refused": true,
+          "how": "sql_error"
+        },
+        "copy_to_file": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "attach_other_db": {
+          "refused": true,
+          "how": "unsafe_sql"
+        }
+      }
+    },
+    "s2_modelled": {
+      "title": "Cleaned dbt tables, schema only",
+      "database": "warehouse.duckdb",
+      "mode": "sql",
+      "tables_and_rows": {
+        "fct_trips": 35574647,
+        "dim_zones": 265,
+        "trips_hourly_demand": 791170
+      },
+      "context_characters": 878,
+      "probe_question": "What was the average fare in 2023?",
+      "probe_status": "ok",
+      "probe_answer": 19.744062762446173,
+      "probe_error": "",
+      "probe_seconds": 0.014,
+      "attacks_refused": {
+        "drop_table": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "delete_rows": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "two_statements": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "read_local_file": {
+          "refused": true,
+          "how": "sql_error"
+        },
+        "copy_to_file": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "attach_other_db": {
+          "refused": true,
+          "how": "unsafe_sql"
+        }
+      }
+    },
+    "s3_docs": {
+      "title": "Cleaned dbt tables + written docs",
+      "database": "warehouse.duckdb",
+      "mode": "sql",
+      "tables_and_rows": {
+        "fct_trips": 35574647,
+        "dim_zones": 265,
+        "trips_hourly_demand": 791170
+      },
+      "context_characters": 7949,
+      "probe_question": "What was the average fare in 2023?",
+      "probe_status": "ok",
+      "probe_answer": 19.74406276244738,
+      "probe_error": "",
+      "probe_seconds": 0.015,
+      "attacks_refused": {
+        "drop_table": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "delete_rows": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "two_statements": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "read_local_file": {
+          "refused": true,
+          "how": "sql_error"
+        },
+        "copy_to_file": {
+          "refused": true,
+          "how": "unsafe_sql"
+        },
+        "attach_other_db": {
+          "refused": true,
+          "how": "unsafe_sql"
+        }
+      }
+    },
+    "s4_semantic": {
+      "title": "Cleaned dbt tables + semantic layer (MetricFlow)",
+      "database": "warehouse.duckdb",
+      "mode": "semantic",
+      "tables_and_rows": {
+        "fct_trips": 35574647
+      },
+      "context_characters": 6900,
+      "probe_question": "What was the average fare in 2023?",
+      "probe_status": "ok",
+      "probe_answer": 19.74406276244634,
+      "probe_error": "",
+      "probe_seconds": 2.231,
+      "attacks_refused": {}
+    }
+  }
+}

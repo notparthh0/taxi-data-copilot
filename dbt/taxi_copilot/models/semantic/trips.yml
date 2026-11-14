@@ -1,0 +1,272 @@
+# The single source of truth for what the data MEANS.
+#   Setup 3 (written docs) is rendered from this file.
+#   Setup 4 (semantic layer) is compiled from this file by MetricFlow.
+# So both setups carry the same information by construction (tests/test_parity.py).
+
+semantic_models:
+  - name: trips
+    description: "Cleaned 2023 NYC Yellow Taxi trips, one row per trip."
+    model: ref('fct_trips')
+    defaults:
+      agg_time_dimension: pickup_date
+    primary_entity: trip
+
+    dimensions:
+      - name: pickup_date
+        description: "Calendar date the trip started (meter engaged). All trips are in 2023."
+        type: time
+        type_params:
+          time_granularity: day
+      - name: pickup_at
+        description: "Exact date and time the trip started (meter engaged), New York local time."
+        type: time
+        type_params:
+          time_granularity: second
+      - name: dropoff_at
+        description: "Exact date and time the trip ended (meter disengaged), New York local time."
+        type: time
+        type_params:
+          time_granularity: second
+      - name: pickup_hour
+        description: "Hour of day the trip started, 0-23."
+        type: categorical
+      - name: pickup_day_of_week
+        description: "Day of week the trip started as a number: 1 = Monday ... 7 = Sunday."
+        type: categorical
+      - name: pickup_day_name
+        description: "Day of week the trip started as a name: 'Monday' ... 'Sunday'."
+        type: categorical
+      - name: is_weekend
+        description: "True if the trip started on a Saturday or Sunday."
+        type: categorical
+      - name: month_key
+        description: "Month the trip started, as text 'YYYY-MM', for example '2023-03'."
+        type: categorical
+      - name: pickup_zone_id
+        description: "TLC taxi zone number where the trip started, 1-265. 264 and 265 mean unknown."
+        type: categorical
+      - name: pickup_zone
+        description: "Name of the taxi zone where the trip started, for example 'JFK Airport'."
+        type: categorical
+      - name: pickup_borough
+        description: "Borough where the trip started: Manhattan, Queens, Brooklyn, Bronx, Staten Island, EWR (Newark Airport), or Unknown."
+        type: categorical
+      - name: dropoff_zone_id
+        description: "TLC taxi zone number where the trip ended, 1-265. 264 and 265 mean unknown."
+        type: categorical
+      - name: dropoff_zone
+        description: "Name of the taxi zone where the trip ended."
+        type: categorical
+      - name: dropoff_borough
+        description: "Borough where the trip ended (same values as pickup_borough)."
+        type: categorical
+      - name: payment_type
+        description: "How the passenger paid: 'Credit card', 'Cash', 'No charge', 'Dispute', 'Unknown', 'Voided trip' or 'Flex Fare trip'."
+        type: categorical
+      - name: rate_code
+        description: "Fare rate used: 'Standard rate', 'JFK', 'Newark', 'Nassau or Westchester', 'Negotiated fare', 'Group ride' or 'Unknown'."
+        type: categorical
+      - name: passenger_count
+        description: "Number of passengers, as entered by the driver. Always 1 or more after cleaning."
+        type: categorical
+      - name: trip_distance_miles
+        description: "Trip distance in miles from the taximeter. Always above 0 after cleaning."
+        type: categorical
+      - name: trip_duration_minutes
+        description: "Minutes between pickup and dropoff. Above 0 and at most 180 after cleaning."
+        type: categorical
+      - name: fare_amount
+        description: "The time-and-distance fare from the meter, in US dollars, before tips, tolls and surcharges. Always above 0 after cleaning."
+        type: categorical
+      - name: tip_amount
+        description: "Tip in US dollars. Only credit-card tips are recorded; cash tips are NOT in the data."
+        type: categorical
+      - name: tolls_amount
+        description: "Total tolls paid during the trip, in US dollars."
+        type: categorical
+      - name: total_amount
+        description: "Total charged to the passenger in US dollars (fare + surcharges + tolls + card tip). Does not include cash tips. This is what 'revenue' means."
+        type: categorical
+
+    measures:
+      - name: trips
+        description: "Count of trips."
+        agg: sum
+        expr: "1"
+      - name: revenue
+        description: "Sum of total_amount."
+        agg: sum
+        expr: total_amount
+      - name: fare_sum
+        description: "Sum of fare_amount."
+        agg: sum
+        expr: fare_amount
+      - name: tip_sum
+        description: "Sum of tip_amount."
+        agg: sum
+        expr: tip_amount
+      - name: tolls_sum
+        description: "Sum of tolls_amount."
+        agg: sum
+        expr: tolls_amount
+      - name: distance_sum
+        description: "Sum of trip_distance_miles."
+        agg: sum
+        expr: trip_distance_miles
+      - name: duration_sum
+        description: "Sum of trip_duration_minutes."
+        agg: sum
+        expr: trip_duration_minutes
+      - name: passengers_sum
+        description: "Sum of passenger_count."
+        agg: sum
+        expr: passenger_count
+      - name: fare_avg
+        description: "Average of fare_amount over trips."
+        agg: average
+        expr: fare_amount
+      - name: total_amount_avg
+        description: "Average of total_amount over trips."
+        agg: average
+        expr: total_amount
+      - name: tip_avg
+        description: "Average of tip_amount over trips."
+        agg: average
+        expr: tip_amount
+      - name: distance_avg
+        description: "Average of trip_distance_miles over trips."
+        agg: average
+        expr: trip_distance_miles
+      - name: duration_avg
+        description: "Average of trip_duration_minutes over trips."
+        agg: average
+        expr: trip_duration_minutes
+      - name: passengers_avg
+        description: "Average of passenger_count over trips."
+        agg: average
+        expr: passenger_count
+      - name: fare_median
+        description: "Median of fare_amount over trips."
+        agg: median
+        expr: fare_amount
+      - name: distance_max
+        description: "Largest trip_distance_miles."
+        agg: max
+        expr: trip_distance_miles
+
+metrics:
+  - name: trip_count
+    label: Trip count
+    description: "Number of trips."
+    type: simple
+    type_params: {measure: trips}
+  - name: total_revenue
+    label: Total revenue
+    description: "Total charged to passengers in US dollars: the sum of total_amount. Cash tips are not included."
+    type: simple
+    type_params: {measure: revenue}
+  - name: total_fare
+    label: Total fare
+    description: "Sum of fare_amount (meter fare only, no tips, tolls or surcharges), in US dollars."
+    type: simple
+    type_params: {measure: fare_sum}
+  - name: total_tips
+    label: Total tips
+    description: "Sum of tip_amount in US dollars. Credit-card tips only; cash tips are not recorded."
+    type: simple
+    type_params: {measure: tip_sum}
+  - name: total_tolls
+    label: Total tolls
+    description: "Sum of tolls_amount in US dollars."
+    type: simple
+    type_params: {measure: tolls_sum}
+  - name: total_distance
+    label: Total distance
+    description: "Sum of trip_distance_miles, in miles."
+    type: simple
+    type_params: {measure: distance_sum}
+  - name: total_passengers
+    label: Total passengers
+    description: "Sum of passenger_count."
+    type: simple
+    type_params: {measure: passengers_sum}
+  - name: avg_fare
+    label: Average fare
+    description: "Average fare_amount per trip, in US dollars."
+    type: simple
+    type_params: {measure: fare_avg}
+  - name: median_fare
+    label: Median fare
+    description: "Median fare_amount per trip, in US dollars."
+    type: simple
+    type_params: {measure: fare_median}
+  - name: avg_total_amount
+    label: Average total amount
+    description: "Average total_amount per trip (average revenue per trip), in US dollars."
+    type: simple
+    type_params: {measure: total_amount_avg}
+  - name: avg_tip
+    label: Average tip
+    description: "Average tip_amount per trip over ALL trips, in US dollars. Cash trips count as a 0 tip because cash tips are not recorded."
+    type: simple
+    type_params: {measure: tip_avg}
+  - name: avg_trip_distance
+    label: Average trip distance
+    description: "Average trip_distance_miles per trip, in miles."
+    type: simple
+    type_params: {measure: distance_avg}
+  - name: max_trip_distance
+    label: Longest trip distance
+    description: "Largest trip_distance_miles of any trip, in miles."
+    type: simple
+    type_params: {measure: distance_max}
+  - name: avg_trip_duration
+    label: Average trip duration
+    description: "Average trip_duration_minutes per trip, in minutes."
+    type: simple
+    type_params: {measure: duration_avg}
+  - name: avg_passengers
+    label: Average passengers
+    description: "Average passenger_count per trip."
+    type: simple
+    type_params: {measure: passengers_avg}
+  - name: card_tips
+    label: Credit-card tips
+    description: "Sum of tip_amount on trips paid by credit card."
+    type: simple
+    type_params: {measure: tip_sum}
+    filter: "{{ Dimension('trip__payment_type') }} = 'Credit card'"
+  - name: card_fare
+    label: Credit-card fare
+    description: "Sum of fare_amount on trips paid by credit card."
+    type: simple
+    type_params: {measure: fare_sum}
+    filter: "{{ Dimension('trip__payment_type') }} = 'Credit card'"
+  - name: tip_rate
+    label: Tip rate
+    description: "Tips as a share of the fare, on credit-card trips only: card_tips / card_fare. Cash trips are left out because their tips are not recorded."
+    type: ratio
+    type_params:
+      numerator: card_tips
+      denominator: card_fare
+  - name: revenue_per_mile
+    label: Revenue per mile
+    description: "total_revenue / total_distance, in US dollars per mile."
+    type: ratio
+    type_params:
+      numerator: total_revenue
+      denominator: total_distance
+  - name: avg_speed_mph
+    label: Average speed
+    description: "Average speed in miles per hour: total distance divided by total time, i.e. total_distance / (sum of trip_duration_minutes / 60)."
+    type: derived
+    type_params:
+      expr: total_distance / (total_duration_minutes / 60)
+      metrics:
+        - name: total_distance
+        - name: total_duration_minutes
+  - name: total_duration_minutes
+    label: Total duration
+    description: "Sum of trip_duration_minutes, in minutes."
+    type: simple
+    type_params: {measure: duration_sum}

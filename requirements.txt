@@ -1,0 +1,8 @@
+# Python 3.12 (uv venv --python 3.12 .venv)
+duckdb>=2.0
+dbt-metricflow[dbt-duckdb]>=0.15
+google-genai>=3.0
+python-dotenv>=1.0
+pyyaml>=6.0
+pandas>=2.0
+pytest>=8.0

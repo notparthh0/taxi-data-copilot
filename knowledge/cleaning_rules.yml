@@ -1,0 +1,29 @@
+# The 7 cleaning rules applied by nyc-taxi-elt-pipeline (ingestion/spark/clean_trips.py),
+# in order. A raw trip is dropped at the FIRST rule it fails.
+# This text is shown to the model in setup 3 (docs) and setup 4 (semantic layer), word for word.
+source: "nyc-taxi-elt-pipeline/ingestion/spark/clean_trips.py"
+intro: >
+  The tables contain only trips that passed these 7 cleaning rules. The raw TLC files
+  had 38,310,226 trips for 2023; 35,574,647 remain after cleaning.
+rules:
+  - id: 1
+    drop_if: "fare_amount is null or <= 0"
+    why: "Negative and zero fares are refunds, voids and meter errors, not real paid trips."
+  - id: 2
+    drop_if: "trip_distance is null or <= 0"
+    why: "A trip that covered no distance is a cancelled or mis-recorded trip."
+  - id: 3
+    drop_if: "passenger_count is null or < 1"
+    why: "Rows with no passenger count are incomplete records."
+  - id: 4
+    drop_if: "total_amount is null or <= 0"
+    why: "The passenger must have been charged something."
+  - id: 5
+    drop_if: "dropoff time is not after pickup time"
+    why: "A trip cannot end before or at the moment it starts."
+  - id: 6
+    drop_if: "trip duration is more than 180 minutes"
+    why: "Trips longer than 3 hours are almost always a meter left running."
+  - id: 7
+    drop_if: "pickup month differs from the month of the file the trip came in"
+    why: "Each monthly file contains a few stray trips from other months or years (582 in 2023)."

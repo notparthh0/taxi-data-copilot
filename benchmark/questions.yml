@@ -1,0 +1,17 @@
+# Questions are added in reviewed batches. See README.md for the fields.
+# The entry below is a FORMAT EXAMPLE only (status: example); it is not part of the benchmark.
+questions:
+  - id: example_001
+    status: example
+    dataset: nyc_taxi
+    question: "What was the average fare per trip in 2023?"
+    difficulty: 1
+    category: average
+    trap: true
+    trap_reason: negative_fares
+    author: claude
+    written_blind: false
+    gold_sql: "SELECT avg(fare_amount) FROM fct_trips"
+    naive_raw_sql: "SELECT avg(fare_amount) FROM yellow_tripdata"
+    answer_shape: scalar
+    checked_by: ""

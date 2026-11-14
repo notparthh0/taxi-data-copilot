@@ -1,0 +1,23 @@
+name: 'taxi_copilot'
+version: '0.1.0'
+config-version: 2
+
+profile: 'taxi_copilot'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  taxi_copilot:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  taxi_copilot:
+    taxi_zone_lookup:
+      +column_types:
+        LocationID: integer

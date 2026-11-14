@@ -1,0 +1,12 @@
+# DuckDB file for the modelled layer (setups 2, 3 and 4). It lives in this repo's
+# data/ folder (gitignored). The Iceberg lake in ../nyc-taxi-aws is only READ.
+taxi_copilot:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: "{{ env_var('COPILOT_WAREHOUSE', '../../data/warehouse.duckdb') }}"
+      schema: main
+      extensions:
+        - iceberg
+      threads: 4
