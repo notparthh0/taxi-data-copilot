@@ -10,6 +10,7 @@ Read-only guard for SQL written by a model. Two independent layers:
 """
 
 import threading
+import time
 from pathlib import Path
 
 import duckdb
@@ -21,6 +22,10 @@ class UnsafeSQL(Exception):
 
 class QueryTimeout(Exception):
     """The query ran longer than the allowed time."""
+
+
+class HarnessError(Exception):
+    """The database file could not be opened. Our problem, never the model's."""
 
 
 def check_read_only(sql: str) -> str:
@@ -39,7 +44,14 @@ def check_read_only(sql: str) -> str:
 
 def connect(db_path: Path) -> duckdb.DuckDBPyConnection:
     """Read-only connection with external access off and the configuration locked."""
-    con = duckdb.connect(str(db_path), read_only=True)
+    for attempt in range(8):
+        try:
+            con = duckdb.connect(str(db_path), read_only=True)
+            break
+        except duckdb.IOException as exc:      # file briefly locked by a writer: wait, retry
+            if attempt == 7:
+                raise HarnessError(str(exc)) from exc
+            time.sleep(1 + attempt)
     con.execute("SET enable_external_access = false")
     con.execute("SET lock_configuration = true")
     return con

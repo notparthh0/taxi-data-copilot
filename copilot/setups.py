@@ -6,6 +6,10 @@ The four setups of the experiment ("the ladder"). Each adds exactly one thing:
   s3_docs      s2 + written documentation
   s4_semantic  s2 + compiled semantic layer (MetricFlow writes the SQL)
 
+plus one extra arm outside the ladder:
+  s1d_raw_docs raw data + docs (data dictionary, the 7 cleaning rules, metric definitions):
+               can documentation make up for skipping the cleaning?
+
 A setup knows two things: what text the model is shown (context) and how to run the
 model's answer (execute). Every execution goes through the read-only guard.
 
@@ -44,12 +48,15 @@ class Setup:
     tables: tuple
     mode: str = "sql"              # 'sql': model writes SQL; 'semantic': model writes a metric request
     with_docs: bool = False
+    raw_docs: bool = False         # extra arm: raw table + docs that describe the cleaning rules
 
     def context(self) -> str:
         """Exactly what the model sees about the data in this setup."""
         if self.mode == "semantic":
             return context.semantic_text()
         text = "# Database schema (DuckDB)\n" + context.schema_text(self.db_path, self.tables)
+        if self.raw_docs:
+            return text + "\n\n" + context.raw_docs_text()
         return text + "\n\n" + context.docs_text() if self.with_docs else text
 
     def execute(self, action) -> ExecResult:
@@ -92,6 +99,8 @@ DATASETS = {
     "nyc_taxi": (
         Setup("s1_raw", "Raw TLC data, schema only",
               config.RAW_DB, ("yellow_tripdata", "taxi_zone_lookup")),
+        Setup("s1d_raw_docs", "Raw TLC data + written docs (extra arm)",
+              config.RAW_DB, ("yellow_tripdata", "taxi_zone_lookup"), raw_docs=True),
         Setup("s2_modelled", "Cleaned dbt tables, schema only",
               config.WAREHOUSE_DB, MODELLED_TABLES),
         Setup("s3_docs", "Cleaned dbt tables + written docs",
@@ -100,6 +109,9 @@ DATASETS = {
               config.WAREHOUSE_DB, ("fct_trips",), mode="semantic"),
     ),
 }
+
+
+LADDER = ("s1_raw", "s2_modelled", "s3_docs", "s4_semantic")   # the four rungs; s1d_raw_docs is an extra arm
 
 
 def get_setups(dataset: str = "nyc_taxi") -> dict:

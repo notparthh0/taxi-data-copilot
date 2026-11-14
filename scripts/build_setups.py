@@ -45,6 +45,21 @@ def build_modelled() -> None:
     subprocess.run(["dbt", "build"], cwd=config.DBT_DIR, env=config.dbt_env(), check=True)
 
 
+def build_compile_copy() -> None:
+    """Same tables as the warehouse but with zero rows, for MetricFlow to compile against."""
+    config.COMPILE_DB.parent.mkdir(parents=True, exist_ok=True)
+    config.COMPILE_DB.unlink(missing_ok=True)
+    con = duckdb.connect(str(config.COMPILE_DB))
+    con.execute(f"ATTACH '{config.WAREHOUSE_DB}' AS src (READ_ONLY)")
+    tables = con.execute("SELECT table_name FROM information_schema.tables WHERE table_catalog = 'src' "
+                         "AND table_schema = 'main' AND table_type = 'BASE TABLE'").fetchall()
+    for (name,) in tables:
+        con.execute(f'CREATE TABLE "{name}" AS SELECT * FROM src.main."{name}" LIMIT 0')
+    con.close()
+    print(f"compile copy: {len(tables)} empty tables")
+
+
 if __name__ == "__main__":
     build_raw()
     build_modelled()
+    build_compile_copy()

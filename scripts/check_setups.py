@@ -16,6 +16,7 @@ from copilot.setups import get_setups  # noqa: E402
 # "What was the average fare in 2023?" answered the obvious way in each setup.
 PROBE = {
     "s1_raw": "SELECT avg(fare_amount) AS avg_fare FROM yellow_tripdata",
+    "s1d_raw_docs": "SELECT avg(fare_amount) AS avg_fare FROM yellow_tripdata",
     "s2_modelled": "SELECT avg(fare_amount) AS avg_fare FROM fct_trips",
     "s3_docs": "SELECT avg(fare_amount) AS avg_fare FROM fct_trips",
     "s4_semantic": {"metrics": ["avg_fare"]},

@@ -17,7 +17,7 @@ models:
       - name: zone_name
         description: "Name of the taxi zone, for example 'JFK Airport'."
       - name: borough
-        description: "Borough of the zone: Manhattan, Queens, Brooklyn, Bronx, Staten Island, EWR (Newark Airport), or Unknown."
+        description: "Borough of the zone: Manhattan, Queens, Brooklyn, Bronx, Staten Island or EWR (Newark Airport). Zones 264 and 265 have the borough 'Unknown' or 'N/A'."
 
   - name: trips_hourly_demand
     description: >

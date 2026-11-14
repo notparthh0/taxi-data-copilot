@@ -1,0 +1,22 @@
+# Questions the data cannot answer. The right behaviour is to say so.
+# Any number returned for these is a silent error.
+- {id: u001, d: 2, cat: unanswerable, answerable: false, q: "What was the average tip on trips paid in cash in 2023, in dollars?",
+   why: "Cash tips are not recorded; tip_amount is 0 for cash trips, so any average is meaningless."}
+- {id: u002, d: 2, cat: unanswerable, answerable: false, q: "Which driver completed the most trips in 2023?",
+   why: "There is no driver identifier in the data."}
+- {id: u003, d: 2, cat: unanswerable, answerable: false, q: "What was the average customer rating of taxi trips in 2023?",
+   why: "There are no ratings in the data."}
+- {id: u004, d: 2, cat: unanswerable, answerable: false, q: "How many unique passengers took a yellow taxi in 2023?",
+   why: "There is no passenger identifier; passenger_count is a number per trip, not people."}
+- {id: u005, d: 2, cat: unanswerable, answerable: false, q: "How long did passengers wait on average for a taxi to arrive in 2023, in minutes?",
+   why: "Only pickup and dropoff times are recorded, not when a taxi was requested."}
+- {id: u006, d: 2, cat: unanswerable, answerable: false, q: "How many Uber and Lyft trips were there in New York City in 2023?",
+   why: "The data covers yellow taxis only."}
+- {id: u007, d: 2, cat: unanswerable, answerable: false, q: "Which individual taxi (by medallion number) earned the most revenue in 2023?",
+   why: "There is no vehicle or medallion identifier."}
+- {id: u008, d: 2, cat: unanswerable, answerable: false, q: "How many trips were picked up while it was raining in 2023?",
+   why: "There is no weather data."}
+- {id: u009, d: 2, cat: unanswerable, answerable: false, q: "What was the average age of taxi passengers in 2023?",
+   why: "There is no information about passengers."}
+- {id: u010, d: 2, cat: unanswerable, answerable: false, q: "How many yellow taxi trips were there in 2019?",
+   why: "The data covers 2023 only."}

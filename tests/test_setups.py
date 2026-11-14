@@ -7,7 +7,9 @@ SETUPS = get_setups()
 
 
 def test_ladder_has_four_setups():
-    assert list(SETUPS) == ["s1_raw", "s2_modelled", "s3_docs", "s4_semantic"]
+    from copilot.setups import LADDER
+    assert LADDER == ("s1_raw", "s2_modelled", "s3_docs", "s4_semantic")
+    assert set(SETUPS) == set(LADDER) | {"s1d_raw_docs"}
 
 
 def test_row_counts(built):
@@ -49,6 +51,6 @@ def test_semantic_errors_are_reported_not_raised(built):
 
 
 def test_destructive_sql_is_refused(built):
-    for s in ("s1_raw", "s2_modelled", "s3_docs"):
+    for s in ("s1_raw", "s1d_raw_docs", "s2_modelled", "s3_docs"):
         r = SETUPS[s].execute(f"DROP TABLE {SETUPS[s].tables[0]}")
         assert r.status == "error" and r.error_type == "unsafe_sql"

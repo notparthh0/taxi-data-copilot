@@ -137,6 +137,28 @@ def docs_text() -> str:
     ])
 
 
+# ---------- extra arm: raw data + docs ----------
+
+def raw_docs_text() -> str:
+    """Docs for the RAW table: the TLC data dictionary, the same metric definitions,
+    and the 7 cleaning rules written as filters the analyst must apply by hand."""
+    k = load_knowledge()
+    d = yaml.safe_load((config.REPO / "knowledge" / "raw_dictionary.yml").read_text())
+    cols = "\n".join(f"- {name}: {text}" for name, text in d["columns"].items())
+    lookup = "\n".join(f"- {name}: {text}" for name, text in d["lookup_columns"].items())
+    rules = "\n".join(f"{rid}. Drop the trip if {drop_if}. {why}" for rid, drop_if, why in k.rules)
+    return "\n\n".join([
+        "# Documentation",
+        f"## Columns of {d['table']} (one row per trip, NOT cleaned)\n{cols}",
+        f"## Columns of {d['lookup_table']}\n{lookup}",
+        "## Cleaning rules (NOT applied to this table - apply them in your query)\n"
+        "This table is raw. Business numbers are defined on valid trips only. A trip is valid "
+        "only if it passes all 7 rules:\n" + rules,
+        "## Metric definitions (how the business defines each number)\n"
+        + " ".join(d["name_map"].split()) + "\n" + _metrics_block(k),
+    ])
+
+
 # ---------- setup 4: semantic layer catalogue ----------
 
 SEMANTIC_HOWTO = f"""## How to ask

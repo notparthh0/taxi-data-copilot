@@ -1,0 +1,37 @@
+# Column meanings for the RAW table, from the official TLC yellow taxi data dictionary:
+# https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
+# Used only by the extra arm "raw data + docs" (s1d_raw_docs).
+table: yellow_tripdata
+columns:
+  VendorID: "Code of the technology provider that supplied the record: 1 = Creative Mobile Technologies, 2 = Curb Mobility, 6 = Myle Technologies, 7 = Helix. It is not a driver or a taxi."
+  tpep_pickup_datetime: "Date and time the meter was engaged (trip start), New York local time."
+  tpep_dropoff_datetime: "Date and time the meter was disengaged (trip end), New York local time."
+  passenger_count: "Number of passengers, as entered by the driver. Can be missing or 0 in the raw data."
+  trip_distance: "Trip distance in miles from the taximeter."
+  RatecodeID: "Fare rate used: 1 = Standard rate, 2 = JFK, 3 = Newark, 4 = Nassau or Westchester, 5 = Negotiated fare, 6 = Group ride, 99 or missing = Unknown."
+  store_and_fwd_flag: "Y if the record was held in the vehicle's memory before being sent, N otherwise."
+  PULocationID: "TLC taxi zone number where the trip started, 1-265. 264 and 265 mean unknown. Join to taxi_zone_lookup.LocationID."
+  DOLocationID: "TLC taxi zone number where the trip ended, 1-265. 264 and 265 mean unknown. Join to taxi_zone_lookup.LocationID."
+  payment_type: "How the passenger paid: 0 = Flex Fare trip, 1 = Credit card, 2 = Cash, 3 = No charge, 4 = Dispute, 5 = Unknown, 6 = Voided trip."
+  fare_amount: "The time-and-distance fare from the meter, in US dollars, before tips, tolls and surcharges. Can be negative or zero in the raw data."
+  extra: "Miscellaneous extras and surcharges, in US dollars."
+  mta_tax: "MTA tax triggered by the metered rate, in US dollars."
+  tip_amount: "Tip in US dollars. Only credit-card tips are recorded; cash tips are NOT in the data."
+  tolls_amount: "Total tolls paid during the trip, in US dollars."
+  improvement_surcharge: "Improvement surcharge added at the flag drop, in US dollars."
+  total_amount: "Total charged to the passenger in US dollars (fare + surcharges + tolls + card tip). Does not include cash tips. This is what 'revenue' means."
+  congestion_surcharge: "New York State congestion surcharge collected, in US dollars."
+  airport_fee: "Fee for pickups at LaGuardia and John F. Kennedy airports, in US dollars."
+  source_file: "Name of the monthly file the row came from, e.g. 'yellow_tripdata_2023-03.parquet'."
+lookup_table: taxi_zone_lookup
+lookup_columns:
+  LocationID: "TLC taxi zone number, 1-265."
+  Borough: "Borough of the zone: Manhattan, Queens, Brooklyn, Bronx, Staten Island or EWR (Newark Airport). Zones 264 and 265 have the borough 'Unknown' or 'N/A'."
+  Zone: "Name of the taxi zone, for example 'JFK Airport'."
+  service_zone: "TLC service zone of the zone."
+name_map: >
+  The metric definitions below use the cleaned column names. In this raw table:
+  trip_distance_miles is trip_distance; trip_duration_minutes is the number of minutes
+  between tpep_pickup_datetime and tpep_dropoff_datetime; pickup_date is the date of
+  tpep_pickup_datetime; payment_type and rate_code are the numeric codes listed above;
+  fct_trips means this table after applying the cleaning rules.

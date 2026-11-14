@@ -14,6 +14,7 @@ runs that SQL itself through the same read-only guard as every other setup.
 import json
 import re
 import subprocess
+import time
 
 from copilot import config
 
@@ -62,9 +63,16 @@ def build_command(request: dict) -> list:
 
 def compile_sql(request: dict, timeout_seconds: float = 120) -> str:
     """Ask MetricFlow to turn a metric request into SQL. Raises SemanticQueryError on failure."""
-    proc = subprocess.run(build_command(request), cwd=config.DBT_DIR, env=config.dbt_env(),
-                          capture_output=True, text=True, timeout=timeout_seconds)
-    output = proc.stdout + "\n" + proc.stderr
+    command = build_command(request)
+    for attempt in range(6):
+        proc = subprocess.run(command, cwd=config.DBT_DIR, env=config.dbt_env(compile_only=True),
+                              capture_output=True, text=True, timeout=timeout_seconds)
+        output = proc.stdout + "\n" + proc.stderr
+        # Another process may hold the DuckDB file for a moment; that is not the model's fault.
+        if "lock" in output.lower() and "SQL (remove --explain" not in output:
+            time.sleep(1.5 * (attempt + 1))
+            continue
+        break
     match = _SQL_MARKER.search(output)
     if not match:
         lines = [ln.strip() for ln in output.replace("\r", "\n").splitlines() if ln.strip()]

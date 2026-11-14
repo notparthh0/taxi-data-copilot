@@ -17,6 +17,10 @@ DATA_DIR = REPO / "data"                      # gitignored; rebuilt by `make set
 RAW_DB = DATA_DIR / "raw.duckdb"              # setup 1
 WAREHOUSE_DB = DATA_DIR / "warehouse.duckdb"  # setups 2, 3, 4 (built by dbt)
 
+# Empty copy of the warehouse (same tables, zero rows). MetricFlow only needs it to
+# write SQL, so it never opens - or locks - the real warehouse file.
+COMPILE_DB = DATA_DIR / "compile" / "warehouse.duckdb"
+
 DBT_DIR = REPO / "dbt" / "taxi_copilot"
 DBT_PROFILES_DIR = DBT_DIR / "profiles"
 SEMANTIC_MANIFEST = DBT_DIR / "target" / "semantic_manifest.json"
@@ -26,15 +30,16 @@ ZONE_LOOKUP_CSV = DBT_DIR / "seeds" / "taxi_zone_lookup.csv"
 CLEANING_RULES = REPO / "knowledge" / "cleaning_rules.yml"
 RESULTS_DIR = REPO / "results"
 
-QUERY_TIMEOUT_SECONDS = float(os.getenv("QUERY_TIMEOUT_SECONDS", "60"))
+QUERY_TIMEOUT_SECONDS = float(os.getenv("QUERY_TIMEOUT_SECONDS", "30"))
 MAX_RESULT_ROWS = int(os.getenv("MAX_RESULT_ROWS", "1000"))
 
 
-def dbt_env() -> dict:
-    """Environment for dbt and MetricFlow subprocesses."""
+def dbt_env(compile_only: bool = False) -> dict:
+    """Environment for dbt and MetricFlow subprocesses.
+    compile_only=True points them at the empty copy instead of the real warehouse."""
     env = dict(os.environ)
     env["ICEBERG_WAREHOUSE"] = str(ICEBERG_WAREHOUSE)
     env["DBT_PROFILES_DIR"] = str(DBT_PROFILES_DIR)
-    env["COPILOT_WAREHOUSE"] = str(WAREHOUSE_DB)
+    env["COPILOT_WAREHOUSE"] = str(COMPILE_DB if compile_only else WAREHOUSE_DB)
     env["PATH"] = f"{REPO / '.venv' / 'bin'}{os.pathsep}{env.get('PATH', '')}"
     return env

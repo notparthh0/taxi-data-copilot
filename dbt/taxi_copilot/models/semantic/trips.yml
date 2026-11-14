@@ -49,7 +49,7 @@ semantic_models:
         description: "Name of the taxi zone where the trip started, for example 'JFK Airport'."
         type: categorical
       - name: pickup_borough
-        description: "Borough where the trip started: Manhattan, Queens, Brooklyn, Bronx, Staten Island, EWR (Newark Airport), or Unknown."
+        description: "Borough where the trip started: Manhattan, Queens, Brooklyn, Bronx, Staten Island or EWR (Newark Airport). Zones 264 and 265 have the borough 'Unknown' or 'N/A'."
         type: categorical
       - name: dropoff_zone_id
         description: "TLC taxi zone number where the trip ended, 1-265. 264 and 265 mean unknown."

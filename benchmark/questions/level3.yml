@@ -1,0 +1,118 @@
+# Level 3: more than one step: shares, comparisons between groups or periods,
+# "top within each group", daily statistics, percentiles.
+- {id: q106, d: 3, cat: share, percent: true, q: "What percentage of trips in 2023 were paid by credit card?",
+   gold: "SELECT 100.0 * count(*) FILTER (WHERE payment_type = 'Credit card') / count(*) FROM fct_trips",
+   raw: "SELECT 100.0 * count(*) FILTER (WHERE payment_type = 1) / count(*) FROM yellow_tripdata"}
+- {id: q107, d: 3, cat: share, percent: true, q: "What percentage of trips in 2023 started in Manhattan?",
+   gold: "SELECT 100.0 * count(*) FILTER (WHERE pickup_borough = 'Manhattan') / count(*) FROM fct_trips",
+   raw: "SELECT 100.0 * count(*) FILTER (WHERE z.Borough = 'Manhattan') / count(*) FROM yellow_tripdata y LEFT JOIN taxi_zone_lookup z ON y.PULocationID = z.LocationID"}
+- {id: q108, d: 3, cat: share, percent: true, q: "What percentage of total 2023 revenue came from trips that started in the JFK Airport or LaGuardia Airport taxi zones?",
+   gold: "SELECT 100.0 * sum(total_amount) FILTER (WHERE pickup_zone IN ('JFK Airport','LaGuardia Airport')) / sum(total_amount) FROM fct_trips",
+   raw: "SELECT 100.0 * sum(y.total_amount) FILTER (WHERE z.Zone IN ('JFK Airport','LaGuardia Airport')) / sum(y.total_amount) FROM yellow_tripdata y LEFT JOIN taxi_zone_lookup z ON y.PULocationID = z.LocationID"}
+- {id: q109, d: 3, cat: share, percent: true, q: "What percentage of trips in 2023 were picked up on a weekend (Saturday or Sunday)?",
+   gold: "SELECT 100.0 * count(*) FILTER (WHERE is_weekend) / count(*) FROM fct_trips",
+   raw: "SELECT 100.0 * count(*) FILTER (WHERE isodow(tpep_pickup_datetime) IN (6, 7)) / count(*) FROM yellow_tripdata"}
+- {id: q110, d: 3, cat: share, percent: true, q: "What percentage of credit-card trips in 2023 had no tip (a tip of zero)?",
+   gold: "SELECT 100.0 * count(*) FILTER (WHERE tip_amount = 0) / count(*) FROM fct_trips WHERE payment_type = 'Credit card'",
+   raw: "SELECT 100.0 * count(*) FILTER (WHERE tip_amount = 0) / count(*) FROM yellow_tripdata WHERE payment_type = 1"}
+- {id: q111, d: 3, cat: share, percent: true, q: "What percentage of trips in 2023 started and ended in the same taxi zone?",
+   gold: "SELECT 100.0 * count(*) FILTER (WHERE pickup_zone_id = dropoff_zone_id) / count(*) FROM fct_trips",
+   raw: "SELECT 100.0 * count(*) FILTER (WHERE PULocationID = DOLocationID) / count(*) FROM yellow_tripdata"}
+- {id: q112, d: 3, cat: share, percent: true, q: "What percentage of all 2023 pickups happened in the 10 busiest pickup zones?",
+   gold: "SELECT 100.0 * sum(n) FILTER (WHERE rk <= 10) / sum(n) FROM (SELECT count(*) AS n, row_number() OVER (ORDER BY count(*) DESC) AS rk FROM fct_trips GROUP BY pickup_zone_id)",
+   raw: "SELECT 100.0 * sum(n) FILTER (WHERE rk <= 10) / sum(n) FROM (SELECT count(*) AS n, row_number() OVER (ORDER BY count(*) DESC) AS rk FROM yellow_tripdata GROUP BY PULocationID)"}
+- {id: q113, d: 3, cat: share, percent: true, q: "What percentage of total 2023 revenue had been earned by the end of June (trips picked up from January to June)?",
+   gold: "SELECT 100.0 * sum(total_amount) FILTER (WHERE month_key <= '2023-06') / sum(total_amount) FROM fct_trips",
+   raw: "SELECT 100.0 * sum(total_amount) FILTER (WHERE tpep_pickup_datetime >= '2023-01-01' AND tpep_pickup_datetime < '2023-07-01') / sum(total_amount) FROM yellow_tripdata"}
+- {id: q114, d: 3, cat: compare, percent: true, q: "By what percentage did the number of trips change from January 2023 to December 2023? Give a positive number for an increase and a negative number for a decrease.",
+   gold: "SELECT 100.0 * (count(*) FILTER (WHERE month_key = '2023-12') - count(*) FILTER (WHERE month_key = '2023-01')) / count(*) FILTER (WHERE month_key = '2023-01') FROM fct_trips",
+   raw: "SELECT 100.0 * (count(*) FILTER (WHERE strftime(tpep_pickup_datetime, '%Y-%m') = '2023-12') - count(*) FILTER (WHERE strftime(tpep_pickup_datetime, '%Y-%m') = '2023-01')) / count(*) FILTER (WHERE strftime(tpep_pickup_datetime, '%Y-%m') = '2023-01') FROM yellow_tripdata"}
+- {id: q115, d: 3, cat: compare, q: "How much higher was the average fare in December 2023 than in January 2023, in dollars (December average minus January average)?",
+   gold: "SELECT avg(fare_amount) FILTER (WHERE month_key = '2023-12') - avg(fare_amount) FILTER (WHERE month_key = '2023-01') FROM fct_trips",
+   raw: "SELECT avg(fare_amount) FILTER (WHERE strftime(tpep_pickup_datetime, '%Y-%m') = '2023-12') - avg(fare_amount) FILTER (WHERE strftime(tpep_pickup_datetime, '%Y-%m') = '2023-01') FROM yellow_tripdata"}
+- {id: q116, d: 3, cat: compare, q: "What is the ratio of the average weekend fare to the average weekday fare in 2023 (weekend average divided by weekday average)?",
+   gold: "SELECT avg(fare_amount) FILTER (WHERE is_weekend) / avg(fare_amount) FILTER (WHERE NOT is_weekend) FROM fct_trips",
+   raw: "SELECT avg(fare_amount) FILTER (WHERE isodow(tpep_pickup_datetime) IN (6, 7)) / avg(fare_amount) FILTER (WHERE isodow(tpep_pickup_datetime) <= 5) FROM yellow_tripdata"}
+- {id: q117, d: 3, cat: compare, q: "How many minutes longer was the average trip picked up at 5 pm (pickup hour 17) than the average trip picked up at 5 am (pickup hour 5) in 2023?",
+   gold: "SELECT avg(trip_duration_minutes) FILTER (WHERE pickup_hour = 17) - avg(trip_duration_minutes) FILTER (WHERE pickup_hour = 5) FROM fct_trips",
+   raw: "SELECT avg(date_diff('second', tpep_pickup_datetime, tpep_dropoff_datetime) / 60.0) FILTER (WHERE hour(tpep_pickup_datetime) = 17) - avg(date_diff('second', tpep_pickup_datetime, tpep_dropoff_datetime) / 60.0) FILTER (WHERE hour(tpep_pickup_datetime) = 5) FROM yellow_tripdata"}
+- {id: q118, d: 3, cat: compare, q: "Which month of 2023 had the largest increase in trips compared with the month before it? Answer with the month number (2-12).",
+   gold: "SELECT m FROM (SELECT month(pickup_date) AS m, count(*) - lag(count(*)) OVER (ORDER BY month(pickup_date)) AS diff FROM fct_trips GROUP BY 1) WHERE diff IS NOT NULL ORDER BY diff DESC LIMIT 1",
+   raw: "SELECT m FROM (SELECT month(tpep_pickup_datetime) AS m, count(*) - lag(count(*)) OVER (ORDER BY month(tpep_pickup_datetime)) AS diff FROM yellow_tripdata WHERE year(tpep_pickup_datetime) = 2023 GROUP BY 1) WHERE diff IS NOT NULL ORDER BY diff DESC LIMIT 1",
+   month_answer: true}
+- {id: q119, d: 3, cat: compare, q: "Which month of 2023 had the largest drop in trips compared with the month before it? Answer with the month number (2-12).",
+   gold: "SELECT m FROM (SELECT month(pickup_date) AS m, count(*) - lag(count(*)) OVER (ORDER BY month(pickup_date)) AS diff FROM fct_trips GROUP BY 1) WHERE diff IS NOT NULL ORDER BY diff ASC LIMIT 1",
+   raw: "SELECT m FROM (SELECT month(tpep_pickup_datetime) AS m, count(*) - lag(count(*)) OVER (ORDER BY month(tpep_pickup_datetime)) AS diff FROM yellow_tripdata WHERE year(tpep_pickup_datetime) = 2023 GROUP BY 1) WHERE diff IS NOT NULL ORDER BY diff ASC LIMIT 1",
+   month_answer: true}
+- {id: q120, d: 3, cat: top_per_group, q: "For each of the five boroughs (Manhattan, Queens, Brooklyn, Bronx, Staten Island), which taxi zone had the most pickups in 2023? Give borough and zone name.",
+   gold: "SELECT pickup_borough, pickup_zone FROM (SELECT pickup_borough, pickup_zone, row_number() OVER (PARTITION BY pickup_borough ORDER BY count(*) DESC) AS rk FROM fct_trips WHERE pickup_borough IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island') GROUP BY 1, 2) WHERE rk = 1",
+   raw: "SELECT Borough, Zone FROM (SELECT z.Borough, z.Zone, row_number() OVER (PARTITION BY z.Borough ORDER BY count(*) DESC) AS rk FROM yellow_tripdata y JOIN taxi_zone_lookup z ON y.PULocationID = z.LocationID WHERE z.Borough IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island') GROUP BY 1, 2) WHERE rk = 1"}
+- {id: q121, d: 3, cat: top_per_group, ordered: true, skip: [month_key], q: "For each month of 2023, which taxi zone had the most pickups? Give one row per month with the zone name, ordered from January to December.",
+   gold: "SELECT month_key, pickup_zone FROM (SELECT month_key, pickup_zone, row_number() OVER (PARTITION BY month_key ORDER BY count(*) DESC) AS rk FROM fct_trips GROUP BY 1, 2) WHERE rk = 1 ORDER BY 1",
+   raw: "SELECT month_key, Zone FROM (SELECT strftime(y.tpep_pickup_datetime, '%Y-%m') AS month_key, z.Zone, row_number() OVER (PARTITION BY strftime(y.tpep_pickup_datetime, '%Y-%m') ORDER BY count(*) DESC) AS rk FROM yellow_tripdata y JOIN taxi_zone_lookup z ON y.PULocationID = z.LocationID WHERE year(y.tpep_pickup_datetime) = 2023 GROUP BY 1, 2) WHERE rk = 1 ORDER BY 1"}
+- {id: q122, d: 3, cat: ranking, q: "Which pickup zone had the highest tip rate in 2023 (total tips divided by total fares, credit-card trips only), among zones with at least 50,000 credit-card trips? Give the zone name.",
+   gold: "SELECT pickup_zone FROM fct_trips WHERE payment_type = 'Credit card' GROUP BY 1 HAVING count(*) >= 50000 ORDER BY sum(tip_amount) / sum(fare_amount) DESC LIMIT 1",
+   raw: "SELECT z.Zone FROM yellow_tripdata y JOIN taxi_zone_lookup z ON y.PULocationID = z.LocationID WHERE y.payment_type = 1 GROUP BY 1 HAVING count(*) >= 50000 ORDER BY sum(y.tip_amount) / sum(y.fare_amount) DESC LIMIT 1"}
+- {id: q123, d: 3, cat: ranking, q: "Which pickup hour of the day (0-23) had the highest average speed in 2023 (total distance divided by total trip time)?",
+   gold: "SELECT pickup_hour FROM fct_trips GROUP BY 1 ORDER BY sum(trip_distance_miles) / sum(trip_duration_minutes) DESC LIMIT 1",
+   raw: "SELECT hour(tpep_pickup_datetime) FROM yellow_tripdata GROUP BY 1 ORDER BY sum(trip_distance) / sum(date_diff('second', tpep_pickup_datetime, tpep_dropoff_datetime)) DESC LIMIT 1",
+   sem: {metrics: [avg_speed_mph], group_by: [trip__pickup_hour], order_by: ["-avg_speed_mph"], limit: 1}}
+- {id: q124, d: 3, cat: ranking, q: "Which combination of day of the week and pickup hour had the most trips in 2023? Give the day name and the hour (0-23).",
+   gold: "SELECT pickup_day_name, pickup_hour FROM fct_trips GROUP BY 1, 2 ORDER BY count(*) DESC LIMIT 1",
+   raw: "SELECT dayname(tpep_pickup_datetime), hour(tpep_pickup_datetime) FROM yellow_tripdata GROUP BY 1, 2 ORDER BY count(*) DESC LIMIT 1",
+   sem: {metrics: [trip_count], group_by: [trip__pickup_day_name, trip__pickup_hour], order_by: ["-trip_count"], limit: 1}}
+- {id: q125, d: 3, cat: daily, q: "On average, how many trips were picked up per day in 2023 (the average of the daily trip counts)?",
+   gold: "SELECT avg(n) FROM (SELECT count(*) AS n FROM fct_trips GROUP BY pickup_date)",
+   raw: "SELECT avg(n) FROM (SELECT count(*) AS n FROM yellow_tripdata GROUP BY CAST(tpep_pickup_datetime AS DATE))"}
+- {id: q126, d: 3, cat: daily, q: "On average, how much revenue was earned per day in 2023, in dollars (the average of the daily revenue totals)?",
+   gold: "SELECT avg(r) FROM (SELECT sum(total_amount) AS r FROM fct_trips GROUP BY pickup_date)",
+   raw: "SELECT avg(r) FROM (SELECT sum(total_amount) AS r FROM yellow_tripdata GROUP BY CAST(tpep_pickup_datetime AS DATE))"}
+- {id: q127, d: 3, cat: daily, q: "On how many days of 2023 were more than 110,000 trips picked up?",
+   gold: "SELECT count(*) FROM (SELECT pickup_date FROM fct_trips GROUP BY 1 HAVING count(*) > 110000)",
+   raw: "SELECT count(*) FROM (SELECT CAST(tpep_pickup_datetime AS DATE) FROM yellow_tripdata GROUP BY 1 HAVING count(*) > 110000)"}
+- {id: q128, d: 3, cat: daily, q: "What was the median number of trips per day in 2023 (the median of the daily trip counts)?",
+   gold: "SELECT median(n) FROM (SELECT count(*) AS n FROM fct_trips GROUP BY pickup_date)",
+   raw: "SELECT median(n) FROM (SELECT count(*) AS n FROM yellow_tripdata GROUP BY CAST(tpep_pickup_datetime AS DATE))"}
+- {id: q129, d: 3, cat: daily, q: "On how many days of 2023 were fewer than 70,000 trips picked up?",
+   gold: "SELECT count(*) FROM (SELECT pickup_date FROM fct_trips GROUP BY 1 HAVING count(*) < 70000)",
+   raw: "SELECT count(*) FROM (SELECT CAST(tpep_pickup_datetime AS DATE) FROM yellow_tripdata GROUP BY 1 HAVING count(*) < 70000)"}
+- {id: q130, d: 3, cat: route, q: "What was the most common route in 2023, as a pair of pickup zone and dropoff zone? Leave out trips where the pickup or dropoff zone is unknown (zone numbers 264 and 265). Give both zone names.",
+   gold: "SELECT pickup_zone, dropoff_zone FROM fct_trips WHERE pickup_zone_id < 264 AND dropoff_zone_id < 264 GROUP BY 1, 2 ORDER BY count(*) DESC LIMIT 1",
+   raw: "SELECT p.Zone, d.Zone FROM yellow_tripdata y JOIN taxi_zone_lookup p ON y.PULocationID = p.LocationID JOIN taxi_zone_lookup d ON y.DOLocationID = d.LocationID WHERE y.PULocationID < 264 AND y.DOLocationID < 264 GROUP BY 1, 2 ORDER BY count(*) DESC LIMIT 1",
+   sem: {metrics: [trip_count], group_by: [trip__pickup_zone, trip__dropoff_zone], where: ["{{ Dimension('trip__pickup_zone_id') }} < 264", "{{ Dimension('trip__dropoff_zone_id') }} < 264"], order_by: ["-trip_count"], limit: 1}}
+- {id: q131, d: 3, cat: route, ordered: true, q: "What were the 3 most common routes in 2023 where the pickup zone and the dropoff zone are different, leaving out unknown zones (zone numbers 264 and 265)? Give pickup zone name and dropoff zone name, most common first.",
+   gold: "SELECT pickup_zone, dropoff_zone FROM fct_trips WHERE pickup_zone_id <> dropoff_zone_id AND pickup_zone_id < 264 AND dropoff_zone_id < 264 GROUP BY 1, 2 ORDER BY count(*) DESC LIMIT 3",
+   raw: "SELECT p.Zone, d.Zone FROM yellow_tripdata y JOIN taxi_zone_lookup p ON y.PULocationID = p.LocationID JOIN taxi_zone_lookup d ON y.DOLocationID = d.LocationID WHERE y.PULocationID <> y.DOLocationID AND y.PULocationID < 264 AND y.DOLocationID < 264 GROUP BY 1, 2 ORDER BY count(*) DESC LIMIT 3",
+   sem: {metrics: [trip_count], group_by: [trip__pickup_zone, trip__dropoff_zone], where: ["{{ Dimension('trip__pickup_zone_id') }} <> {{ Dimension('trip__dropoff_zone_id') }}", "{{ Dimension('trip__pickup_zone_id') }} < 264", "{{ Dimension('trip__dropoff_zone_id') }} < 264"], order_by: ["-trip_count"], limit: 3}}
+- {id: q132, d: 3, cat: route, q: "What was the most common trip between two different boroughs in 2023, counting only Manhattan, Queens, Brooklyn, Bronx and Staten Island? Give pickup borough and dropoff borough.",
+   gold: "SELECT pickup_borough, dropoff_borough FROM fct_trips WHERE pickup_borough <> dropoff_borough AND pickup_borough IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island') AND dropoff_borough IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island') GROUP BY 1, 2 ORDER BY count(*) DESC LIMIT 1",
+   raw: "SELECT p.Borough, d.Borough FROM yellow_tripdata y JOIN taxi_zone_lookup p ON y.PULocationID = p.LocationID JOIN taxi_zone_lookup d ON y.DOLocationID = d.LocationID WHERE p.Borough <> d.Borough AND p.Borough IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island') AND d.Borough IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island') GROUP BY 1, 2 ORDER BY count(*) DESC LIMIT 1",
+   sem: {metrics: [trip_count], group_by: [trip__pickup_borough, trip__dropoff_borough], where: ["{{ Dimension('trip__pickup_borough') }} <> {{ Dimension('trip__dropoff_borough') }}", "{{ Dimension('trip__pickup_borough') }} IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island')", "{{ Dimension('trip__dropoff_borough') }} IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island')"], order_by: ["-trip_count"], limit: 1}}
+- {id: q133, d: 3, cat: percentile, q: "What was the 95th percentile of trip duration in 2023, in minutes?",
+   gold: "SELECT quantile_cont(trip_duration_minutes, 0.95) FROM fct_trips",
+   raw: "SELECT quantile_cont(date_diff('second', tpep_pickup_datetime, tpep_dropoff_datetime) / 60.0, 0.95) FROM yellow_tripdata"}
+- {id: q134, d: 3, cat: percentile, q: "What was the 90th percentile of the fare amount in 2023, in dollars?",
+   gold: "SELECT quantile_cont(fare_amount, 0.90) FROM fct_trips",
+   raw: "SELECT quantile_cont(fare_amount, 0.90) FROM yellow_tripdata"}
+- {id: q135, d: 3, cat: compare, q: "Which quarter of 2023 had the highest total revenue? Answer with the quarter number (1-4).",
+   gold: "SELECT quarter(pickup_date) FROM fct_trips GROUP BY 1 ORDER BY sum(total_amount) DESC LIMIT 1",
+   raw: "SELECT quarter(tpep_pickup_datetime) FROM yellow_tripdata WHERE year(tpep_pickup_datetime) = 2023 GROUP BY 1 ORDER BY sum(total_amount) DESC LIMIT 1"}
+- {id: q136, d: 3, cat: compare, ordered: true, skip: [q], q: "How many trips were picked up in each quarter of 2023? Give one row per quarter, ordered from the first quarter to the fourth.",
+   gold: "SELECT quarter(pickup_date) AS q, count(*) FROM fct_trips GROUP BY 1 ORDER BY 1",
+   raw: "SELECT quarter(tpep_pickup_datetime) AS q, count(*) FROM yellow_tripdata WHERE year(tpep_pickup_datetime) = 2023 GROUP BY 1 ORDER BY 1",
+   sem: {metrics: [trip_count], group_by: [metric_time__quarter], order_by: [metric_time__quarter]}}
+- {id: q137, d: 3, cat: subquery, q: "How many trips in 2023 had a fare above the average fare of all 2023 trips?",
+   gold: "SELECT count(*) FROM fct_trips WHERE fare_amount > (SELECT avg(fare_amount) FROM fct_trips)",
+   raw: "SELECT count(*) FROM yellow_tripdata WHERE fare_amount > (SELECT avg(fare_amount) FROM yellow_tripdata)"}
+- {id: q138, d: 3, cat: subquery, q: "How many taxi zones had fewer than 100 pickups in 2023, counting only zones with at least one pickup?",
+   gold: "SELECT count(*) FROM (SELECT pickup_zone_id FROM fct_trips GROUP BY 1 HAVING count(*) < 100)",
+   raw: "SELECT count(*) FROM (SELECT PULocationID FROM yellow_tripdata GROUP BY 1 HAVING count(*) < 100)"}
+- {id: q139, d: 3, cat: ranking, q: "Which month of 2023 had the highest tip rate (total tips divided by total fares, credit-card trips only)? Answer with the month number (1-12).",
+   gold: "SELECT month(pickup_date) FROM fct_trips WHERE payment_type = 'Credit card' GROUP BY 1 ORDER BY sum(tip_amount) / sum(fare_amount) DESC LIMIT 1",
+   raw: "SELECT month(tpep_pickup_datetime) FROM yellow_tripdata WHERE payment_type = 1 AND year(tpep_pickup_datetime) = 2023 GROUP BY 1 ORDER BY sum(tip_amount) / sum(fare_amount) DESC LIMIT 1",
+   sem: {metrics: [tip_rate], group_by: [trip__month_key], order_by: ["-tip_rate"], limit: 1},
+   month_answer: true}
+- {id: q140, d: 3, cat: ranking, q: "Which of the five pickup boroughs (Manhattan, Queens, Brooklyn, Bronx, Staten Island) had the highest revenue per mile in 2023 (total revenue divided by total distance)?",
+   gold: "SELECT pickup_borough FROM fct_trips WHERE pickup_borough IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island') GROUP BY 1 ORDER BY sum(total_amount) / sum(trip_distance_miles) DESC LIMIT 1",
+   raw: "SELECT z.Borough FROM yellow_tripdata y JOIN taxi_zone_lookup z ON y.PULocationID = z.LocationID WHERE z.Borough IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island') GROUP BY 1 ORDER BY sum(y.total_amount) / sum(y.trip_distance) DESC LIMIT 1",
+   sem: {metrics: [revenue_per_mile], group_by: [trip__pickup_borough], where: ["{{ Dimension('trip__pickup_borough') }} IN ('Manhattan','Queens','Brooklyn','Bronx','Staten Island')"], order_by: ["-revenue_per_mile"], limit: 1}}

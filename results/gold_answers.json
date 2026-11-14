@@ -1,0 +1,4009 @@
+{
+ "generated_at_utc": "2026-11-14T21:06:56+00:00",
+ "summary": {
+  "questions": 150,
+  "answerable": 140,
+  "unanswerable": 10,
+  "raw_diverges": 106,
+  "semantic_expressible": 108,
+  "by_difficulty": {
+   "1": {
+    "questions": 50,
+    "raw_diverges": 48
+   },
+   "2": {
+    "questions": 55,
+    "raw_diverges": 37
+   },
+   "3": {
+    "questions": 35,
+    "raw_diverges": 21
+   }
+  },
+  "numeric_tolerance_relative": 0.001
+ },
+ "questions": {
+  "q001": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     35574647
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     38310226
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q002": {
+   "answerable": true,
+   "columns": [
+    "sum(total_amount)"
+   ],
+   "rows": [
+    [
+     1028974146.5772067
+    ]
+   ],
+   "raw_columns": [
+    "sum(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     1090383411.8870966
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q003": {
+   "answerable": true,
+   "columns": [
+    "avg(fare_amount)"
+   ],
+   "rows": [
+    [
+     19.744062762447218
+    ]
+   ],
+   "raw_columns": [
+    "avg(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     19.522250636418335
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q004": {
+   "answerable": true,
+   "columns": [
+    "avg(trip_distance_miles)"
+   ],
+   "rows": [
+    [
+     3.6336717809171466
+    ]
+   ],
+   "raw_columns": [
+    "avg(trip_distance_miles)"
+   ],
+   "raw_rows": [
+    [
+     4.0889462160831265
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q005": {
+   "answerable": true,
+   "columns": [
+    "avg(trip_duration_minutes)"
+   ],
+   "rows": [
+    [
+     16.399173181957252
+    ]
+   ],
+   "raw_columns": [
+    "avg(trip_duration_minutes)"
+   ],
+   "raw_rows": [
+    [
+     16.716849137964733
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q006": {
+   "answerable": true,
+   "columns": [
+    "avg(passenger_count)"
+   ],
+   "rows": [
+    [
+     1.3926976984479986
+    ]
+   ],
+   "raw_columns": [
+    "avg(passenger_count)"
+   ],
+   "raw_rows": [
+    [
+     1.3704258575541601
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q007": {
+   "answerable": true,
+   "columns": [
+    "sum(tip_amount)"
+   ],
+   "rows": [
+    [
+     128007525.35006148
+    ]
+   ],
+   "raw_columns": [
+    "sum(tip_amount)"
+   ],
+   "raw_rows": [
+    [
+     134938783.62005165
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q008": {
+   "answerable": true,
+   "columns": [
+    "sum(tolls_amount)"
+   ],
+   "rows": [
+    [
+     21399606.66996831
+    ]
+   ],
+   "raw_columns": [
+    "sum(tolls_amount)"
+   ],
+   "raw_rows": [
+    [
+     22592924.71997717
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q009": {
+   "answerable": true,
+   "columns": [
+    "median(fare_amount)"
+   ],
+   "rows": [
+    [
+     13.5
+    ]
+   ],
+   "raw_columns": [
+    "median(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     13.5
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q010": {
+   "answerable": true,
+   "columns": [
+    "max(trip_distance_miles)"
+   ],
+   "rows": [
+    [
+     161726.1
+    ]
+   ],
+   "raw_columns": [
+    "max(trip_distance_miles)"
+   ],
+   "raw_rows": [
+    [
+     345729.44
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q011": {
+   "answerable": true,
+   "columns": [
+    "avg(total_amount)"
+   ],
+   "rows": [
+    [
+     28.924367024000105
+    ]
+   ],
+   "raw_columns": [
+    "avg(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     28.46194151627026
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q012": {
+   "answerable": true,
+   "columns": [
+    "sum(trip_distance_miles)"
+   ],
+   "rows": [
+    [
+     129266590.91998863
+    ]
+   ],
+   "raw_columns": [
+    "sum(trip_distance_miles)"
+   ],
+   "raw_rows": [
+    [
+     156648453.63998932
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q013": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     6084802
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     6405059
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q014": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     29122253
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     29856932
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q015": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     31518020
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     33806220
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q016": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     3504128
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     3761565
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q017": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1887939
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1992304
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q018": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     428957
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     497402
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q019": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     2881138
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     3066726
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q020": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     2710133
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     2907093
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q021": {
+   "answerable": true,
+   "columns": [
+    "sum(total_amount)"
+   ],
+   "rows": [
+    [
+     89551011.9600029
+    ]
+   ],
+   "raw_columns": [
+    "sum(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     96371223.25000562
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q022": {
+   "answerable": true,
+   "columns": [
+    "avg(fare_amount)"
+   ],
+   "rows": [
+    [
+     19.116602184417857
+    ]
+   ],
+   "raw_columns": [
+    "avg(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     18.908528974691638
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q023": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     9621877
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     10427679
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q024": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     27172202
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     27823459
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q025": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     790735
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     800611
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q026": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     3143283
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     3315155
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q027": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     7528230
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     8669569
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q028": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     569463
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     646224
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q029": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     107243
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     122811
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q030": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1394073
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1473727
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q031": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     27828041
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     29239752
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q032": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     2919938
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     3100078
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q033": {
+   "answerable": true,
+   "columns": [
+    "avg(fare_amount)"
+   ],
+   "rows": [
+    [
+     20.019595222654427
+    ]
+   ],
+   "raw_columns": [
+    "avg(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     19.38815363761688
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q034": {
+   "answerable": true,
+   "columns": [
+    "avg(tip_amount)"
+   ],
+   "rows": [
+    [
+     4.3952091443636
+    ]
+   ],
+   "raw_columns": [
+    "avg(tip_amount)"
+   ],
+   "raw_rows": [
+    [
+     4.396300929045815
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q035": {
+   "answerable": true,
+   "columns": [
+    "avg(trip_distance_miles)"
+   ],
+   "rows": [
+    [
+     9.357508605875637
+    ]
+   ],
+   "raw_columns": [
+    "avg(trip_distance_miles)"
+   ],
+   "raw_rows": [
+    [
+     17.025212417604262
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q036": {
+   "answerable": true,
+   "columns": [
+    "sum(total_amount)"
+   ],
+   "rows": [
+    [
+     257319580.7001943
+    ]
+   ],
+   "raw_columns": [
+    "sum(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     262536479.26014894
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q037": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     67484
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     76955
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q038": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     53644
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     57463
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q039": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     995025
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1088628
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q040": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1321822
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1446062
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q041": {
+   "answerable": true,
+   "columns": [
+    "avg(trip_duration_minutes)"
+   ],
+   "rows": [
+    [
+     30.50241659470283
+    ]
+   ],
+   "raw_columns": [
+    "avg(trip_duration_minutes)"
+   ],
+   "raw_rows": [
+    [
+     31.026725896290923
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q042": {
+   "answerable": true,
+   "columns": [
+    "sum(passenger_count)"
+   ],
+   "rows": [
+    [
+     49544729
+    ]
+   ],
+   "raw_columns": [
+    "sum(passenger_count)"
+   ],
+   "raw_rows": [
+    [
+     50706949.0
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q043": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     242929
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     498015
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q044": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     124663
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     240862
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q045": {
+   "answerable": true,
+   "columns": [
+    "min(fare_amount)"
+   ],
+   "rows": [
+    [
+     0.01
+    ]
+   ],
+   "raw_columns": [
+    "min(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     -1087.3
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q046": {
+   "answerable": true,
+   "columns": [
+    "count(DISTINCT pickup_zone_id)"
+   ],
+   "rows": [
+    [
+     262
+    ]
+   ],
+   "raw_columns": [
+    "count(DISTINCT pickup_zone_id)"
+   ],
+   "raw_rows": [
+    [
+     263
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q047": {
+   "answerable": true,
+   "columns": [
+    "count(DISTINCT pickup_date)"
+   ],
+   "rows": [
+    [
+     365
+    ]
+   ],
+   "raw_columns": [
+    "count(DISTINCT pickup_date)"
+   ],
+   "raw_rows": [
+    [
+     376
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q048": {
+   "answerable": true,
+   "columns": [
+    "min(pickup_date)"
+   ],
+   "rows": [
+    [
+     "2023-01-01"
+    ]
+   ],
+   "raw_columns": [
+    "min(pickup_date)"
+   ],
+   "raw_rows": [
+    [
+     "2001-01-01"
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q049": {
+   "answerable": true,
+   "columns": [
+    "max(pickup_date)"
+   ],
+   "rows": [
+    [
+     "2023-12-31"
+    ]
+   ],
+   "raw_columns": [
+    "max(pickup_date)"
+   ],
+   "raw_rows": [
+    [
+     "2024-01-03"
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q050": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     3738354
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     4304966
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q051": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "JFK Airport"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "JFK Airport"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q052": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "JFK Airport"
+    ],
+    [
+     "Upper East Side South"
+    ],
+    [
+     "Midtown Center"
+    ],
+    [
+     "Upper East Side North"
+    ],
+    [
+     "Midtown East"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "JFK Airport"
+    ],
+    [
+     "Upper East Side South"
+    ],
+    [
+     "Midtown Center"
+    ],
+    [
+     "Upper East Side North"
+    ],
+    [
+     "Midtown East"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q053": {
+   "answerable": true,
+   "columns": [
+    "dropoff_zone"
+   ],
+   "rows": [
+    [
+     "Upper East Side North"
+    ],
+    [
+     "Upper East Side South"
+    ],
+    [
+     "Midtown Center"
+    ],
+    [
+     "Times Sq/Theatre District"
+    ],
+    [
+     "Murray Hill"
+    ]
+   ],
+   "raw_columns": [
+    "dropoff_zone"
+   ],
+   "raw_rows": [
+    [
+     "Upper East Side North"
+    ],
+    [
+     "Upper East Side South"
+    ],
+    [
+     "Midtown Center"
+    ],
+    [
+     "Times Sq/Theatre District"
+    ],
+    [
+     "Murray Hill"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q054": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough"
+   ],
+   "rows": [
+    [
+     "Queens"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough"
+   ],
+   "raw_rows": [
+    [
+     "Queens"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q055": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough",
+    "count_star()"
+   ],
+   "rows": [
+    [
+     "Queens",
+     3504128
+    ],
+    [
+     "Brooklyn",
+     182143
+    ],
+    [
+     "Bronx",
+     47822
+    ],
+    [
+     "Manhattan",
+     31518020
+    ],
+    [
+     "Staten Island",
+     1744
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough",
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     "Queens",
+     3761565
+    ],
+    [
+     "Brooklyn",
+     281568
+    ],
+    [
+     "Manhattan",
+     33806220
+    ],
+    [
+     "Staten Island",
+     2551
+    ],
+    [
+     "Bronx",
+     65998
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q056": {
+   "answerable": true,
+   "columns": [
+    "month_key",
+    "count_star()"
+   ],
+   "rows": [
+    [
+     "2023-01",
+     2881138
+    ],
+    [
+     "2023-02",
+     2729650
+    ],
+    [
+     "2023-03",
+     3187027
+    ],
+    [
+     "2023-04",
+     3074294
+    ],
+    [
+     "2023-05",
+     3278337
+    ],
+    [
+     "2023-06",
+     3081789
+    ],
+    [
+     "2023-07",
+     2710133
+    ],
+    [
+     "2023-08",
+     2626219
+    ],
+    [
+     "2023-09",
+     2602510
+    ],
+    [
+     "2023-10",
+     3240927
+    ],
+    [
+     "2023-11",
+     3089044
+    ],
+    [
+     "2023-12",
+     3073579
+    ]
+   ],
+   "raw_columns": [
+    "month_key",
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     "2023-01",
+     3066726
+    ],
+    [
+     "2023-02",
+     2914003
+    ],
+    [
+     "2023-03",
+     3403660
+    ],
+    [
+     "2023-04",
+     3288248
+    ],
+    [
+     "2023-05",
+     3513664
+    ],
+    [
+     "2023-06",
+     3307259
+    ],
+    [
+     "2023-07",
+     2907093
+    ],
+    [
+     "2023-08",
+     2824201
+    ],
+    [
+     "2023-09",
+     2846741
+    ],
+    [
+     "2023-10",
+     3522269
+    ],
+    [
+     "2023-11",
+     3339731
+    ],
+    [
+     "2023-12",
+     3376527
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q057": {
+   "answerable": true,
+   "columns": [
+    "month_key",
+    "sum(total_amount)"
+   ],
+   "rows": [
+    [
+     "2023-01",
+     78803438.80000871
+    ],
+    [
+     "2023-02",
+     74476370.85000499
+    ],
+    [
+     "2023-03",
+     89877904.20000398
+    ],
+    [
+     "2023-04",
+     88171717.65000159
+    ],
+    [
+     "2023-05",
+     96243900.79000717
+    ],
+    [
+     "2023-06",
+     90785497.21000469
+    ],
+    [
+     "2023-07",
+     78766225.07000153
+    ],
+    [
+     "2023-08",
+     76624578.18000355
+    ],
+    [
+     "2023-09",
+     78862724.41000278
+    ],
+    [
+     "2023-10",
+     96393953.81000476
+    ],
+    [
+     "2023-11",
+     90416823.65000434
+    ],
+    [
+     "2023-12",
+     89551011.9600043
+    ]
+   ],
+   "raw_columns": [
+    "month_key",
+    "sum(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     "2023-01",
+     82863594.11000116
+    ],
+    [
+     "2023-02",
+     78381600.42999977
+    ],
+    [
+     "2023-03",
+     94634027.66000472
+    ],
+    [
+     "2023-04",
+     92956843.10999988
+    ],
+    [
+     "2023-05",
+     101766021.28000553
+    ],
+    [
+     "2023-06",
+     96137360.2300044
+    ],
+    [
+     "2023-07",
+     83050030.29999973
+    ],
+    [
+     "2023-08",
+     80851309.60000381
+    ],
+    [
+     "2023-09",
+     84781396.93000509
+    ],
+    [
+     "2023-10",
+     102749077.92000079
+    ],
+    [
+     "2023-11",
+     95836227.29000345
+    ],
+    [
+     "2023-12",
+     96371223.25000589
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q058": {
+   "answerable": true,
+   "columns": [
+    "month_key",
+    "avg(fare_amount)"
+   ],
+   "rows": [
+    [
+     "2023-01",
+     18.537920415474193
+    ],
+    [
+     "2023-02",
+     18.430636968109045
+    ],
+    [
+     "2023-03",
+     19.11660218441771
+    ],
+    [
+     "2023-04",
+     19.57603584107408
+    ],
+    [
+     "2023-05",
+     20.073388535101767
+    ],
+    [
+     "2023-06",
+     20.174666802301857
+    ],
+    [
+     "2023-07",
+     19.973780581985725
+    ],
+    [
+     "2023-08",
+     20.008850069243664
+    ],
+    [
+     "2023-09",
+     20.87606154443181
+    ],
+    [
+     "2023-10",
+     20.3202917436891
+    ],
+    [
+     "2023-11",
+     19.930828304808472
+    ],
+    [
+     "2023-12",
+     19.89419558111228
+    ]
+   ],
+   "raw_columns": [
+    "month_key",
+    "avg(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     "2023-01",
+     18.366912642342044
+    ],
+    [
+     "2023-02",
+     18.2202424534226
+    ],
+    [
+     "2023-03",
+     18.908528974691713
+    ],
+    [
+     "2023-04",
+     19.360495929746975
+    ],
+    [
+     "2023-05",
+     19.876822698470292
+    ],
+    [
+     "2023-06",
+     19.98792554196662
+    ],
+    [
+     "2023-07",
+     19.703376028905762
+    ],
+    [
+     "2023-08",
+     19.71839570908691
+    ],
+    [
+     "2023-09",
+     20.671103370485465
+    ],
+    [
+     "2023-10",
+     20.061651350308175
+    ],
+    [
+     "2023-11",
+     19.651379961439545
+    ],
+    [
+     "2023-12",
+     19.66684593074472
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q059": {
+   "answerable": true,
+   "columns": [
+    "\"month\"(pickup_date)"
+   ],
+   "rows": [
+    [
+     5
+    ]
+   ],
+   "raw_columns": [
+    "\"month\"(pickup_date)"
+   ],
+   "raw_rows": [
+    [
+     10
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q060": {
+   "answerable": true,
+   "columns": [
+    "\"month\"(pickup_date)"
+   ],
+   "rows": [
+    [
+     9
+    ]
+   ],
+   "raw_columns": [
+    "\"month\"(pickup_date)"
+   ],
+   "raw_rows": [
+    [
+     8
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q061": {
+   "answerable": true,
+   "columns": [
+    "pickup_day_name"
+   ],
+   "rows": [
+    [
+     "Thursday"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_day_name"
+   ],
+   "raw_rows": [
+    [
+     "Thursday"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q062": {
+   "answerable": true,
+   "columns": [
+    "pickup_day_of_week",
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1,
+     4444278
+    ],
+    [
+     2,
+     5170703
+    ],
+    [
+     3,
+     5474802
+    ],
+    [
+     4,
+     5586135
+    ],
+    [
+     5,
+     5276852
+    ],
+    [
+     6,
+     5161795
+    ],
+    [
+     7,
+     4460082
+    ]
+   ],
+   "raw_columns": [
+    "pickup_day_of_week",
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1,
+     4775141
+    ],
+    [
+     2,
+     5537776
+    ],
+    [
+     3,
+     5864994
+    ],
+    [
+     4,
+     6002325
+    ],
+    [
+     5,
+     5702311
+    ],
+    [
+     6,
+     5582512
+    ],
+    [
+     7,
+     4845167
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q063": {
+   "answerable": true,
+   "columns": [
+    "pickup_hour"
+   ],
+   "rows": [
+    [
+     18
+    ]
+   ],
+   "raw_columns": [
+    "pickup_hour"
+   ],
+   "raw_rows": [
+    [
+     18
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q064": {
+   "answerable": true,
+   "columns": [
+    "pickup_hour"
+   ],
+   "rows": [
+    [
+     4
+    ]
+   ],
+   "raw_columns": [
+    "pickup_hour"
+   ],
+   "raw_rows": [
+    [
+     4
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q065": {
+   "answerable": true,
+   "columns": [
+    "pickup_hour",
+    "count_star()"
+   ],
+   "rows": [
+    [
+     0,
+     995025
+    ],
+    [
+     1,
+     665102
+    ],
+    [
+     2,
+     436568
+    ],
+    [
+     3,
+     283780
+    ],
+    [
+     4,
+     181276
+    ],
+    [
+     5,
+     194772
+    ],
+    [
+     6,
+     475542
+    ],
+    [
+     7,
+     946611
+    ],
+    [
+     8,
+     1321822
+    ],
+    [
+     9,
+     1514762
+    ],
+    [
+     10,
+     1659400
+    ],
+    [
+     11,
+     1802721
+    ],
+    [
+     12,
+     1954849
+    ],
+    [
+     13,
+     2014400
+    ],
+    [
+     14,
+     2159881
+    ],
+    [
+     15,
+     2214213
+    ],
+    [
+     16,
+     2215126
+    ],
+    [
+     17,
+     2404988
+    ],
+    [
+     18,
+     2520242
+    ],
+    [
+     19,
+     2260302
+    ],
+    [
+     20,
+     2020862
+    ],
+    [
+     21,
+     2015827
+    ],
+    [
+     22,
+     1857023
+    ],
+    [
+     23,
+     1459553
+    ]
+   ],
+   "raw_columns": [
+    "pickup_hour",
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     0,
+     1088628
+    ],
+    [
+     1,
+     731321
+    ],
+    [
+     2,
+     483366
+    ],
+    [
+     3,
+     319641
+    ],
+    [
+     4,
+     217492
+    ],
+    [
+     5,
+     226411
+    ],
+    [
+     6,
+     532181
+    ],
+    [
+     7,
+     1044241
+    ],
+    [
+     8,
+     1446062
+    ],
+    [
+     9,
+     1632601
+    ],
+    [
+     10,
+     1773717
+    ],
+    [
+     11,
+     1925489
+    ],
+    [
+     12,
+     2090720
+    ],
+    [
+     13,
+     2157093
+    ],
+    [
+     14,
+     2311519
+    ],
+    [
+     15,
+     2371342
+    ],
+    [
+     16,
+     2374464
+    ],
+    [
+     17,
+     2581999
+    ],
+    [
+     18,
+     2704217
+    ],
+    [
+     19,
+     2416756
+    ],
+    [
+     20,
+     2153613
+    ],
+    [
+     21,
+     2151209
+    ],
+    [
+     22,
+     1994411
+    ],
+    [
+     23,
+     1581733
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q066": {
+   "answerable": true,
+   "columns": [
+    "pickup_hour"
+   ],
+   "rows": [
+    [
+     5
+    ]
+   ],
+   "raw_columns": [
+    "pickup_hour"
+   ],
+   "raw_rows": [
+    [
+     5
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q067": {
+   "answerable": true,
+   "columns": [
+    "payment_type",
+    "count_star()"
+   ],
+   "rows": [
+    [
+     "Credit card",
+     29122253
+    ],
+    [
+     "Cash",
+     6084802
+    ],
+    [
+     "Dispute",
+     242929
+    ],
+    [
+     "No charge",
+     124663
+    ]
+   ],
+   "raw_columns": [
+    "payment_type",
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1,
+     29856932
+    ],
+    [
+     2,
+     6405059
+    ],
+    [
+     0,
+     1309356
+    ],
+    [
+     4,
+     498015
+    ],
+    [
+     3,
+     240862
+    ],
+    [
+     5,
+     2
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q068": {
+   "answerable": true,
+   "columns": [
+    "rate_code",
+    "count_star()"
+   ],
+   "rows": [
+    [
+     "Standard rate",
+     33703953
+    ],
+    [
+     "JFK",
+     1394073
+    ],
+    [
+     "Unknown",
+     189213
+    ],
+    [
+     "Newark",
+     115381
+    ],
+    [
+     "Negotiated fare",
+     97942
+    ],
+    [
+     "Nassau or Westchester",
+     74063
+    ],
+    [
+     "Group ride",
+     22
+    ]
+   ],
+   "raw_columns": [
+    "rate_code",
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1.0,
+     34891490
+    ],
+    [
+     2.0,
+     1473727
+    ],
+    [
+     null,
+     1309356
+    ],
+    [
+     5.0,
+     217163
+    ],
+    [
+     99.0,
+     213480
+    ],
+    [
+     3.0,
+     127504
+    ],
+    [
+     4.0,
+     77445
+    ],
+    [
+     6.0,
+     61
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q069": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     29427477
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     31468943
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q070": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1013551
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1038753
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q071": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     310057
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     346058
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q072": {
+   "answerable": true,
+   "columns": [
+    "avg(fare_amount)"
+   ],
+   "rows": [
+    [
+     70.18901669476921
+    ]
+   ],
+   "raw_columns": [
+    "avg(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     69.03629639577456
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q073": {
+   "answerable": true,
+   "columns": [
+    "is_weekend",
+    "avg(fare_amount)"
+   ],
+   "rows": [
+    [
+     false,
+     19.77897127204514
+    ],
+    [
+     true,
+     19.649905196253346
+    ]
+   ],
+   "raw_columns": [
+    "is_weekend",
+    "avg(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     false,
+     19.559220690274792
+    ],
+    [
+     true,
+     19.423396494081288
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q074": {
+   "answerable": true,
+   "columns": [
+    "pickup_date"
+   ],
+   "rows": [
+    [
+     "2023-12-14"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_date"
+   ],
+   "raw_rows": [
+    [
+     "2023-12-14"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q075": {
+   "answerable": true,
+   "columns": [
+    "pickup_date"
+   ],
+   "rows": [
+    [
+     "2023-12-14"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_date"
+   ],
+   "raw_rows": [
+    [
+     "2023-12-14"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q076": {
+   "answerable": true,
+   "columns": [
+    "pickup_date"
+   ],
+   "rows": [
+    [
+     "2023-09-23"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_date"
+   ],
+   "raw_rows": [
+    [
+     "2014-11-19"
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q077": {
+   "answerable": true,
+   "columns": [
+    "pickup_date"
+   ],
+   "rows": [
+    [
+     "2023-12-14"
+    ],
+    [
+     "2023-12-15"
+    ],
+    [
+     "2023-05-18"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_date"
+   ],
+   "raw_rows": [
+    [
+     "2023-12-14"
+    ],
+    [
+     "2023-12-15"
+    ],
+    [
+     "2023-12-16"
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q078": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "JFK Airport"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "JFK Airport"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q079": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "Downtown Brooklyn/MetroTech"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "Downtown Brooklyn/MetroTech"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q080": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "JFK Airport"
+    ],
+    [
+     "LaGuardia Airport"
+    ],
+    [
+     "Midtown Center"
+    ],
+    [
+     "Upper East Side South"
+    ],
+    [
+     "Times Sq/Theatre District"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "JFK Airport"
+    ],
+    [
+     "LaGuardia Airport"
+    ],
+    [
+     "Midtown Center"
+    ],
+    [
+     "Upper East Side South"
+    ],
+    [
+     "Times Sq/Theatre District"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q081": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     8797815
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     9384389
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q082": {
+   "answerable": true,
+   "columns": [
+    "sum(total_amount)"
+   ],
+   "rows": [
+    [
+     276361789.4202142
+    ]
+   ],
+   "raw_columns": [
+    "sum(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     294956528.460238
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q083": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1956355
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     2149134
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q084": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1409257
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1556910
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q085": {
+   "answerable": true,
+   "columns": [
+    "avg(fare_amount)"
+   ],
+   "rows": [
+    [
+     90.60354311123034
+    ]
+   ],
+   "raw_columns": [
+    "avg(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     87.71480487850837
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q086": {
+   "answerable": true,
+   "columns": [
+    "(sum(trip_distance_miles) / (sum(trip_duration_minutes) / 60))"
+   ],
+   "rows": [
+    [
+     13.294591406284704
+    ]
+   ],
+   "raw_columns": [
+    "(sum(trip_distance_miles) / (sum(trip_duration_minutes) / 60))"
+   ],
+   "raw_rows": [
+    [
+     14.676017647835643
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q087": {
+   "answerable": true,
+   "columns": [
+    "(sum(total_amount) / sum(trip_distance_miles))"
+   ],
+   "rows": [
+    [
+     7.960093472366256
+    ]
+   ],
+   "raw_columns": [
+    "(sum(total_amount) / sum(trip_distance_miles))"
+   ],
+   "raw_rows": [
+    [
+     6.96070332359075
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q088": {
+   "answerable": true,
+   "columns": [
+    "((100 * sum(tip_amount)) / sum(fare_amount))"
+   ],
+   "rows": [
+    [
+     22.325989403163092
+    ]
+   ],
+   "raw_columns": [
+    "((100 * sum(tip_amount)) / sum(fare_amount))"
+   ],
+   "raw_rows": [
+    [
+     22.186978945174513
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q089": {
+   "answerable": true,
+   "columns": [
+    "(sum(trip_distance_miles) / (sum(trip_duration_minutes) / 60))"
+   ],
+   "rows": [
+    [
+     12.79898143173997
+    ]
+   ],
+   "raw_columns": [
+    "(sum(trip_distance_miles) / (sum(trip_duration_minutes) / 60))"
+   ],
+   "raw_rows": [
+    [
+     16.06539905970899
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q090": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     62861
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     63697
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q091": {
+   "answerable": true,
+   "columns": [
+    "avg(total_amount)"
+   ],
+   "rows": [
+    [
+     83.5232834225257
+    ]
+   ],
+   "raw_columns": [
+    "avg(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     82.8400756755929
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q092": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough",
+    "avg(passenger_count)"
+   ],
+   "rows": [
+    [
+     "Brooklyn",
+     1.289404478898448
+    ],
+    [
+     "Queens",
+     1.4415660615137347
+    ],
+    [
+     "Bronx",
+     1.0942871481744805
+    ],
+    [
+     "Manhattan",
+     1.3886099761342876
+    ],
+    [
+     "Staten Island",
+     1.2511467889908257
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough",
+    "avg(passenger_count)"
+   ],
+   "raw_rows": [
+    [
+     "Queens",
+     1.4218408281770816
+    ],
+    [
+     "Brooklyn",
+     1.2692710133241178
+    ],
+    [
+     "Bronx",
+     1.0974787963285697
+    ],
+    [
+     "Manhattan",
+     1.36587596485217
+    ],
+    [
+     "Staten Island",
+     1.205668016194332
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q093": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough",
+    "sum(total_amount)"
+   ],
+   "rows": [
+    [
+     "Queens",
+     257319580.70019937
+    ],
+    [
+     "Brooklyn",
+     5916142.579999989
+    ],
+    [
+     "Manhattan",
+     753576490.4691904
+    ],
+    [
+     "Staten Island",
+     112492.00000000003
+    ],
+    [
+     "Bronx",
+     1631334.0900000043
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough",
+    "sum(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     "Queens",
+     262536479.26019305
+    ],
+    [
+     "Brooklyn",
+     9441381.679999784
+    ],
+    [
+     "Bronx",
+     2282758.6000000103
+    ],
+    [
+     "Manhattan",
+     801952154.239189
+    ],
+    [
+     "Staten Island",
+     163679.17999999996
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q094": {
+   "answerable": true,
+   "columns": [
+    "dropoff_borough"
+   ],
+   "rows": [
+    [
+     "Manhattan"
+    ]
+   ],
+   "raw_columns": [
+    "dropoff_borough"
+   ],
+   "raw_rows": [
+    [
+     "Manhattan"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q095": {
+   "answerable": true,
+   "columns": [
+    "avg(tip_amount)"
+   ],
+   "rows": [
+    [
+     10.349333287294424
+    ]
+   ],
+   "raw_columns": [
+    "avg(tip_amount)"
+   ],
+   "raw_rows": [
+    [
+     10.344674984327535
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q096": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "JFK Airport"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "Fort Greene"
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q097": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     8418141
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     9038553
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q098": {
+   "answerable": true,
+   "columns": [
+    "avg(trip_duration_minutes)"
+   ],
+   "rows": [
+    [
+     17.93325029064603
+    ]
+   ],
+   "raw_columns": [
+    "avg(trip_duration_minutes)"
+   ],
+   "raw_rows": [
+    [
+     18.965398960263048
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q099": {
+   "answerable": true,
+   "columns": [
+    "payment_type"
+   ],
+   "rows": [
+    [
+     "Credit card"
+    ]
+   ],
+   "raw_columns": [
+    "payment_type"
+   ],
+   "raw_rows": [
+    [
+     1
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q100": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "JFK Airport"
+    ],
+    [
+     "LaGuardia Airport"
+    ],
+    [
+     "Midtown Center"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "JFK Airport"
+    ],
+    [
+     "LaGuardia Airport"
+    ],
+    [
+     "Midtown Center"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q101": {
+   "answerable": true,
+   "columns": [
+    "sum(total_amount)"
+   ],
+   "rows": [
+    [
+     154138317.8900206
+    ]
+   ],
+   "raw_columns": [
+    "sum(total_amount)"
+   ],
+   "raw_rows": [
+    [
+     157050237.70996574
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q102": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1656612
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     2109981
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q103": {
+   "answerable": true,
+   "columns": [
+    "avg(fare_amount)"
+   ],
+   "rows": [
+    [
+     16.942601806974135
+    ]
+   ],
+   "raw_columns": [
+    "avg(fare_amount)"
+   ],
+   "raw_rows": [
+    [
+     16.56645602265654
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q104": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     483892
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     525066
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q105": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "JFK Airport"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "JFK Airport"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "q106": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * count_star() FILTER (WHERE (payment_type = 'Credit card'))) / count_star())"
+   ],
+   "rows": [
+    [
+     81.86238081294243
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * count_star() FILTER (WHERE (payment_type = 'Credit card'))) / count_star())"
+   ],
+   "raw_rows": [
+    [
+     77.93462768922323
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q107": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * count_star() FILTER (WHERE (pickup_borough = 'Manhattan'))) / count_star())"
+   ],
+   "rows": [
+    [
+     88.59685944318717
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * count_star() FILTER (WHERE (pickup_borough = 'Manhattan'))) / count_star())"
+   ],
+   "raw_rows": [
+    [
+     88.24333221109163
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q108": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * sum(total_amount) FILTER (WHERE (pickup_zone IN ('JFK Airport', 'LaGuardia Airport')))) / sum(total_amount))"
+   ],
+   "rows": [
+    [
+     23.159871969853594
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * sum(total_amount) FILTER (WHERE (pickup_zone IN ('JFK Airport', 'LaGuardia Airport')))) / sum(total_amount))"
+   ],
+   "raw_rows": [
+    [
+     22.144862639856683
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q109": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * count_star() FILTER (WHERE is_weekend)) / count_star())"
+   ],
+   "rows": [
+    [
+     27.047006257012193
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * count_star() FILTER (WHERE is_weekend)) / count_star())"
+   ],
+   "raw_rows": [
+    [
+     27.219048512008257
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q110": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * count_star() FILTER (WHERE (tip_amount = 0))) / count_star())"
+   ],
+   "rows": [
+    [
+     4.447114720142016
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * count_star() FILTER (WHERE (tip_amount = 0))) / count_star())"
+   ],
+   "raw_rows": [
+    [
+     4.745614854198683
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q111": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * count_star() FILTER (WHERE (pickup_zone_id = dropoff_zone_id))) / count_star())"
+   ],
+   "rows": [
+    [
+     4.656720838298129
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * count_star() FILTER (WHERE (pickup_zone_id = dropoff_zone_id))) / count_star())"
+   ],
+   "raw_rows": [
+    [
+     5.5076182531525655
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q112": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * sum(n) FILTER (WHERE (rk <= 10))) / sum(n))"
+   ],
+   "rows": [
+    [
+     39.36839907364365
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * sum(n) FILTER (WHERE (rk <= 10))) / sum(n))"
+   ],
+   "raw_rows": [
+    [
+     38.55165719982962
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q113": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * sum(total_amount) FILTER (WHERE (month_key <= '2023-06'))) / sum(total_amount))"
+   ],
+   "rows": [
+    [
+     50.37627341986443
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * sum(total_amount) FILTER (WHERE (month_key <= '2023-06'))) / sum(total_amount))"
+   ],
+   "raw_rows": [
+    [
+     50.141944646188456
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q114": {
+   "answerable": true,
+   "columns": [
+    "((100.0 * (count_star() FILTER (WHERE (month_key = '2023-12')) - count_star() FILTER (WHERE (month_key = '2023-01')))) / count_star() FILTER (WHERE (month_key = '2023-01')))"
+   ],
+   "rows": [
+    [
+     6.67933989972018
+    ]
+   ],
+   "raw_columns": [
+    "((100.0 * (count_star() FILTER (WHERE (month_key = '2023-12')) - count_star() FILTER (WHERE (month_key = '2023-01')))) / count_star() FILTER (WHERE (month_key = '2023-01')))"
+   ],
+   "raw_rows": [
+    [
+     10.102011069785824
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q115": {
+   "answerable": true,
+   "columns": [
+    "(avg(fare_amount) FILTER (WHERE (month_key = '2023-12')) - avg(fare_amount) FILTER (WHERE (month_key = '2023-01')))"
+   ],
+   "rows": [
+    [
+     1.356275165637495
+    ]
+   ],
+   "raw_columns": [
+    "(avg(fare_amount) FILTER (WHERE (month_key = '2023-12')) - avg(fare_amount) FILTER (WHERE (month_key = '2023-01')))"
+   ],
+   "raw_rows": [
+    [
+     1.2999332884026806
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q116": {
+   "answerable": true,
+   "columns": [
+    "(avg(fare_amount) FILTER (WHERE is_weekend) / avg(fare_amount) FILTER (WHERE (NOT is_weekend)))"
+   ],
+   "rows": [
+    [
+     0.993474580956883
+    ]
+   ],
+   "raw_columns": [
+    "(avg(fare_amount) FILTER (WHERE is_weekend) / avg(fare_amount) FILTER (WHERE (NOT is_weekend)))"
+   ],
+   "raw_rows": [
+    [
+     0.9930557460164136
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "q117": {
+   "answerable": true,
+   "columns": [
+    "(avg(trip_duration_minutes) FILTER (WHERE (pickup_hour = 17)) - avg(trip_duration_minutes) FILTER (WHERE (pickup_hour = 5)))"
+   ],
+   "rows": [
+    [
+     2.5151878381372548
+    ]
+   ],
+   "raw_columns": [
+    "(avg(trip_duration_minutes) FILTER (WHERE (pickup_hour = 17)) - avg(trip_duration_minutes) FILTER (WHERE (pickup_hour = 5)))"
+   ],
+   "raw_rows": [
+    [
+     2.6011961756515944
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q118": {
+   "answerable": true,
+   "columns": [
+    "m"
+   ],
+   "rows": [
+    [
+     10
+    ]
+   ],
+   "raw_columns": [
+    "m"
+   ],
+   "raw_rows": [
+    [
+     10
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "q119": {
+   "answerable": true,
+   "columns": [
+    "m"
+   ],
+   "rows": [
+    [
+     7
+    ]
+   ],
+   "raw_columns": [
+    "m"
+   ],
+   "raw_rows": [
+    [
+     7
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "q120": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough",
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "Queens",
+     "JFK Airport"
+    ],
+    [
+     "Bronx",
+     "Co-Op City"
+    ],
+    [
+     "Staten Island",
+     "Bloomfield/Emerson Hill"
+    ],
+    [
+     "Brooklyn",
+     "Downtown Brooklyn/MetroTech"
+    ],
+    [
+     "Manhattan",
+     "Upper East Side South"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough",
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "Queens",
+     "JFK Airport"
+    ],
+    [
+     "Bronx",
+     "Mott Haven/Port Morris"
+    ],
+    [
+     "Brooklyn",
+     "Downtown Brooklyn/MetroTech"
+    ],
+    [
+     "Manhattan",
+     "Upper East Side South"
+    ],
+    [
+     "Staten Island",
+     "Bloomfield/Emerson Hill"
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q121": {
+   "answerable": true,
+   "columns": [
+    "month_key",
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "2023-01",
+     "JFK Airport"
+    ],
+    [
+     "2023-02",
+     "Midtown Center"
+    ],
+    [
+     "2023-03",
+     "JFK Airport"
+    ],
+    [
+     "2023-04",
+     "JFK Airport"
+    ],
+    [
+     "2023-05",
+     "JFK Airport"
+    ],
+    [
+     "2023-06",
+     "JFK Airport"
+    ],
+    [
+     "2023-07",
+     "JFK Airport"
+    ],
+    [
+     "2023-08",
+     "JFK Airport"
+    ],
+    [
+     "2023-09",
+     "JFK Airport"
+    ],
+    [
+     "2023-10",
+     "JFK Airport"
+    ],
+    [
+     "2023-11",
+     "Upper East Side South"
+    ],
+    [
+     "2023-12",
+     "Upper East Side South"
+    ]
+   ],
+   "raw_columns": [
+    "month_key",
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "2023-01",
+     "JFK Airport"
+    ],
+    [
+     "2023-02",
+     "Midtown Center"
+    ],
+    [
+     "2023-03",
+     "JFK Airport"
+    ],
+    [
+     "2023-04",
+     "JFK Airport"
+    ],
+    [
+     "2023-05",
+     "JFK Airport"
+    ],
+    [
+     "2023-06",
+     "JFK Airport"
+    ],
+    [
+     "2023-07",
+     "JFK Airport"
+    ],
+    [
+     "2023-08",
+     "JFK Airport"
+    ],
+    [
+     "2023-09",
+     "JFK Airport"
+    ],
+    [
+     "2023-10",
+     "JFK Airport"
+    ],
+    [
+     "2023-11",
+     "Upper East Side South"
+    ],
+    [
+     "2023-12",
+     "Upper East Side South"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "q122": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone"
+   ],
+   "rows": [
+    [
+     "Upper East Side South"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone"
+   ],
+   "raw_rows": [
+    [
+     "Upper East Side South"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "q123": {
+   "answerable": true,
+   "columns": [
+    "pickup_hour"
+   ],
+   "rows": [
+    [
+     5
+    ]
+   ],
+   "raw_columns": [
+    "pickup_hour"
+   ],
+   "raw_rows": [
+    [
+     5
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q124": {
+   "answerable": true,
+   "columns": [
+    "pickup_day_name",
+    "pickup_hour"
+   ],
+   "rows": [
+    [
+     "Thursday",
+     18
+    ]
+   ],
+   "raw_columns": [
+    "pickup_day_name",
+    "pickup_hour"
+   ],
+   "raw_rows": [
+    [
+     "Thursday",
+     18
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q125": {
+   "answerable": true,
+   "columns": [
+    "avg(n)"
+   ],
+   "rows": [
+    [
+     97464.78630136987
+    ]
+   ],
+   "raw_columns": [
+    "avg(n)"
+   ],
+   "raw_rows": [
+    [
+     101888.89893617021
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q126": {
+   "answerable": true,
+   "columns": [
+    "avg(r)"
+   ],
+   "rows": [
+    [
+     2819107.25090407
+    ]
+   ],
+   "raw_columns": [
+    "avg(r)"
+   ],
+   "raw_rows": [
+    [
+     2899955.8826861293
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q127": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     85
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     163
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q128": {
+   "answerable": true,
+   "columns": [
+    "median(n)"
+   ],
+   "rows": [
+    [
+     99580.0
+    ]
+   ],
+   "raw_columns": [
+    "median(n)"
+   ],
+   "raw_rows": [
+    [
+     106166.0
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q129": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     16
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     23
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q130": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone",
+    "dropoff_zone"
+   ],
+   "rows": [
+    [
+     "Upper East Side South",
+     "Upper East Side North"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone",
+    "dropoff_zone"
+   ],
+   "raw_rows": [
+    [
+     "Upper East Side South",
+     "Upper East Side North"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q131": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone",
+    "dropoff_zone"
+   ],
+   "rows": [
+    [
+     "Upper East Side South",
+     "Upper East Side North"
+    ],
+    [
+     "Upper East Side North",
+     "Upper East Side South"
+    ],
+    [
+     "Midtown Center",
+     "Upper East Side South"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone",
+    "dropoff_zone"
+   ],
+   "raw_rows": [
+    [
+     "Upper East Side South",
+     "Upper East Side North"
+    ],
+    [
+     "Upper East Side North",
+     "Upper East Side South"
+    ],
+    [
+     "Midtown Center",
+     "Upper East Side South"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q132": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough",
+    "dropoff_borough"
+   ],
+   "rows": [
+    [
+     "Queens",
+     "Manhattan"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough",
+    "dropoff_borough"
+   ],
+   "raw_rows": [
+    [
+     "Queens",
+     "Manhattan"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q133": {
+   "answerable": true,
+   "columns": [
+    "quantile_cont(trip_duration_minutes, 0.95)"
+   ],
+   "rows": [
+    [
+     42.95
+    ]
+   ],
+   "raw_columns": [
+    "quantile_cont(trip_duration_minutes, 0.95)"
+   ],
+   "raw_rows": [
+    [
+     43.15
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q134": {
+   "answerable": true,
+   "columns": [
+    "quantile_cont(fare_amount, 0.90)"
+   ],
+   "rows": [
+    [
+     42.2
+    ]
+   ],
+   "raw_columns": [
+    "quantile_cont(fare_amount, 0.90)"
+   ],
+   "raw_rows": [
+    [
+     42.2
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "q135": {
+   "answerable": true,
+   "columns": [
+    "\"quarter\"(pickup_date)"
+   ],
+   "rows": [
+    [
+     4
+    ]
+   ],
+   "raw_columns": [
+    "\"quarter\"(pickup_date)"
+   ],
+   "raw_rows": [
+    [
+     4
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "q136": {
+   "answerable": true,
+   "columns": [
+    "q",
+    "count_star()"
+   ],
+   "rows": [
+    [
+     1,
+     8797815
+    ],
+    [
+     2,
+     9434420
+    ],
+    [
+     3,
+     7938862
+    ],
+    [
+     4,
+     9403550
+    ]
+   ],
+   "raw_columns": [
+    "q",
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     1,
+     9384389
+    ],
+    [
+     2,
+     10109171
+    ],
+    [
+     3,
+     8578035
+    ],
+    [
+     4,
+     10238527
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": true
+  },
+  "q137": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     10599442
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     11554586
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q138": {
+   "answerable": true,
+   "columns": [
+    "count_star()"
+   ],
+   "rows": [
+    [
+     27
+    ]
+   ],
+   "raw_columns": [
+    "count_star()"
+   ],
+   "raw_rows": [
+    [
+     24
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "q139": {
+   "answerable": true,
+   "columns": [
+    "\"month\"(pickup_date)"
+   ],
+   "rows": [
+    [
+     2
+    ]
+   ],
+   "raw_columns": [
+    "\"month\"(pickup_date)"
+   ],
+   "raw_rows": [
+    [
+     2
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "q140": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough"
+   ],
+   "rows": [
+    [
+     "Manhattan"
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough"
+   ],
+   "raw_rows": [
+    [
+     "Manhattan"
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": true
+  },
+  "u001": {
+   "answerable": false
+  },
+  "u002": {
+   "answerable": false
+  },
+  "u003": {
+   "answerable": false
+  },
+  "u004": {
+   "answerable": false
+  },
+  "u005": {
+   "answerable": false
+  },
+  "u006": {
+   "answerable": false
+  },
+  "u007": {
+   "answerable": false
+  },
+  "u008": {
+   "answerable": false
+  },
+  "u009": {
+   "answerable": false
+  },
+  "u010": {
+   "answerable": false
+  }
+ }
+}
