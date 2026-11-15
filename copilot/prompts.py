@@ -55,10 +55,10 @@ def parse(setup, text: str):
         if isinstance(request, dict) and "cannot_answer" in request:
             return "refusal", str(request["cannot_answer"])[:300]
         return "action", request
-    if re.search(r"CANNOT[_ ]ANSWER", text, re.I) and not fenced:
+    # The refusal marker anywhere in the reply counts as a refusal, even when the model
+    # wrapped it in a code block or wrote "SELECT CANNOT_ANSWER: ...".
+    if re.search(r"CANNOT[_ ]ANSWER", text, re.I):
         return "refusal", text[:300]
     if not body:
         return "unparseable", text[:500]
-    if re.match(r"\s*CANNOT[_ ]ANSWER", body, re.I):
-        return "refusal", body[:300]
     return "action", body
