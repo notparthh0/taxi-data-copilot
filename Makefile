@@ -1,6 +1,6 @@
 PY := .venv/bin/python
 
-.PHONY: install setups check profile test check-llm all
+.PHONY: install setups check profile test check-llm all gold eval summary api mcp
 
 install:            ## create the Python 3.12 venv and install everything
 	uv venv --python 3.12 .venv
@@ -15,10 +15,27 @@ check:              ## run one probe + attack checks on each setup -> results/ph
 profile:            ## raw vs cleaned numbers -> results/phase1_layer_profile.json
 	$(PY) scripts/profile_layers.py
 
-test:               ## pytest (27 tests)
+test:               ## pytest
 	$(PY) -m pytest -q
 
 check-llm:          ## one Gemini call, to prove the key works
 	$(PY) scripts/check_llm.py
 
 all: setups check profile test
+
+gold:               ## run every gold SQL -> results/gold_answers.json
+	$(PY) scripts/build_gold.py
+
+MODEL ?= gemini-flash-lite
+REPEATS ?= 1
+eval:               ## run the experiment for one model (resumable): make eval MODEL=qwen-coder-7b
+	$(PY) scripts/run_eval.py --model $(MODEL) --repeats $(REPEATS)
+
+summary:            ## results/runs/*.jsonl -> results/summary.json + docs/RESULTS.md
+	$(PY) scripts/summarise.py
+
+api:                ## the copilot as an HTTP API on http://127.0.0.1:8000 (docs at /docs)
+	$(PY) -m uvicorn copilot.api:app --host 127.0.0.1 --port 8000
+
+mcp:                ## the copilot as an MCP server (stdio)
+	$(PY) -m copilot.mcp_server

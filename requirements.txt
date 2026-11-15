@@ -6,3 +6,10 @@ python-dotenv>=1.0
 pyyaml>=6.0
 pandas>=2.0
 pytest>=8.0
+
+# Product side
+langgraph>=1.2
+fastapi>=0.115
+uvicorn>=0.30
+mcp>=2.0
+httpx>=0.27

@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      # The 38-million-row data is not in CI. Tests that need it skip themselves;
+      # the SQL guard, grader, prompt parsing, agent and prompt-injection tests all run.
+      - run: python -m pytest -q
+      # The benchmark files must load, and the committed results must still summarise.
+      - run: python scripts/summarise.py

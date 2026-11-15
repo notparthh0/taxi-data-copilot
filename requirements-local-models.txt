@@ -1,0 +1,2 @@
+# Only needed to run the local models (Apple Silicon only)
+mlx-lm>=0.32
