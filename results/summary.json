@@ -1,20 +1,20 @@
 {
- "generated_at_utc": "2026-11-15T11:50:39+00:00",
+ "generated_at_utc": "2026-11-18T13:49:27+00:00",
  "answers": {
-  "gemini-flash-lite": 971,
+  "gemini-flash-lite": 2250,
   "qwen-coder-3b": 750,
   "qwen-coder-7b": 750
  },
  "headline": {
   "s1_raw|gemini-flash-lite": {
-   "n": 280,
-   "correct": 0.22857142857142856,
-   "silent_error": 0.7535714285714286,
-   "error_or_refusal": 0.017857142857142856,
+   "n": 420,
+   "correct": 0.23095238095238096,
+   "silent_error": 0.7547619047619047,
+   "error_or_refusal": 0.014285714285714285,
    "counts": {
-    "correct": 64,
-    "silent_error": 211,
-    "error_or_refusal": 5
+    "correct": 97,
+    "silent_error": 317,
+    "error_or_refusal": 6
    }
   },
   "s1_raw|qwen-coder-3b": {
@@ -40,14 +40,14 @@
    }
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "n": 211,
-   "correct": 0.16587677725118483,
-   "silent_error": 0.4928909952606635,
-   "error_or_refusal": 0.3412322274881517,
+   "n": 420,
+   "correct": 0.18333333333333332,
+   "silent_error": 0.47619047619047616,
+   "error_or_refusal": 0.3404761904761905,
    "counts": {
-    "correct": 35,
-    "silent_error": 104,
-    "error_or_refusal": 72
+    "correct": 77,
+    "silent_error": 200,
+    "error_or_refusal": 143
    }
   },
   "s1d_raw_docs|qwen-coder-3b": {
@@ -73,13 +73,13 @@
    }
   },
   "s2_modelled|gemini-flash-lite": {
-   "n": 140,
-   "correct": 0.9285714285714286,
-   "silent_error": 0.07142857142857142,
+   "n": 420,
+   "correct": 0.9357142857142857,
+   "silent_error": 0.06428571428571428,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 130,
-    "silent_error": 10,
+    "correct": 393,
+    "silent_error": 27,
     "error_or_refusal": 0
    }
   },
@@ -106,13 +106,13 @@
    }
   },
   "s3_docs|gemini-flash-lite": {
-   "n": 140,
-   "correct": 0.9857142857142858,
-   "silent_error": 0.014285714285714285,
+   "n": 420,
+   "correct": 0.9833333333333333,
+   "silent_error": 0.016666666666666666,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 138,
-    "silent_error": 2,
+    "correct": 413,
+    "silent_error": 7,
     "error_or_refusal": 0
    }
   },
@@ -139,14 +139,14 @@
    }
   },
   "s4_semantic|gemini-flash-lite": {
-   "n": 140,
-   "correct": 0.7071428571428572,
+   "n": 420,
+   "correct": 0.6904761904761905,
    "silent_error": 0.15714285714285714,
-   "error_or_refusal": 0.1357142857142857,
+   "error_or_refusal": 0.1523809523809524,
    "counts": {
-    "correct": 99,
-    "silent_error": 22,
-    "error_or_refusal": 19
+    "correct": 290,
+    "silent_error": 66,
+    "error_or_refusal": 64
    }
   },
   "s4_semantic|qwen-coder-3b": {
@@ -174,13 +174,13 @@
  },
  "difficulty_1": {
   "s1_raw|gemini-flash-lite": {
-   "n": 100,
+   "n": 150,
    "correct": 0.04,
    "silent_error": 0.96,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 4,
-    "silent_error": 96,
+    "correct": 6,
+    "silent_error": 144,
     "error_or_refusal": 0
    }
   },
@@ -207,14 +207,14 @@
    }
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "n": 100,
-   "correct": 0.15,
-   "silent_error": 0.54,
-   "error_or_refusal": 0.31,
+   "n": 150,
+   "correct": 0.18666666666666668,
+   "silent_error": 0.5133333333333333,
+   "error_or_refusal": 0.3,
    "counts": {
-    "correct": 15,
-    "silent_error": 54,
-    "error_or_refusal": 31
+    "correct": 28,
+    "silent_error": 77,
+    "error_or_refusal": 45
    }
   },
   "s1d_raw_docs|qwen-coder-3b": {
@@ -240,13 +240,13 @@
    }
   },
   "s2_modelled|gemini-flash-lite": {
-   "n": 50,
-   "correct": 0.96,
-   "silent_error": 0.04,
+   "n": 150,
+   "correct": 0.9533333333333334,
+   "silent_error": 0.04666666666666667,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 48,
-    "silent_error": 2,
+    "correct": 143,
+    "silent_error": 7,
     "error_or_refusal": 0
    }
   },
@@ -273,13 +273,13 @@
    }
   },
   "s3_docs|gemini-flash-lite": {
-   "n": 50,
-   "correct": 0.96,
-   "silent_error": 0.04,
+   "n": 150,
+   "correct": 0.9533333333333334,
+   "silent_error": 0.04666666666666667,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 48,
-    "silent_error": 2,
+    "correct": 143,
+    "silent_error": 7,
     "error_or_refusal": 0
    }
   },
@@ -306,14 +306,14 @@
    }
   },
   "s4_semantic|gemini-flash-lite": {
-   "n": 50,
-   "correct": 0.84,
-   "silent_error": 0.04,
-   "error_or_refusal": 0.12,
+   "n": 150,
+   "correct": 0.8066666666666666,
+   "silent_error": 0.05333333333333334,
+   "error_or_refusal": 0.14,
    "counts": {
-    "correct": 42,
-    "silent_error": 2,
-    "error_or_refusal": 6
+    "correct": 121,
+    "silent_error": 8,
+    "error_or_refusal": 21
    }
   },
   "s4_semantic|qwen-coder-3b": {
@@ -341,14 +341,14 @@
  },
  "difficulty_2": {
   "s1_raw|gemini-flash-lite": {
-   "n": 110,
-   "correct": 0.3181818181818182,
-   "silent_error": 0.6363636363636364,
-   "error_or_refusal": 0.045454545454545456,
+   "n": 165,
+   "correct": 0.3212121212121212,
+   "silent_error": 0.6424242424242425,
+   "error_or_refusal": 0.03636363636363636,
    "counts": {
-    "correct": 35,
-    "silent_error": 70,
-    "error_or_refusal": 5
+    "correct": 53,
+    "silent_error": 106,
+    "error_or_refusal": 6
    }
   },
   "s1_raw|qwen-coder-3b": {
@@ -374,14 +374,14 @@
    }
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "n": 76,
-   "correct": 0.18421052631578946,
-   "silent_error": 0.4342105263157895,
-   "error_or_refusal": 0.3815789473684211,
+   "n": 165,
+   "correct": 0.16363636363636364,
+   "silent_error": 0.4727272727272727,
+   "error_or_refusal": 0.36363636363636365,
    "counts": {
-    "correct": 14,
-    "silent_error": 33,
-    "error_or_refusal": 29
+    "correct": 27,
+    "silent_error": 78,
+    "error_or_refusal": 60
    }
   },
   "s1d_raw_docs|qwen-coder-3b": {
@@ -407,13 +407,13 @@
    }
   },
   "s2_modelled|gemini-flash-lite": {
-   "n": 55,
-   "correct": 0.9636363636363636,
-   "silent_error": 0.03636363636363636,
+   "n": 165,
+   "correct": 0.9757575757575757,
+   "silent_error": 0.024242424242424242,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 53,
-    "silent_error": 2,
+    "correct": 161,
+    "silent_error": 4,
     "error_or_refusal": 0
    }
   },
@@ -440,12 +440,12 @@
    }
   },
   "s3_docs|gemini-flash-lite": {
-   "n": 55,
+   "n": 165,
    "correct": 1.0,
    "silent_error": 0.0,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 55,
+    "correct": 165,
     "silent_error": 0,
     "error_or_refusal": 0
    }
@@ -473,14 +473,14 @@
    }
   },
   "s4_semantic|gemini-flash-lite": {
-   "n": 55,
-   "correct": 0.8909090909090909,
+   "n": 165,
+   "correct": 0.8848484848484849,
    "silent_error": 0.05454545454545454,
-   "error_or_refusal": 0.05454545454545454,
+   "error_or_refusal": 0.06060606060606061,
    "counts": {
-    "correct": 49,
-    "silent_error": 3,
-    "error_or_refusal": 3
+    "correct": 146,
+    "silent_error": 9,
+    "error_or_refusal": 10
    }
   },
   "s4_semantic|qwen-coder-3b": {
@@ -508,13 +508,13 @@
  },
  "difficulty_3": {
   "s1_raw|gemini-flash-lite": {
-   "n": 70,
-   "correct": 0.35714285714285715,
-   "silent_error": 0.6428571428571429,
+   "n": 105,
+   "correct": 0.3619047619047619,
+   "silent_error": 0.638095238095238,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 25,
-    "silent_error": 45,
+    "correct": 38,
+    "silent_error": 67,
     "error_or_refusal": 0
    }
   },
@@ -541,14 +541,14 @@
    }
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "n": 35,
-   "correct": 0.17142857142857143,
-   "silent_error": 0.4857142857142857,
-   "error_or_refusal": 0.34285714285714286,
+   "n": 105,
+   "correct": 0.20952380952380953,
+   "silent_error": 0.42857142857142855,
+   "error_or_refusal": 0.3619047619047619,
    "counts": {
-    "correct": 6,
-    "silent_error": 17,
-    "error_or_refusal": 12
+    "correct": 22,
+    "silent_error": 45,
+    "error_or_refusal": 38
    }
   },
   "s1d_raw_docs|qwen-coder-3b": {
@@ -574,13 +574,13 @@
    }
   },
   "s2_modelled|gemini-flash-lite": {
-   "n": 35,
-   "correct": 0.8285714285714286,
-   "silent_error": 0.17142857142857143,
+   "n": 105,
+   "correct": 0.8476190476190476,
+   "silent_error": 0.1523809523809524,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 29,
-    "silent_error": 6,
+    "correct": 89,
+    "silent_error": 16,
     "error_or_refusal": 0
    }
   },
@@ -607,12 +607,12 @@
    }
   },
   "s3_docs|gemini-flash-lite": {
-   "n": 35,
+   "n": 105,
    "correct": 1.0,
    "silent_error": 0.0,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 35,
+    "correct": 105,
     "silent_error": 0,
     "error_or_refusal": 0
    }
@@ -640,14 +640,14 @@
    }
   },
   "s4_semantic|gemini-flash-lite": {
-   "n": 35,
-   "correct": 0.22857142857142856,
-   "silent_error": 0.4857142857142857,
-   "error_or_refusal": 0.2857142857142857,
+   "n": 105,
+   "correct": 0.21904761904761905,
+   "silent_error": 0.4666666666666667,
+   "error_or_refusal": 0.3142857142857143,
    "counts": {
-    "correct": 8,
-    "silent_error": 17,
-    "error_or_refusal": 10
+    "correct": 23,
+    "silent_error": 49,
+    "error_or_refusal": 33
    }
   },
   "s4_semantic|qwen-coder-3b": {
@@ -675,14 +675,14 @@
  },
  "trap": {
   "s1_raw|gemini-flash-lite": {
-   "n": 212,
+   "n": 318,
    "correct": 0.0,
-   "silent_error": 0.9811320754716981,
-   "error_or_refusal": 0.018867924528301886,
+   "silent_error": 0.9842767295597484,
+   "error_or_refusal": 0.015723270440251572,
    "counts": {
     "correct": 0,
-    "silent_error": 208,
-    "error_or_refusal": 4
+    "silent_error": 313,
+    "error_or_refusal": 5
    }
   },
   "s1_raw|qwen-coder-3b": {
@@ -708,14 +708,14 @@
    }
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "n": 167,
-   "correct": 0.1317365269461078,
-   "silent_error": 0.5029940119760479,
-   "error_or_refusal": 0.3652694610778443,
+   "n": 318,
+   "correct": 0.14150943396226415,
+   "silent_error": 0.49056603773584906,
+   "error_or_refusal": 0.36792452830188677,
    "counts": {
-    "correct": 22,
-    "silent_error": 84,
-    "error_or_refusal": 61
+    "correct": 45,
+    "silent_error": 156,
+    "error_or_refusal": 117
    }
   },
   "s1d_raw_docs|qwen-coder-3b": {
@@ -741,13 +741,13 @@
    }
   },
   "s2_modelled|gemini-flash-lite": {
-   "n": 106,
-   "correct": 0.9339622641509434,
-   "silent_error": 0.0660377358490566,
+   "n": 318,
+   "correct": 0.9371069182389937,
+   "silent_error": 0.06289308176100629,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 99,
-    "silent_error": 7,
+    "correct": 298,
+    "silent_error": 20,
     "error_or_refusal": 0
    }
   },
@@ -774,13 +774,13 @@
    }
   },
   "s3_docs|gemini-flash-lite": {
-   "n": 106,
-   "correct": 0.9811320754716981,
-   "silent_error": 0.018867924528301886,
+   "n": 318,
+   "correct": 0.9779874213836478,
+   "silent_error": 0.0220125786163522,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 104,
-    "silent_error": 2,
+    "correct": 311,
+    "silent_error": 7,
     "error_or_refusal": 0
    }
   },
@@ -807,14 +807,14 @@
    }
   },
   "s4_semantic|gemini-flash-lite": {
-   "n": 106,
-   "correct": 0.6886792452830188,
+   "n": 318,
+   "correct": 0.6761006289308176,
    "silent_error": 0.14150943396226415,
-   "error_or_refusal": 0.16981132075471697,
+   "error_or_refusal": 0.18238993710691823,
    "counts": {
-    "correct": 73,
-    "silent_error": 15,
-    "error_or_refusal": 18
+    "correct": 215,
+    "silent_error": 45,
+    "error_or_refusal": 58
    }
   },
   "s4_semantic|qwen-coder-3b": {
@@ -842,13 +842,13 @@
  },
  "normal": {
   "s1_raw|gemini-flash-lite": {
-   "n": 68,
-   "correct": 0.9411764705882353,
-   "silent_error": 0.04411764705882353,
-   "error_or_refusal": 0.014705882352941176,
+   "n": 102,
+   "correct": 0.9509803921568627,
+   "silent_error": 0.0392156862745098,
+   "error_or_refusal": 0.00980392156862745,
    "counts": {
-    "correct": 64,
-    "silent_error": 3,
+    "correct": 97,
+    "silent_error": 4,
     "error_or_refusal": 1
    }
   },
@@ -875,14 +875,14 @@
    }
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "n": 44,
-   "correct": 0.29545454545454547,
-   "silent_error": 0.45454545454545453,
-   "error_or_refusal": 0.25,
+   "n": 102,
+   "correct": 0.3137254901960784,
+   "silent_error": 0.43137254901960786,
+   "error_or_refusal": 0.2549019607843137,
    "counts": {
-    "correct": 13,
-    "silent_error": 20,
-    "error_or_refusal": 11
+    "correct": 32,
+    "silent_error": 44,
+    "error_or_refusal": 26
    }
   },
   "s1d_raw_docs|qwen-coder-3b": {
@@ -908,13 +908,13 @@
    }
   },
   "s2_modelled|gemini-flash-lite": {
-   "n": 34,
-   "correct": 0.9117647058823529,
-   "silent_error": 0.08823529411764706,
+   "n": 102,
+   "correct": 0.9313725490196079,
+   "silent_error": 0.06862745098039216,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 31,
-    "silent_error": 3,
+    "correct": 95,
+    "silent_error": 7,
     "error_or_refusal": 0
    }
   },
@@ -941,12 +941,12 @@
    }
   },
   "s3_docs|gemini-flash-lite": {
-   "n": 34,
+   "n": 102,
    "correct": 1.0,
    "silent_error": 0.0,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 34,
+    "correct": 102,
     "silent_error": 0,
     "error_or_refusal": 0
    }
@@ -974,14 +974,14 @@
    }
   },
   "s4_semantic|gemini-flash-lite": {
-   "n": 34,
-   "correct": 0.7647058823529411,
+   "n": 102,
+   "correct": 0.7352941176470589,
    "silent_error": 0.20588235294117646,
-   "error_or_refusal": 0.029411764705882353,
+   "error_or_refusal": 0.058823529411764705,
    "counts": {
-    "correct": 26,
-    "silent_error": 7,
-    "error_or_refusal": 1
+    "correct": 75,
+    "silent_error": 21,
+    "error_or_refusal": 6
    }
   },
   "s4_semantic|qwen-coder-3b": {
@@ -1010,35 +1010,35 @@
  "raw_docs_arm": {
   "gemini-flash-lite": {
    "s1_raw": {
-    "n": 212,
+    "n": 318,
     "correct": 0.0,
-    "silent_error": 0.9811320754716981,
-    "error_or_refusal": 0.018867924528301886,
+    "silent_error": 0.9842767295597484,
+    "error_or_refusal": 0.015723270440251572,
     "counts": {
      "correct": 0,
-     "silent_error": 208,
-     "error_or_refusal": 4
+     "silent_error": 313,
+     "error_or_refusal": 5
     }
    },
    "s1d_raw_docs": {
-    "n": 167,
-    "correct": 0.1317365269461078,
-    "silent_error": 0.5029940119760479,
-    "error_or_refusal": 0.3652694610778443,
+    "n": 318,
+    "correct": 0.14150943396226415,
+    "silent_error": 0.49056603773584906,
+    "error_or_refusal": 0.36792452830188677,
     "counts": {
-     "correct": 22,
-     "silent_error": 84,
-     "error_or_refusal": 61
+     "correct": 45,
+     "silent_error": 156,
+     "error_or_refusal": 117
     }
    },
    "s2_modelled": {
-    "n": 106,
-    "correct": 0.9339622641509434,
-    "silent_error": 0.0660377358490566,
+    "n": 318,
+    "correct": 0.9371069182389937,
+    "silent_error": 0.06289308176100629,
     "error_or_refusal": 0.0,
     "counts": {
-     "correct": 99,
-     "silent_error": 7,
+     "correct": 298,
+     "silent_error": 20,
      "error_or_refusal": 0
     }
    }
@@ -1116,8 +1116,8 @@
  },
  "silent_equals_naive_raw": {
   "s1_raw|gemini-flash-lite": {
-   "silent_errors": 211,
-   "equal_naive_raw": 187
+   "silent_errors": 317,
+   "equal_naive_raw": 282
   },
   "s1_raw|qwen-coder-3b": {
    "silent_errors": 86,
@@ -1128,7 +1128,7 @@
    "equal_naive_raw": 84
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "silent_errors": 104,
+   "silent_errors": 200,
    "equal_naive_raw": 0
   },
   "s1d_raw_docs|qwen-coder-3b": {
@@ -1142,25 +1142,25 @@
  },
  "docs_vs_semantic": {
   "Expressible in the semantic layer|gemini-flash-lite|s3_docs": {
-   "n": 108,
-   "correct": 0.9907407407407407,
-   "silent_error": 0.009259259259259259,
+   "n": 324,
+   "correct": 0.9876543209876543,
+   "silent_error": 0.012345679012345678,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 107,
-    "silent_error": 1,
+    "correct": 320,
+    "silent_error": 4,
     "error_or_refusal": 0
    }
   },
   "Expressible in the semantic layer|gemini-flash-lite|s4_semantic": {
-   "n": 108,
-   "correct": 0.9166666666666666,
-   "silent_error": 0.009259259259259259,
-   "error_or_refusal": 0.07407407407407407,
+   "n": 324,
+   "correct": 0.8950617283950617,
+   "silent_error": 0.015432098765432098,
+   "error_or_refusal": 0.08950617283950617,
    "counts": {
-    "correct": 99,
-    "silent_error": 1,
-    "error_or_refusal": 8
+    "correct": 290,
+    "silent_error": 5,
+    "error_or_refusal": 29
    }
   },
   "Expressible in the semantic layer|qwen-coder-3b|s3_docs": {
@@ -1208,25 +1208,25 @@
    }
   },
   "Not expressible|gemini-flash-lite|s3_docs": {
-   "n": 32,
+   "n": 96,
    "correct": 0.96875,
    "silent_error": 0.03125,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 31,
-    "silent_error": 1,
+    "correct": 93,
+    "silent_error": 3,
     "error_or_refusal": 0
    }
   },
   "Not expressible|gemini-flash-lite|s4_semantic": {
-   "n": 32,
+   "n": 96,
    "correct": 0.0,
-   "silent_error": 0.65625,
-   "error_or_refusal": 0.34375,
+   "silent_error": 0.6354166666666666,
+   "error_or_refusal": 0.3645833333333333,
    "counts": {
     "correct": 0,
-    "silent_error": 21,
-    "error_or_refusal": 11
+    "silent_error": 61,
+    "error_or_refusal": 35
    }
   },
   "Not expressible|qwen-coder-3b|s3_docs": {
@@ -1276,13 +1276,13 @@
  },
  "unanswerable": {
   "s1_raw|gemini-flash-lite": {
-   "n": 20,
+   "n": 30,
    "correct": 0.8,
    "silent_error": 0.2,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 16,
-    "silent_error": 4,
+    "correct": 24,
+    "silent_error": 6,
     "error_or_refusal": 0
    }
   },
@@ -1309,13 +1309,13 @@
    }
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "n": 10,
+   "n": 30,
    "correct": 0.8,
    "silent_error": 0.2,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 8,
-    "silent_error": 2,
+    "correct": 24,
+    "silent_error": 6,
     "error_or_refusal": 0
    }
   },
@@ -1342,13 +1342,13 @@
    }
   },
   "s2_modelled|gemini-flash-lite": {
-   "n": 10,
+   "n": 30,
    "correct": 0.8,
    "silent_error": 0.2,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 8,
-    "silent_error": 2,
+    "correct": 24,
+    "silent_error": 6,
     "error_or_refusal": 0
    }
   },
@@ -1375,13 +1375,13 @@
    }
   },
   "s3_docs|gemini-flash-lite": {
-   "n": 10,
-   "correct": 1.0,
-   "silent_error": 0.0,
+   "n": 30,
+   "correct": 0.9666666666666667,
+   "silent_error": 0.03333333333333333,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 10,
-    "silent_error": 0,
+    "correct": 29,
+    "silent_error": 1,
     "error_or_refusal": 0
    }
   },
@@ -1408,13 +1408,13 @@
    }
   },
   "s4_semantic|gemini-flash-lite": {
-   "n": 10,
+   "n": 30,
    "correct": 0.9,
    "silent_error": 0.1,
    "error_or_refusal": 0.0,
    "counts": {
-    "correct": 9,
-    "silent_error": 1,
+    "correct": 27,
+    "silent_error": 3,
     "error_or_refusal": 0
    }
   },
@@ -1444,31 +1444,31 @@
  "stability": {
   "gemini-flash-lite|s1_raw": {
    "questions": 150,
-   "same_grade_every_repeat": 148
+   "same_grade_every_repeat": 147
   },
   "gemini-flash-lite|s1d_raw_docs": {
-   "questions": 71,
-   "same_grade_every_repeat": 32
+   "questions": 150,
+   "same_grade_every_repeat": 53
   },
   "gemini-flash-lite|s2_modelled": {
-   "questions": 0,
-   "same_grade_every_repeat": 0
+   "questions": 150,
+   "same_grade_every_repeat": 146
   },
   "gemini-flash-lite|s3_docs": {
-   "questions": 0,
-   "same_grade_every_repeat": 0
+   "questions": 150,
+   "same_grade_every_repeat": 148
   },
   "gemini-flash-lite|s4_semantic": {
-   "questions": 0,
-   "same_grade_every_repeat": 0
+   "questions": 150,
+   "same_grade_every_repeat": 129
   }
  },
  "cost": {
   "s1_raw|gemini-flash-lite": {
-   "llm_seconds": 0.9628966666666666,
+   "llm_seconds": 2.9318822222222223,
    "tokens_in": 329.46666666666664,
-   "tokens_out": 98.41,
-   "sql_seconds": 0.16579666666666665
+   "tokens_out": 97.88222222222223,
+   "sql_seconds": 0.14957111111111113
   },
   "s1_raw|qwen-coder-3b": {
    "llm_seconds": 2.4473000000000003,
@@ -1483,10 +1483,10 @@
    "sql_seconds": 0.20082
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "llm_seconds": 1.5055429864253396,
-   "tokens_in": 2257.3031674208146,
-   "tokens_out": 243.79638009049773,
-   "sql_seconds": 0.23823529411764705
+   "llm_seconds": 3.188546666666667,
+   "tokens_in": 2258.4666666666667,
+   "tokens_out": 248.45111111111112,
+   "sql_seconds": 0.17917555555555556
   },
   "s1d_raw_docs|qwen-coder-3b": {
    "llm_seconds": 4.080566666666667,
@@ -1501,10 +1501,10 @@
    "sql_seconds": 0.17912666666666666
   },
   "s2_modelled|gemini-flash-lite": {
-   "llm_seconds": 0.9360999999999999,
+   "llm_seconds": 2.5284955555555557,
    "tokens_in": 409.46666666666664,
-   "tokens_out": 76.81333333333333,
-   "sql_seconds": 0.056593333333333336
+   "tokens_out": 76.93333333333334,
+   "sql_seconds": 0.05753333333333333
   },
   "s2_modelled|qwen-coder-3b": {
    "llm_seconds": 3.001513333333333,
@@ -1519,10 +1519,10 @@
    "sql_seconds": 0.04226666666666667
   },
   "s3_docs|gemini-flash-lite": {
-   "llm_seconds": 1.2352066666666668,
+   "llm_seconds": 3.4529555555555556,
    "tokens_in": 2501.4666666666667,
-   "tokens_out": 47.86666666666667,
-   "sql_seconds": 0.044206666666666665
+   "tokens_out": 48.33555555555556,
+   "sql_seconds": 0.05308888888888889
   },
   "s3_docs|qwen-coder-3b": {
    "llm_seconds": 3.2781333333333333,
@@ -1537,10 +1537,10 @@
    "sql_seconds": 0.03936
   },
   "s4_semantic|gemini-flash-lite": {
-   "llm_seconds": 1.1545,
+   "llm_seconds": 4.5316133333333335,
    "tokens_in": 2132.4666666666667,
-   "tokens_out": 59.22666666666667,
-   "sql_seconds": 2.0250933333333334
+   "tokens_out": 58.437777777777775,
+   "sql_seconds": 2.531791111111111
   },
   "s4_semantic|qwen-coder-3b": {
    "llm_seconds": 2.1870933333333333,
@@ -1557,7 +1557,7 @@
  },
  "error_types": {
   "s1_raw|gemini-flash-lite": {
-   "unsafe_sql": 4,
+   "unsafe_sql": 5,
    "sql_error": 1
   },
   "s1_raw|qwen-coder-3b": {
@@ -1568,8 +1568,8 @@
    "sql_error": 5
   },
   "s1d_raw_docs|gemini-flash-lite": {
-   "sql_error": 67,
-   "unsafe_sql": 5
+   "sql_error": 135,
+   "unsafe_sql": 8
   },
   "s1d_raw_docs|qwen-coder-3b": {
    "sql_error": 34,
@@ -1595,9 +1595,9 @@
    "sql_error": 16
   },
   "s4_semantic|gemini-flash-lite": {
-   "sql_error": 9,
-   "refusal": 7,
-   "semantic_error": 3
+   "sql_error": 30,
+   "refusal": 21,
+   "semantic_error": 13
   },
   "s4_semantic|qwen-coder-3b": {
    "sql_error": 32,
