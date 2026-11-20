@@ -1,6 +1,6 @@
 PY := .venv/bin/python
 
-.PHONY: install setups check profile test check-llm all gold eval summary api mcp try-api try-mcp
+.PHONY: install setups check profile test check-llm all gold blind eval summary api mcp try-api try-mcp
 
 install:            ## create the Python 3.12 venv and install everything
 	uv venv --python 3.12 .venv
@@ -25,6 +25,9 @@ all: setups check profile test
 
 gold:               ## run every gold SQL -> results/gold_answers.json
 	$(PY) scripts/build_gold.py
+
+blind:              ## gold answers for the blind set (benchmark/blind) -> results/gold_blind.json
+	$(PY) scripts/build_blind.py
 
 MODEL ?= gemini-flash-lite
 REPEATS ?= 1

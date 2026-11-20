@@ -1,0 +1,856 @@
+{
+ "generated_at_utc": "2026-11-20T23:04:19+00:00",
+ "summary": {
+  "questions": 15,
+  "answerable": 15,
+  "raw_diverges": 14,
+  "problems": []
+ },
+ "questions": {
+  "b001": {
+   "answerable": true,
+   "columns": [
+    "trip_count"
+   ],
+   "rows": [
+    [
+     31518020
+    ]
+   ],
+   "raw_columns": [
+    "trip_count"
+   ],
+   "raw_rows": [
+    [
+     33806220
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b002": {
+   "answerable": true,
+   "columns": [
+    "trip_count"
+   ],
+   "rows": [
+    [
+     29122253
+    ]
+   ],
+   "raw_columns": [
+    "trip_count"
+   ],
+   "raw_rows": [
+    [
+     29856932
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b003": {
+   "answerable": true,
+   "columns": [
+    "avg_tip_usd"
+   ],
+   "rows": [
+    [
+     4.4
+    ]
+   ],
+   "raw_columns": [
+    "avg_tip_usd"
+   ],
+   "raw_rows": [
+    [
+     4.4
+    ]
+   ],
+   "raw_diverges": false,
+   "semantic_expressible": false
+  },
+  "b004": {
+   "answerable": true,
+   "columns": [
+    "total_tolls_usd"
+   ],
+   "rows": [
+    [
+     1840119.62
+    ]
+   ],
+   "raw_columns": [
+    "total_tolls_usd"
+   ],
+   "raw_rows": [
+    [
+     1929845.48
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b005": {
+   "answerable": true,
+   "columns": [
+    "long_trip_count"
+   ],
+   "rows": [
+    [
+     3143283
+    ]
+   ],
+   "raw_columns": [
+    "long_trip_count"
+   ],
+   "raw_rows": [
+    [
+     3315130
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b006": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough",
+    "trip_count"
+   ],
+   "rows": [
+    [
+     "Manhattan",
+     31518020
+    ],
+    [
+     "Queens",
+     3504128
+    ],
+    [
+     "Unknown",
+     313419
+    ],
+    [
+     "Brooklyn",
+     182143
+    ],
+    [
+     "Bronx",
+     47822
+    ],
+    [
+     "N/A",
+     6342
+    ],
+    [
+     "Staten Island",
+     1744
+    ],
+    [
+     "EWR",
+     1029
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough",
+    "trip_count"
+   ],
+   "raw_rows": [
+    [
+     "Manhattan",
+     33806220
+    ],
+    [
+     "Queens",
+     3761565
+    ],
+    [
+     "Unknown",
+     356729
+    ],
+    [
+     "Brooklyn",
+     281568
+    ],
+    [
+     "Bronx",
+     65998
+    ],
+    [
+     "N/A",
+     30488
+    ],
+    [
+     "EWR",
+     5107
+    ],
+    [
+     "Staten Island",
+     2551
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b007": {
+   "answerable": true,
+   "columns": [
+    "pickup_hour",
+    "avg_fare_usd"
+   ],
+   "rows": [
+    [
+     0,
+     20.14
+    ],
+    [
+     1,
+     18.2
+    ],
+    [
+     2,
+     17.05
+    ],
+    [
+     3,
+     18.03
+    ],
+    [
+     4,
+     23.91
+    ],
+    [
+     5,
+     27.96
+    ],
+    [
+     6,
+     23.25
+    ],
+    [
+     7,
+     19.53
+    ],
+    [
+     8,
+     18.62
+    ],
+    [
+     9,
+     18.78
+    ],
+    [
+     10,
+     19.09
+    ],
+    [
+     11,
+     19.23
+    ],
+    [
+     12,
+     19.58
+    ],
+    [
+     13,
+     20.52
+    ],
+    [
+     14,
+     21.2
+    ],
+    [
+     15,
+     21.22
+    ],
+    [
+     16,
+     21.15
+    ],
+    [
+     17,
+     19.73
+    ],
+    [
+     18,
+     18.31
+    ],
+    [
+     19,
+     18.41
+    ],
+    [
+     20,
+     18.96
+    ],
+    [
+     21,
+     19.1
+    ],
+    [
+     22,
+     19.9
+    ],
+    [
+     23,
+     21.05
+    ]
+   ],
+   "raw_columns": [
+    "pickup_hour",
+    "avg_fare_usd"
+   ],
+   "raw_rows": [
+    [
+     0,
+     19.86
+    ],
+    [
+     1,
+     18.01
+    ],
+    [
+     2,
+     16.92
+    ],
+    [
+     3,
+     17.91
+    ],
+    [
+     4,
+     23.55
+    ],
+    [
+     5,
+     27.45
+    ],
+    [
+     6,
+     22.96
+    ],
+    [
+     7,
+     19.47
+    ],
+    [
+     8,
+     18.61
+    ],
+    [
+     9,
+     18.62
+    ],
+    [
+     10,
+     18.84
+    ],
+    [
+     11,
+     18.98
+    ],
+    [
+     12,
+     19.32
+    ],
+    [
+     13,
+     20.23
+    ],
+    [
+     14,
+     20.92
+    ],
+    [
+     15,
+     20.96
+    ],
+    [
+     16,
+     20.91
+    ],
+    [
+     17,
+     19.57
+    ],
+    [
+     18,
+     18.17
+    ],
+    [
+     19,
+     18.19
+    ],
+    [
+     20,
+     18.68
+    ],
+    [
+     21,
+     18.83
+    ],
+    [
+     22,
+     19.64
+    ],
+    [
+     23,
+     20.72
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b008": {
+   "answerable": true,
+   "columns": [
+    "pickup_zone",
+    "trip_count"
+   ],
+   "rows": [
+    [
+     "JFK Airport",
+     1887939
+    ],
+    [
+     "Upper East Side South",
+     1701167
+    ],
+    [
+     "Midtown Center",
+     1674815
+    ],
+    [
+     "Upper East Side North",
+     1500382
+    ],
+    [
+     "Midtown East",
+     1290101
+    ]
+   ],
+   "raw_columns": [
+    "pickup_zone",
+    "trip_count"
+   ],
+   "raw_rows": [
+    [
+     "JFK Airport",
+     1992304
+    ],
+    [
+     "Upper East Side South",
+     1791795
+    ],
+    [
+     "Midtown Center",
+     1766041
+    ],
+    [
+     "Upper East Side North",
+     1596584
+    ],
+    [
+     "Midtown East",
+     1353753
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b009": {
+   "answerable": true,
+   "columns": [
+    "zone_borough",
+    "total_amount_usd"
+   ],
+   "rows": [
+    [
+     "Manhattan",
+     753576490.47
+    ],
+    [
+     "Queens",
+     257319580.7
+    ],
+    [
+     "Unknown",
+     9714170.88
+    ],
+    [
+     "Brooklyn",
+     5916142.58
+    ],
+    [
+     "Bronx",
+     1631334.09
+    ],
+    [
+     "N/A",
+     595145.59
+    ],
+    [
+     "Staten Island",
+     112492.0
+    ],
+    [
+     "EWR",
+     108790.27
+    ]
+   ],
+   "raw_columns": [
+    "zone_borough",
+    "total_amount_usd"
+   ],
+   "raw_rows": [
+    [
+     "Manhattan",
+     801952154.24
+    ],
+    [
+     "Queens",
+     262536479.26
+    ],
+    [
+     "Unknown",
+     10750605.05
+    ],
+    [
+     "Brooklyn",
+     9441381.68
+    ],
+    [
+     "N/A",
+     2733646.85
+    ],
+    [
+     "Bronx",
+     2282758.6
+    ],
+    [
+     "EWR",
+     522707.03
+    ],
+    [
+     "Staten Island",
+     163679.18
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b010": {
+   "answerable": true,
+   "columns": [
+    "month_key",
+    "weekend_trip_count"
+   ],
+   "rows": [
+    [
+     "2023-01",
+     824038
+    ],
+    [
+     "2023-02",
+     739678
+    ],
+    [
+     "2023-03",
+     793367
+    ],
+    [
+     "2023-04",
+     972025
+    ],
+    [
+     "2023-05",
+     791718
+    ],
+    [
+     "2023-06",
+     771062
+    ],
+    [
+     "2023-07",
+     810820
+    ],
+    [
+     "2023-08",
+     632680
+    ],
+    [
+     "2023-09",
+     643728
+    ],
+    [
+     "2023-10",
+     915948
+    ],
+    [
+     "2023-11",
+     795843
+    ],
+    [
+     "2023-12",
+     930970
+    ]
+   ],
+   "raw_columns": [
+    "month_key",
+    "weekend_trip_count"
+   ],
+   "raw_rows": [
+    [
+     "2022-12",
+     25
+    ],
+    [
+     "2023-01",
+     878064
+    ],
+    [
+     "2023-02",
+     791248
+    ],
+    [
+     "2023-03",
+     848662
+    ],
+    [
+     "2023-04",
+     1045160
+    ],
+    [
+     "2023-05",
+     854310
+    ],
+    [
+     "2023-06",
+     830791
+    ],
+    [
+     "2023-07",
+     874748
+    ],
+    [
+     "2023-08",
+     686565
+    ],
+    [
+     "2023-09",
+     714507
+    ],
+    [
+     "2023-10",
+     1009401
+    ],
+    [
+     "2023-11",
+     864550
+    ],
+    [
+     "2023-12",
+     1029648
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b011": {
+   "answerable": true,
+   "columns": [
+    "cash_share_pct"
+   ],
+   "rows": [
+    [
+     17.1
+    ]
+   ],
+   "raw_columns": [
+    "cash_share_pct"
+   ],
+   "raw_rows": [
+    [
+     16.72
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b012": {
+   "answerable": true,
+   "columns": [
+    "is_weekend",
+    "avg_distance_miles"
+   ],
+   "rows": [
+    [
+     false,
+     3.63
+    ],
+    [
+     true,
+     3.64
+    ]
+   ],
+   "raw_columns": [
+    "is_weekend",
+    "avg_distance_miles"
+   ],
+   "raw_rows": [
+    [
+     false,
+     4.08
+    ],
+    [
+     true,
+     4.1
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b013": {
+   "answerable": true,
+   "columns": [
+    "pickup_borough",
+    "pickup_zone",
+    "trip_count"
+   ],
+   "rows": [
+    [
+     "Bronx",
+     "Co-Op City",
+     3064
+    ],
+    [
+     "Brooklyn",
+     "Downtown Brooklyn/MetroTech",
+     19973
+    ],
+    [
+     "EWR",
+     "Newark Airport",
+     1029
+    ],
+    [
+     "Manhattan",
+     "Upper East Side South",
+     1701167
+    ],
+    [
+     "N/A",
+     "Outside of NYC",
+     6342
+    ],
+    [
+     "Queens",
+     "JFK Airport",
+     1887939
+    ],
+    [
+     "Staten Island",
+     "Bloomfield/Emerson Hill",
+     481
+    ],
+    [
+     "Unknown",
+     "N/A",
+     313419
+    ]
+   ],
+   "raw_columns": [
+    "pickup_borough",
+    "pickup_zone",
+    "trip_count"
+   ],
+   "raw_rows": [
+    [
+     "Bronx",
+     "Mott Haven/Port Morris",
+     5765
+    ],
+    [
+     "Brooklyn",
+     "Downtown Brooklyn/MetroTech",
+     24658
+    ],
+    [
+     "EWR",
+     "Newark Airport",
+     5107
+    ],
+    [
+     "Manhattan",
+     "Upper East Side South",
+     1791795
+    ],
+    [
+     "N/A",
+     "Outside of NYC",
+     30488
+    ],
+    [
+     "Queens",
+     "JFK Airport",
+     1992304
+    ],
+    [
+     "Staten Island",
+     "Bloomfield/Emerson Hill",
+     675
+    ],
+    [
+     "Unknown",
+     "N/A",
+     356729
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b014": {
+   "answerable": true,
+   "columns": [
+    "avg_weekend_trips_per_day"
+   ],
+   "rows": [
+    [
+     91636.9
+    ]
+   ],
+   "raw_columns": [
+    "avg_weekend_trips_per_day"
+   ],
+   "raw_rows": [
+    [
+     98374.3
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  },
+  "b015": {
+   "answerable": true,
+   "columns": [
+    "p90_duration_minutes"
+   ],
+   "rows": [
+    [
+     32.5
+    ]
+   ],
+   "raw_columns": [
+    "p90_duration_minutes"
+   ],
+   "raw_rows": [
+    [
+     32.6
+    ]
+   ],
+   "raw_diverges": true,
+   "semantic_expressible": false
+  }
+ }
+}

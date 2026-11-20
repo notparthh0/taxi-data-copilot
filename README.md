@@ -117,6 +117,7 @@ make install            # Python 3.12 venv + requirements.txt
 cp .env.example .env    # add GEMINI_API_KEY
 make setups             # build data/raw.duckdb and data/warehouse.duckdb (about 1 minute)
 make gold               # gold answers -> results/gold_answers.json
+make blind              # 15 model-written blind questions -> results/gold_blind.json (not in the 150)
 make test               # 62 tests (8 skip when the data is not built)
 
 make eval MODEL=gemini-flash-lite REPEATS=3   # resumable; results/runs/<model>.jsonl

@@ -3,6 +3,7 @@
 import calendar
 import json
 from dataclasses import dataclass, field
+from pathlib import Path
 
 import yaml
 
@@ -34,9 +35,14 @@ class Question:
     checked_by: str = ""
 
 
-def load_questions(dataset: str = "nyc_taxi") -> list:
+BLIND_DIR = config.REPO / "benchmark" / "blind"
+BLIND_GOLD_FILE = config.RESULTS_DIR / "gold_blind.json"
+
+
+def load_questions(dataset: str = "nyc_taxi", directory: Path = QUESTIONS_DIR) -> list:
+    """The frozen 150-question set by default. load_questions(directory=BLIND_DIR) loads the blind set."""
     out = []
-    for path in sorted(QUESTIONS_DIR.glob("*.yml")):
+    for path in sorted(directory.glob("*.yml")):
         for raw in yaml.safe_load(path.read_text()) or []:
             q = Question(
                 id=raw["id"], question=raw["q"], difficulty=raw["d"], category=raw["cat"],
