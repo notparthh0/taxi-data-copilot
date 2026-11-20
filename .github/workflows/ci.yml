@@ -19,3 +19,6 @@ jobs:
       - run: python -m pytest -q
       # The benchmark files must load, and the committed results must still summarise.
       - run: python scripts/summarise.py
+      # ...and must give exactly the committed tables (only the timestamp line may differ),
+      # so nobody can hand-edit docs/RESULTS.md.
+      - run: git diff --exit-code -I 'enerated' -- docs/RESULTS.md results/summary.json

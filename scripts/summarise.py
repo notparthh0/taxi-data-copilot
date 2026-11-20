@@ -22,6 +22,29 @@ SETUP_NAME = {"s1_raw": "1 Raw, schema only", "s1d_raw_docs": "1+ Raw + docs (ex
               "s4_semantic": "4 Cleaned + semantic layer"}
 
 
+# Section 11: what the loud errors were. Fixed text patterns on the stored error and SQL,
+# checked in this order. Descriptive only: no grade is changed by this.
+ERROR_CAUSES = [
+    ("harness crash (MetricFlow subprocess did not start; not the model's fault)",
+     lambda r: "Fatal Python error" in (r["error"] or "")),
+    ("refused an answerable question", lambda r: r["error_type"] == "refusal"),
+    ("guard could not parse the SQL (a syntax error, not an attack)",
+     lambda r: r["error_type"] == "unsafe_sql" and (r["error"] or "").startswith("cannot parse")),
+    ("blocked by the guard as unsafe", lambda r: r["error_type"] == "unsafe_sql"),
+    ("cleaning rule 7: reading the month out of the file name",
+     lambda r: "source_file" in (r["sql"] or "").lower()),
+    ("semantic layer: month written as '2023-01' instead of a full date",
+     lambda r: "invalid timestamp field format" in (r["error"] or "")),
+    ("semantic layer: invalid request (unknown name or key, or no metric)",
+     lambda r: any(t in (r["error"] or "") for t in ("query resolution", "unknown keys", "at least one metric"))),
+    ("other SQL error", lambda r: True),
+]
+
+
+def error_cause(r):
+    return next(label for label, test in ERROR_CAUSES if test(r))
+
+
 def load_runs():
     rows = []
     for path in sorted((config.RESULTS_DIR / "runs").glob("*.jsonl")):
@@ -146,6 +169,18 @@ def main():
                 row.append(cell(rt) if rt["n"] else "-")
             body.append(row)
     md.append(table(["Subset / model", "Docs (setup 3)", "Semantic layer (setup 4)"], body) + "\n")
+    md.append("Setup 4 on the answerable questions it cannot express: how often the model said so "
+              "(a refusal; graded as an error, but the honest reply for a layer that lacks the metric) "
+              "versus returning something else.\n")
+    body, S["semantic_refusals_not_expressible"] = [], {}
+    for m in models:
+        sub = [r for r in ans if r["model"] == m and r["setup"] == "s4_semantic" and not r["expressible"]]
+        k = sum(r["error_type"] == "refusal" for r in sub)
+        silent = sum(r["grade"] == "silent_error" for r in sub)
+        S["semantic_refusals_not_expressible"][m] = {"n": len(sub), "refused": k, "silent_error": silent}
+        if sub:
+            body.append([m, f"{k} of {len(sub)} ({pct(k / len(sub))})", f"{silent} of {len(sub)} ({pct(silent / len(sub))})"])
+    md.append(table(["Model", "Said the layer cannot answer", "Returned something else (silent error)"], body) + "\n")
 
     md.append("## 7. Questions the data cannot answer (10)\n")
     md.append("Correct = refused. Silent error = returned a number anyway.\n")
@@ -177,6 +212,25 @@ def main():
             body.append([m, SETUP_NAME[s], f"{same} of {len(full)} ({pct(same / len(full)) if full else '-'})"])
     md.append((table(["Model", "Setup", "Same grade in every repeat"], body) if body else "Only one repeat so far.") + "\n")
 
+    md.append("## 8b. Correct answers in each repeat (models with more than one repeat)\n")
+    md.append("Answerable questions; one cell per repeat, as correct of 140. The spread between repeats is "
+              "a rough noise estimate at temperature 0.\n")
+    S["per_repeat"], body = {}, []
+    for m in models:
+        reps = sorted({r["repeat"] for r in runs if r["model"] == m})
+        if len(reps) < 2:
+            continue
+        for s in setups:
+            counts = [sum(r["grade"] == "correct" for r in ans if r["model"] == m and r["setup"] == s
+                          and r["repeat"] == k) for k in reps]
+            ns = [sum(1 for r in ans if r["model"] == m and r["setup"] == s and r["repeat"] == k) for k in reps]
+            S["per_repeat"][f"{m}|{s}"] = {"correct": counts, "n": ns}
+            body.append([m, SETUP_NAME[s]] + [f"{c} ({pct(c / n) if n else '-'})" for c, n in zip(counts, ns)]
+                        + [f"{max(counts) - min(counts)}"])
+        hdr = ["Model", "Setup"] + [f"Repeat {k + 1}" for k in reps] + ["Spread (questions)"]
+        md.append(table(hdr, body) + "\n")
+        body = []
+
     md.append("## 9. Speed and size\n")
     body, S["cost"] = [], {}
     for s in setups:
@@ -201,6 +255,20 @@ def main():
             if c:
                 body.append([SETUP_NAME[s], m, ", ".join(f"{k or 'other'}: {v}" for k, v in c.most_common())])
     md.append(table(["Setup", "Model", "Error types"], body) + "\n")
+
+    md.append("## 11. What the loud errors were\n")
+    md.append("Every answer graded *error or refusal* (all questions), sorted into causes by fixed text "
+              "patterns on the stored error message and SQL (`ERROR_CAUSES` in `scripts/summarise.py`). "
+              "Descriptive only; no grade changes.\n")
+    body, S["error_causes"] = [], {}
+    for s in setups:
+        for m in models:
+            c = Counter(error_cause(r) for r in runs if r["setup"] == s and r["model"] == m
+                        and r["grade"] == "error_or_refusal")
+            S["error_causes"][f"{s}|{m}"] = dict(c)
+            if c:
+                body.append([SETUP_NAME[s], m, "; ".join(f"{k}: {v}" for k, v in c.most_common())])
+    md.append(table(["Setup", "Model", "Causes (count)"], body) + "\n")
 
     md.append("## Limits\n\n- One dataset (NYC yellow taxi 2023).\n"
               "- All 150 questions so far were written by Claude and are not yet reviewed by the project "
