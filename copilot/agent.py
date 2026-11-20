@@ -13,6 +13,7 @@ Safety does not depend on the model behaving. Whatever SQL the model writes goes
 copilot/sqlguard.py: one SELECT only, read-only database file, no file or network access.
 """
 
+import re
 import time
 from typing import TypedDict
 
@@ -43,6 +44,20 @@ class State(TypedDict, total=False):
     answer: str
     tokens_in: int
     tokens_out: int
+    llm_seconds: float
+    sql_seconds: float
+    llm_retries: int      # rate-limit / timeout retries inside the model client
+
+
+def refusal_reason(reply: str) -> str:
+    """'```sql\nSELECT CANNOT_ANSWER: no driver IDs\n```' -> 'No driver IDs.'"""
+    text = re.sub(r"```[a-z]*", " ", reply)
+    m = re.search(r"cannot_answer\W*(.*)", text, flags=re.I | re.S)
+    reason = " ".join((m.group(1) if m else text).split()).strip(" '\";")
+    if not reason:
+        return ""
+    reason = reason[0].upper() + reason[1:]
+    return reason if reason.endswith((".", "!", "?")) else reason + "."
 
 
 def build_agent(client, setup=None):
@@ -50,9 +65,12 @@ def build_agent(client, setup=None):
     setup = setup or get_setups()["s3_docs"]
 
     def _call(state, system, user):
+        start = time.perf_counter()
         text, info = client.generate(system, user)
         return text, {"tokens_in": state.get("tokens_in", 0) + (info.get("tokens_in") or 0),
-                      "tokens_out": state.get("tokens_out", 0) + (info.get("tokens_out") or 0)}
+                      "tokens_out": state.get("tokens_out", 0) + (info.get("tokens_out") or 0),
+                      "llm_seconds": state.get("llm_seconds", 0) + (time.perf_counter() - start),
+                      "llm_retries": state.get("llm_retries", 0) + max((info.get("attempts") or 1) - 1, 0)}
 
     def write_sql(state: State) -> dict:
         system, user = prompts.build(setup, state["question"])
@@ -68,10 +86,12 @@ def build_agent(client, setup=None):
             return {"refused": str(action), "error": ""}
         if kind == "unparseable":
             return {"error": "The reply was not a SQL query.", "sql": ""}
+        start = time.perf_counter()
         result = setup.execute(action)
+        took = {"sql_seconds": state.get("sql_seconds", 0) + (time.perf_counter() - start)}
         if result.status == "ok":
-            return {"sql": result.sql, "columns": result.columns, "rows": result.rows, "error": ""}
-        return {"sql": result.sql, "error": f"{result.error_type}: {result.error}"}
+            return {"sql": result.sql, "columns": result.columns, "rows": result.rows, "error": "", **took}
+        return {"sql": result.sql, "error": f"{result.error_type}: {result.error}", **took}
 
     def after_run(state: State) -> str:
         if state.get("refused"):
@@ -88,7 +108,7 @@ def build_agent(client, setup=None):
         return {"answer": text.strip(), **usage}
 
     def refuse(state: State) -> dict:
-        return {"answer": f"This data cannot answer that question. {state['refused']}".strip()}
+        return {"answer": f"This data cannot answer that question. {refusal_reason(state['refused'])}".strip()}
 
     def give_up(state: State) -> dict:
         return {"answer": "I could not produce a working query for this question. "
@@ -118,6 +138,9 @@ def ask(agent, question: str, model_name: str = "") -> dict:
            "row_count": len(state.get("rows", [])), "refused": bool(state.get("refused")),
            "failed": bool(state.get("error")), "attempts": state.get("attempts", 0),
            "seconds": round(time.perf_counter() - start, 2),
+           "llm_seconds": round(state.get("llm_seconds", 0), 2),
+           "sql_seconds": round(state.get("sql_seconds", 0), 2),
+           "llm_retries": state.get("llm_retries", 0),
            "tokens_in": state.get("tokens_in", 0), "tokens_out": state.get("tokens_out", 0)}
     tracing.log_run({k: v for k, v in out.items() if k not in ("rows", "columns")} | {"model": model_name})
     return out

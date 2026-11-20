@@ -1,6 +1,6 @@
 PY := .venv/bin/python
 
-.PHONY: install setups check profile test check-llm all gold eval summary api mcp
+.PHONY: install setups check profile test check-llm all gold eval summary api mcp try-api try-mcp
 
 install:            ## create the Python 3.12 venv and install everything
 	uv venv --python 3.12 .venv
@@ -39,3 +39,9 @@ api:                ## the copilot as an HTTP API on http://127.0.0.1:8000 (docs
 
 mcp:                ## the copilot as an MCP server (stdio)
 	$(PY) -m copilot.mcp_server
+
+try-api:            ## needs `make api` running: 12 benchmark questions + 4 attacks over HTTP -> results/api_trial.json
+	$(PY) scripts/try_api.py
+
+try-mcp:            ## starts the MCP server over stdio and calls every tool -> results/mcp_trial.json
+	$(PY) scripts/try_mcp.py

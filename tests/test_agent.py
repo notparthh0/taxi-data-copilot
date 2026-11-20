@@ -60,6 +60,16 @@ def test_gives_up_after_three_attempts(setup):
 def test_refusal(setup):
     out, _ = run(setup, "CANNOT_ANSWER: there is no driver id")
     assert out["refused"] and "cannot answer" in out["answer"].lower() and out["sql"] == ""
+    assert out["answer"].endswith("There is no driver id.")
+
+
+@pytest.mark.parametrize("reply", [
+    "```sql\nCANNOT_ANSWER: no driver IDs\n```",
+    "```sql\nSELECT CANNOT_ANSWER: no driver IDs\n```",
+    "CANNOT_ANSWER: no driver IDs",
+])
+def test_refusal_reason_is_cleaned(reply):
+    assert agent_mod.refusal_reason(reply) == "No driver IDs."
 
 
 # ---- prompt injection: the model does what the attacker asked ----
