@@ -1,10 +1,26 @@
 {
- "generated_at_utc": "2026-11-20T23:04:19+00:00",
+ "generated_at_utc": "2026-11-21T07:52:41+00:00",
  "summary": {
   "questions": 15,
   "answerable": 15,
+  "unanswerable": 0,
   "raw_diverges": 14,
-  "problems": []
+  "semantic_expressible": 0,
+  "by_difficulty": {
+   "1": {
+    "questions": 5,
+    "raw_diverges": 4
+   },
+   "2": {
+    "questions": 5,
+    "raw_diverges": 5
+   },
+   "3": {
+    "questions": 5,
+    "raw_diverges": 5
+   }
+  },
+  "numeric_tolerance_relative": 0.001
  },
  "questions": {
   "b001": {

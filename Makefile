@@ -27,7 +27,7 @@ gold:               ## run every gold SQL -> results/gold_answers.json
 	$(PY) scripts/build_gold.py
 
 blind:              ## gold answers for the blind set (benchmark/blind) -> results/gold_blind.json
-	$(PY) scripts/build_blind.py
+	$(PY) scripts/build_gold.py --blind
 
 MODEL ?= gemini-flash-lite
 REPEATS ?= 1

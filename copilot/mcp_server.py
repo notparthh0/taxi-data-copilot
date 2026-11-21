@@ -51,7 +51,7 @@ def run_sql(sql: str) -> dict:
 def ask(question: str) -> dict:
     """Ask a business question in plain English. The copilot writes the SQL, runs it and explains the result."""
     out = agent_mod.ask(_agent(), question, MODEL)
-    out["rows"] = [[str(v) if v is not None else None for v in r] for r in out["rows"]]
+    out["rows"] = [[str(v) if v is not None else None for v in r] for r in out["rows"][:200]]   # same cap as run_sql
     return out
 
 

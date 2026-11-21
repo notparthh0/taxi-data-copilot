@@ -134,7 +134,7 @@ def ask(agent, question: str, model_name: str = "") -> dict:
     start = time.perf_counter()
     state = agent.invoke({"question": question})
     out = {"question": question, "answer": state.get("answer", ""), "sql": state.get("sql", ""),
-           "columns": state.get("columns", []), "rows": state.get("rows", [])[:MAX_ROWS_SHOWN],
+           "columns": state.get("columns", []), "rows": state.get("rows", []),   # already capped by config.MAX_RESULT_ROWS
            "row_count": len(state.get("rows", [])), "refused": bool(state.get("refused")),
            "failed": bool(state.get("error")), "attempts": state.get("attempts", 0),
            "seconds": round(time.perf_counter() - start, 2),

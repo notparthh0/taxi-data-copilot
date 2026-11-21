@@ -8,6 +8,9 @@ Also checks the benchmark itself:
     request is wrong and must be fixed or removed);
   * raw_diverges: does the obvious query on the raw data give a different answer?
     This is how "trap" questions are identified - measured, not asserted.
+
+    build_gold.py           the frozen 150 questions -> results/gold_answers.json
+    build_gold.py --blind   benchmark/blind/ -> results/gold_blind.json (main file untouched)
 """
 
 import datetime as dt
@@ -18,7 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from copilot import config, grader  # noqa: E402
-from copilot.benchmark import GOLD_FILE, load_questions  # noqa: E402
+from copilot.benchmark import BLIND_DIR, BLIND_GOLD_FILE, GOLD_FILE, QUESTIONS_DIR, load_questions  # noqa: E402
 from copilot.setups import get_setups  # noqa: E402
 
 
@@ -35,10 +38,12 @@ def rows_json(rows):
 
 
 def main() -> int:
+    blind = "--blind" in sys.argv[1:]
+    out_file = BLIND_GOLD_FILE if blind else GOLD_FILE
     setups = get_setups()
     raw, modelled, semantic = setups["s1_raw"], setups["s2_modelled"], setups["s4_semantic"]
     out, problems = {}, []
-    questions = load_questions()
+    questions = load_questions(directory=BLIND_DIR if blind else QUESTIONS_DIR)
     for q in questions:
         if not q.answerable:
             out[q.id] = {"answerable": False}
@@ -76,7 +81,7 @@ def main() -> int:
                           for d in (1, 2, 3)},
         "numeric_tolerance_relative": grader.REL_TOL,
     }
-    GOLD_FILE.write_text(json.dumps({"generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+    out_file.write_text(json.dumps({"generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
                                      "summary": summary, "questions": out}, indent=1) + "\n")
     print(json.dumps(summary, indent=2))
     for p in problems:

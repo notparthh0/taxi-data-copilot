@@ -63,6 +63,11 @@ def test_refusal(setup):
     assert out["answer"].endswith("There is no driver id.")
 
 
+def test_all_rows_are_returned_for_grading(setup):
+    out, _ = run(setup, "SELECT * FROM range(25)", "25 rows.")
+    assert out["row_count"] == 25 and len(out["rows"]) == 25
+
+
 @pytest.mark.parametrize("reply", [
     "```sql\nCANNOT_ANSWER: no driver IDs\n```",
     "```sql\nSELECT CANNOT_ANSWER: no driver IDs\n```",
