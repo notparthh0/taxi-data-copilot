@@ -11,3 +11,9 @@ dbt/taxi_copilot/dbt_packages/
 dbt/taxi_copilot/profiles/.user.yml
 logs/
 
+
+# Kept on the owner's machine only: paper draft and personal planning notes
+paper/
+docs/PLAN.md
+docs/NEXT_STEPS.md
+graphify-out/

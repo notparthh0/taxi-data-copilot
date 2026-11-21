@@ -1,37 +1,36 @@
 # Benchmark
 
-`questions.yml` will hold about 150 questions. Parth reviews every question before it
-goes in; nothing is added without his sign-off.
+- `questions/level1.yml`, `level2.yml`, `level3.yml`: 140 answerable questions (50 / 55 / 35).
+- `questions/unanswerable.yml`: 10 questions the data cannot answer (the right reply is to refuse).
+- `blind/blind.yml`: 15 extra questions written by a fresh model instance that saw only the
+  cleaned table schema (not the cleaning rules, the metric list or the 150 questions). Reported
+  separately (RESULTS table 14); not a human blind set.
+
+`copilot/benchmark.py` loads them. The 150 in `questions/` are the frozen experiment set.
 
 ## Fields of one question
 
 | Field | Meaning |
 |---|---|
-| `id` | Stable id, e.g. `q001`. |
-| `dataset` | `nyc_taxi` for now. A second dataset gets its own value. |
-| `question` | The business question in plain English, as a manager would ask it. |
-| `difficulty` | `1` one table, one aggregate. `2` grouping, filters, top-N. `3` multi-step: ratios, comparisons, window logic. |
-| `category` | What it measures: `count`, `average`, `revenue`, `ranking`, `time`, `ratio`, ... |
-| `trap` | `true` if the raw data gives a different answer when queried the obvious way. |
-| `trap_reason` | Which data problem causes it, e.g. `negative_fares`, `stray_months`. Empty if `trap: false`. |
-| `author` | Who wrote it: `parth`, `claude`, or a classmate's name. Used to report results by author. |
-| `written_blind` | `true` if the author had not seen the data problems or the docs. |
-| `gold_sql` | Hand-checked SQL on the cleaned tables. Its result is the gold answer. |
-| `naive_raw_sql` | The obvious SQL on the raw table. Its result is the "naive raw answer", used to recognise *why* a wrong answer is wrong. |
-| `answer_shape` | `scalar`, `row`, or `table`; and whether row order matters. |
-| `checked_by` | Who verified the gold SQL by hand, and the date. |
+| `id` | Stable id: `q001`..., `u001`... (unanswerable), `b001`... (blind). |
+| `d` | Difficulty. `1` one table, one number; `2` grouping, ranking, time, a join; `3` shares, comparisons, per-group tops, daily statistics, percentiles. |
+| `cat` | Kind of question: `count`, `average`, `revenue`, `ranking`, `time`, `share`, ... |
+| `q` | The business question in plain English. |
+| `gold` | SQL on the cleaned tables. Its result is the gold answer. |
+| `raw` | The obvious SQL on the raw table. Its result is the "naive raw answer". |
+| `sem` | The same question as a semantic-layer request, if the layer can express it. |
+| `answerable`, `why` | `false` plus the reason, for questions the data cannot answer. |
+| `ordered`, `skip`, `percent`, `month_answer`, `also_accept` | Grading hints: row order matters; label columns not compared; a 0-1 fraction is also accepted; other spellings of a month or value. |
+| `author`, `written_blind`, `checked_by` | Who wrote it, whether they had seen the data problems, who checked it. |
 
-Gold answers are never typed in by hand. A script runs `gold_sql` and writes them to
-`results/`, so the answers can always be regenerated from the data.
+Gold answers are never typed by hand. `make gold` (and `make blind`) run the gold and raw SQL
+and write `results/gold_answers.json` (`results/gold_blind.json`). A question is a **trap** when
+the naive raw answer differs from the gold one: measured, not asserted.
 
-## Grading (decided up front, applied by a script)
+## Grading (`copilot/grader.py`, fixed before any model ran)
 
-- **correct**: the returned values match the gold answer (numbers within a small
-  relative tolerance, to be fixed before any model is run; extra columns are allowed).
-- **wrong but plausible (silent error)**: the query ran and returned an answer of the
-  right shape, but the values do not match. Nothing tells the user it is wrong.
-- **error or refusal**: SQL error, timeout, blocked by the read-only guard, or the
-  model said it cannot answer.
-
-The silent-error rate is the headline metric. Trap and normal questions are always
-reported separately.
+- **correct**: the same number of rows as the gold answer, and every gold column appears with the
+  same values (numbers within 0.1%; extra columns allowed).
+- **silent error**: the query ran and returned something, but not the gold answer.
+- **error or refusal**: SQL error, blocked by the read-only guard, or the model said it cannot
+  answer. For an unanswerable question a refusal is the correct reply.

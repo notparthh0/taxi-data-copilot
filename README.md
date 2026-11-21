@@ -7,12 +7,12 @@ data engineering underneath**.
 It sits on top of my lakehouse ([nyc-taxi-elt-pipeline](https://github.com/notparthh0/nyc-taxi-elt-pipeline)):
 38.3 million raw 2023 trips, cleaned by PySpark into Apache Iceberg (35.6 million trips).
 
-> Status (21 Nov 2026): **experiment run, results in, paper drafted.** 3,750 graded answers from
+> Status (21 Nov 2026): **experiment run, results in.** 3,750 graded answers from
 > three models, plus 375 on a 15-question blind set written by a fresh model instance (same
 > ladder; not a human blind set). The questions are not yet reviewed by me, so treat the numbers
 > as preliminary. Results: [docs/RESULTS.md](docs/RESULTS.md)
-> (generated tables), [docs/FINDINGS.md](docs/FINDINGS.md) (what they mean),
-> [paper/draft.md](paper/draft.md) (paper draft). Plan: [docs/PLAN.md](docs/PLAN.md).
+> (generated tables), [docs/FINDINGS.md](docs/FINDINGS.md) (what they mean), and
+> [docs/literature_check.md](docs/literature_check.md) (what is and is not new here).
 
 ## The result in one table
 
@@ -145,8 +145,7 @@ knowledge/               the 7 cleaning rules, in words
 benchmark/questions/     150 questions with gold SQL and naive raw SQL
 scripts/                 build, gold, run_eval, summarise, try_api, try_mcp, ...
 results/                 every number in this repo comes from a file here, written by a script
-docs/                    PLAN, RESULTS (generated), FINDINGS, literature_check
-paper/draft.md           paper draft
+docs/                    RESULTS (generated), FINDINGS, literature_check
 tests/                   73 tests
 ```
 

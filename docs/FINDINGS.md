@@ -43,7 +43,7 @@ Same questions, same prompt, same models. Only the tables changed.
 data, and a model shown only raw column names cannot know the cleaning rules. What carries the
 weight is the size of the effect and finding 2.
 
-**An odd detail worth knowing before a professor asks.** On the 34 non-trap questions, Qwen 7B
+**An odd detail worth knowing.** On the 34 non-trap questions, Qwen 7B
 did *better* on raw data (79.4% correct) than on cleaned tables (52.9%), mostly because of SQL
 errors on the cleaned schema (29.4% errors; RESULTS 3b). Gemini shows no such drop (95.1% vs
 93.1%). n is small (34) and I have not looked into which column names tripped it up.
