@@ -6,6 +6,7 @@ stopped and restarted (answers already on disk are skipped).
     python scripts/run_eval.py --model gemini-flash-lite --repeats 3
     python scripts/run_eval.py --model qwen-coder-7b
     python scripts/run_eval.py --model gemini-flash-lite --limit 10 --setups s3_docs   # quick try
+    python scripts/run_eval.py --model qwen-coder-7b --blind   # benchmark/blind -> results/runs_blind/
 """
 
 import argparse
@@ -18,7 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from copilot import config, grader, llm  # noqa: E402
-from copilot.benchmark import load_gold, load_questions  # noqa: E402
+from copilot.benchmark import BLIND_DIR, BLIND_GOLD_FILE, GOLD_FILE, QUESTIONS_DIR, load_gold, load_questions  # noqa: E402
 from copilot.runner import answer_question  # noqa: E402
 from copilot.setups import get_setups  # noqa: E402
 
@@ -39,13 +40,15 @@ def main() -> None:
     ap.add_argument("--limit", type=int, default=0, help="only the first N questions")
     ap.add_argument("--out", default="")
     ap.add_argument("--pause", type=float, default=0.0, help="seconds to wait between model calls")
+    ap.add_argument("--blind", action="store_true", help="the blind set; written to results/runs_blind/")
     args = ap.parse_args()
 
     setups = get_setups()
     keys = list(setups) if args.setups == "all" else args.setups.split(",")
-    questions = load_questions()[: args.limit or None]
-    gold = load_gold()
-    out = Path(args.out) if args.out else config.RESULTS_DIR / "runs" / f"{args.model}.jsonl"
+    questions = load_questions(directory=BLIND_DIR if args.blind else QUESTIONS_DIR)[: args.limit or None]
+    gold = load_gold(BLIND_GOLD_FILE if args.blind else GOLD_FILE)
+    runs_dir = "runs_blind" if args.blind else "runs"   # kept apart: summarise.py reads runs/ as the frozen 150
+    out = Path(args.out) if args.out else config.RESULTS_DIR / runs_dir / f"{args.model}.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)
     done = set()
     if out.exists():

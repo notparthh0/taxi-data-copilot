@@ -8,8 +8,9 @@ It sits on top of my lakehouse ([nyc-taxi-elt-pipeline](https://github.com/notpa
 38.3 million raw 2023 trips, cleaned by PySpark into Apache Iceberg (35.6 million trips).
 
 > Status (21 Nov 2026): **experiment run, results in, paper drafted.** 3,750 graded answers from
-> three models. The 150 benchmark questions are not yet reviewed by me and none were written
-> blind, so treat the numbers as preliminary. Results: [docs/RESULTS.md](docs/RESULTS.md)
+> three models, plus 375 on a 15-question blind set written by a fresh model instance (same
+> ladder; not a human blind set). The questions are not yet reviewed by me, so treat the numbers
+> as preliminary. Results: [docs/RESULTS.md](docs/RESULTS.md)
 > (generated tables), [docs/FINDINGS.md](docs/FINDINGS.md) (what they mean),
 > [paper/draft.md](paper/draft.md) (paper draft). Plan: [docs/PLAN.md](docs/PLAN.md).
 
@@ -34,7 +35,7 @@ In plain words:
    Gemini tried to apply them: a third of its queries then failed (135 of its 143 loud errors
    came from one rule), and most of the rest applied the rules only partly. The Qwen models
    mostly ignored the rules.
-3. **Docs on top of clean tables help a little** (+1.4 to +5.8 points).
+3. **Docs on top of clean tables help a little** (+1.4 to +5.7 points; clearly above zero only for Gemini).
 4. **The semantic layer did not beat equally informative docs**: it was 29 to 33 points lower,
    mostly because of interface mistakes (a month written as `'2023-01'` instead of a date) and
    questions the layer cannot express. The hypothesis is not supported.
@@ -118,7 +119,8 @@ cp .env.example .env    # add GEMINI_API_KEY
 make setups             # build data/raw.duckdb and data/warehouse.duckdb (about 1 minute)
 make gold               # gold answers -> results/gold_answers.json
 make blind              # 15 model-written blind questions -> results/gold_blind.json (not in the 150)
-make test               # 62 tests (8 skip when the data is not built)
+make eval MODEL=gemini-flash-lite REPEATS=3 BLIND=1   # blind set -> results/runs_blind/
+make test               # 73 tests (8 skip when the data is not built)
 
 make eval MODEL=gemini-flash-lite REPEATS=3   # resumable; results/runs/<model>.jsonl
 make eval MODEL=qwen-coder-7b                 # local, needs: uv pip install -r requirements-local-models.txt
@@ -145,7 +147,7 @@ scripts/                 build, gold, run_eval, summarise, try_api, try_mcp, ...
 results/                 every number in this repo comes from a file here, written by a script
 docs/                    PLAN, RESULTS (generated), FINDINGS, literature_check
 paper/draft.md           paper draft
-tests/                   62 tests
+tests/                   73 tests
 ```
 
 ## Measured before any model ran

@@ -7,13 +7,14 @@ Rates are shares of answers (Gemini: all 3 repeats pooled), shown with n.
 
 import datetime as dt
 import json
+import random
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from copilot import config  # noqa: E402
-from copilot.benchmark import load_gold, load_questions  # noqa: E402
+from copilot.benchmark import BLIND_GOLD_FILE, load_gold, load_questions  # noqa: E402
 
 GRADES = ("correct", "silent_error", "error_or_refusal")
 SETUP_ORDER = ["s1_raw", "s1d_raw_docs", "s2_modelled", "s3_docs", "s4_semantic"]
@@ -45,9 +46,27 @@ def error_cause(r):
     return next(label for label, test in ERROR_CAUSES if test(r))
 
 
-def load_runs():
+BOOT = 2000   # bootstrap resamples; seeded below so RESULTS.md is reproducible
+
+
+def per_question(rows) -> dict:
+    """question id -> share of its answers that are correct (Gemini's 3 repeats stay together)."""
+    d = defaultdict(list)
+    for r in rows:
+        d[r["question_id"]].append(r["grade"] == "correct")
+    return {q: sum(v) / len(v) for q, v in d.items()}
+
+
+def boot_ci(values, rng) -> tuple:
+    """95% percentile bootstrap interval of the mean, resampling questions."""
+    n = len(values)
+    means = sorted(sum(rng.choices(values, k=n)) / n for _ in range(BOOT))
+    return means[int(0.025 * BOOT)], means[int(0.975 * BOOT) - 1]
+
+
+def load_runs(folder: str = "runs"):
     rows = []
-    for path in sorted((config.RESULTS_DIR / "runs").glob("*.jsonl")):
+    for path in sorted((config.RESULTS_DIR / folder).glob("*.jsonl")):
         rows += [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
     return rows
 
@@ -270,9 +289,95 @@ def main():
                 body.append([SETUP_NAME[s], m, "; ".join(f"{k}: {v}" for k, v in c.most_common())])
     md.append(table(["Setup", "Model", "Causes (count)"], body) + "\n")
 
+    md.append("## 12. 95% confidence intervals (bootstrap over questions)\n")
+    md.append(f"Share correct on the 140 answerable questions, with a 95% interval from {BOOT:,} bootstrap "
+              "resamples of the questions (seed 0). A question's repeats are kept together, so the interval "
+              "reflects which questions were asked, not only run-to-run noise.\n")
+    rng = random.Random(0)
+    pq = {(m, s): per_question([r for r in ans if r["model"] == m and r["setup"] == s])
+          for m in models for s in setups}
+    body, S["ci_correct"] = [], {}
+    for s in setups:
+        row = [SETUP_NAME[s]]
+        for m in models:
+            v = list(pq[m, s].values())
+            if not v:
+                row.append("-")
+                continue
+            lo, hi = boot_ci(v, rng)
+            S["ci_correct"][f"{s}|{m}"] = {"correct": sum(v) / len(v), "lo": lo, "hi": hi, "questions": len(v)}
+            row.append(f"{pct(sum(v) / len(v))} [{pct(lo)}, {pct(hi)}]")
+        body.append(row)
+    md.append(table(["Setup"] + models, body) + "\n")
+
+    md.append("## 13. Each step of the ladder, paired (bootstrap over questions)\n")
+    md.append("Change in share correct between two setups, in percentage points, with a 95% interval. "
+              "Paired: each resample uses the same questions for both setups. An interval that does not "
+              "contain 0 means the change is unlikely to come from the choice of questions alone.\n")
+    steps = [("s1_raw", "s2_modelled", "Cleaning (1 to 2)"), ("s2_modelled", "s3_docs", "Docs on cleaned tables (2 to 3)"),
+             ("s3_docs", "s4_semantic", "Semantic layer instead of docs (3 to 4)"),
+             ("s1_raw", "s1d_raw_docs", "Docs on raw data (1 to 1+)")]
+    body, S["ci_steps"] = [], {}
+    for a, b, label in steps:
+        if a not in setups or b not in setups:
+            continue
+        row = [label]
+        for m in models:
+            common = sorted(set(pq[m, a]) & set(pq[m, b]))
+            diffs = [pq[m, b][q] - pq[m, a][q] for q in common]
+            if not diffs:
+                row.append("-")
+                continue
+            lo, hi = boot_ci(diffs, rng)
+            mean = sum(diffs) / len(diffs)
+            S["ci_steps"][f"{a}>{b}|{m}"] = {"points": 100 * mean, "lo": 100 * lo, "hi": 100 * hi}
+            row.append(f"{100 * mean:+.1f} [{100 * lo:+.1f}, {100 * hi:+.1f}]")
+        body.append(row)
+    md.append(table(["Step"] + models, body) + "\n")
+
+    blind_runs = load_runs("runs_blind")
+    if blind_runs and BLIND_GOLD_FILE.exists():
+        bgold = load_gold(BLIND_GOLD_FILE)
+        for r in blind_runs:
+            r["trap"] = bool(bgold[r["question_id"]].get("raw_diverges"))
+        bmodels = sorted({r["model"] for r in blind_runs})
+        md.append("## 14. Blind set: 15 questions written by a fresh model instance\n")
+        md.append("Not a human blind set. A model instance that saw only the cleaned table schema and the "
+                  "question format wrote these (`benchmark/blind/`, `author: claude-fresh-context`); it never "
+                  "saw the cleaning rules, the metric list or the 150 questions. Same protocol as above. "
+                  "With 15 questions (14 trap, 1 control), read counts, not percentages.\n")
+        S["blind"] = {}
+        for title, flt in (("All 15", lambda r: True), ("Trap (14)", lambda r: r["trap"]),
+                           ("Control (1)", lambda r: not r["trap"])):
+            md.append(f"### {title}\n")
+            body = []
+            for s in setups:
+                row = [SETUP_NAME[s]]
+                for m in bmodels:
+                    sub = [r for r in blind_runs if r["model"] == m and r["setup"] == s and flt(r)]
+                    rt = rates(sub)
+                    S["blind"][f"{title}|{s}|{m}"] = rt
+                    c = rt["counts"]
+                    row.append(f"{c['correct']} / {c['silent_error']} / {c['error_or_refusal']} of {rt['n']}"
+                               if sub else "-")
+                body.append(row)
+            md.append(table(["Setup"] + bmodels, body) + "\n")
+        md.append("Same model and setup, share correct: the original 140 questions vs the blind 15.\n")
+        body = []
+        for s in setups:
+            row = [SETUP_NAME[s]]
+            for m in bmodels:
+                orig = [r for r in ans if r["model"] == m and r["setup"] == s]
+                bl = [r for r in blind_runs if r["model"] == m and r["setup"] == s]
+                row.append(f"{pct(rates(orig)['correct'])} vs {pct(rates(bl)['correct'])}" if orig and bl else "-")
+            body.append(row)
+        md.append(table(["Setup"] + [f"{m}: original vs blind" for m in bmodels], body) + "\n")
+
     md.append("## Limits\n\n- One dataset (NYC yellow taxi 2023).\n"
               "- All 150 questions so far were written by Claude and are not yet reviewed by the project "
-              "owner; none were written blind (see `author` / `written_blind` in `benchmark/questions/`).\n"
+              "owner. The separate 15-question blind set (table 14) was written by a fresh model "
+              "instance, not a person, and had its gold round() calls removed after its first run "
+              "(`scripts/regrade_blind.py`).\n"
               "- One cloud model and local models, temperature 0, one attempt per question (no repair loop).\n"
               "- The grader accepts numbers within 0.1% (fixed before any model ran).\n"
               "- Small differences between cells may be noise; check n and the stability table.\n")

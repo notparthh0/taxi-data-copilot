@@ -28,3 +28,10 @@ _spec.loader.exec_module(summarise)
 ])
 def test_error_cause(error_type, error, sql, cause):
     assert cause in summarise.error_cause({"error_type": error_type, "error": error, "sql": sql})
+
+
+def test_bootstrap_interval():
+    import random
+    assert summarise.boot_ci([0.5] * 40, random.Random(0)) == (0.5, 0.5)
+    lo, hi = summarise.boot_ci([0, 1] * 50, random.Random(0))
+    assert lo < 0.5 < hi and summarise.boot_ci([0, 1] * 50, random.Random(0)) == (lo, hi)

@@ -13,7 +13,7 @@ per question (no repair loop), for three models:
 | Qwen2.5-Coder-7B (4-bit) | this Mac, MLX | 1 | 750 |
 | Qwen2.5-Coder-3B (4-bit) | this Mac, MLX | 1 | 750 |
 
-Gemini's three repeats are pooled in every table (so its n is 3 times larger). Rates below are
+A separate 15-question blind set is reported in finding 7. Gemini's three repeats are pooled in every table (so its n is 3 times larger). Rates below are
 "correct / silent error / error or refusal" on the answerable questions unless stated.
 
 ## 1. Cleaning the data is the biggest single step, for every model
@@ -22,7 +22,7 @@ Gemini's three repeats are pooled in every table (so its n is 3 times larger). R
 |---|---:|---:|---:|
 | Raw data, schema only: correct | 23.1% | 20.0% | 6.4% |
 | Cleaned tables, schema only: correct | 93.6% | 77.1% | 53.6% |
-| Gain from cleaning | +70.5 points | +57.1 points | +47.2 points |
+| Gain from cleaning, 95% interval (RESULTS 13) | +70.5 [+62.9, +78.3] | +57.1 [+46.4, +67.1] | +47.1 [+37.9, +56.4] |
 | Raw data: silently wrong | 75.5% | 77.1% | 61.4% |
 | Cleaned tables: silently wrong | 6.4% | 11.4% | 19.3% |
 
@@ -67,7 +67,7 @@ dictionary, the 7 cleaning rules and the metric definitions. Trap questions only
 
 The two model families failed in opposite ways:
 
-- **Gemini tried to apply the rules and mostly broke the query.** None of its 200 silent
+- **Gemini tried to apply the rules, and a third of its queries then failed** (34.0% errors on all 140). None of its 200 silent
   errors with docs equals the naive raw number (RESULTS 5), so it always applied some rules.
   Of its 143 loud errors, 135 come from rule 7 alone: it tries to read the month out of the
   `source_file` name with `SUBSTR` and gets the character positions wrong (RESULTS 11). Its
@@ -78,6 +78,9 @@ The two model families failed in opposite ways:
   grade in all 3 repeats for only 53 of 150 questions (35.3%), against 86.0% to 98.7% for every
   other setup (RESULTS 8). Its correct count moved between 21 and 31 of 140 across repeats
   (RESULTS 8b).
+- **Over all 140 answerable questions, docs on raw data did not help any model.** The change from
+  raw to raw + docs was -4.8 points for Gemini [-12.1, +2.4], -0.7 for Qwen 7B [-4.3, +2.1] and
+  +2.1 for Qwen 3B [-1.4, +5.7]; every interval contains zero (RESULTS 13).
 - **The Qwen models largely ignored the rules.** 71.4% (7B) and 67.1% (3B) of their silent
   errors with docs are still the naive raw number (RESULTS 5).
 
@@ -92,16 +95,17 @@ for any of the three models.
 |---|---:|---:|---:|
 | Cleaned, schema only: correct | 93.6% | 77.1% | 53.6% |
 | Cleaned + docs: correct | 98.3% | 82.9% | 55.0% |
-| Gain | +4.7 points | +5.8 points | +1.4 points |
+| Gain, 95% interval (RESULTS 13) | +4.8 [+1.2, +8.8] | +5.7 [+0.0, +11.4] | +1.4 [-5.7, +8.6] |
 | Silent error, schema only to docs | 6.4% to 1.7% | 11.4% to 6.4% | 19.3% to 17.9% |
 
 - For Gemini the gain holds up across repeats. Cleaned-only scored 130, 132 and 131 of 140;
   cleaned + docs scored 138, 137 and 138 (RESULTS 8b). So the gap (5 to 8 questions) is larger
   than the run-to-run spread (1 to 2 questions). Note that this only measures the model's own
-  run-to-run noise, not how the gap would change with a different set of questions.
+  run-to-run noise. The bootstrap over questions (RESULTS 13) also excludes zero for Gemini.
 - The gain is largest on the hardest questions: Gemini level 3 rose from 84.8% to 100.0%
   (RESULTS 2.3).
-- Qwen 7B's gain is from one pass and is similar in size; Qwen 3B barely benefits. The 3B model's
+- Qwen 7B's gain is from one pass and is similar in size, but its interval reaches zero, so it is
+  not shown to be real. Qwen 3B's gain cannot be told apart from zero. The 3B model's
   problem is writing valid SQL at all (see finding 6), and docs do not fix that.
 
 ## 4. The semantic layer did not beat the docs. The hypothesis is not supported.
@@ -118,8 +122,9 @@ semantic layer (MetricFlow) for metrics instead of writing SQL. (RESULTS 6)
 | Not expressible (32) | Qwen 7B | 59.4% / 18.8% / 21.9% | 0.0% / 31.2% / 68.8% |
 | Not expressible (32) | Qwen 3B | 25.0% / 21.9% / 53.1% | 0.0% / 34.4% / 65.6% |
 
-Overall, the semantic layer cost 29.3 points for Gemini (98.3% to 69.0%), 32.9 for Qwen 7B
-(82.9% to 50.0%) and 32.9 for Qwen 3B (55.0% to 22.1%) (RESULTS 1).
+Overall, the semantic layer cost 29.3 points for Gemini [-36.2 to -22.1], 32.9 for Qwen 7B
+[-42.1 to -23.6] and 32.9 for Qwen 3B [-43.6 to -22.1] (RESULTS 13). None of the intervals comes
+near zero.
 
 - **Where the layer can express the question,** it did not reduce silent errors for Gemini
   (1.2% vs 1.5%) and added loud ones. The one place it helped is the point of a semantic layer:
@@ -178,18 +183,56 @@ With 10 questions these are indications, not rates.
   docs, and the semantic layer is below cleaned + docs (RESULTS 1). The conclusions above do not
   depend on which model is used. The sizes of the gaps do.
 
+## 7. A blind set written by a fresh model instance: same ladder
+
+The project has no classmate to write questions blind. So 15 extra questions (5 per level) were
+written by a fresh model instance that saw only the cleaned table schema and the question format.
+It never saw the cleaning rules, the metric list, the semantic layer or the 150 questions.
+**This is not a human blind set.** It answers a narrower worry: that the 150 questions only show
+the ladder because their author knew where the data was dirty. The writer did not know, and 14 of
+its 15 questions still turned out to be traps (measured by running the naive raw query). The set
+was run with the same protocol (all 5 setups; Gemini 3 repeats, Qwen 1). (RESULTS 14)
+
+| Correct, of all answers | Gemini (of 45) | Qwen 7B (of 15) | Qwen 3B (of 15) |
+|---|---:|---:|---:|
+| Raw, schema only | 3 | 1 | 0 |
+| Raw + docs | 9 | 1 | 0 |
+| Cleaned, schema only | 38 | 9 | 7 |
+| Cleaned + docs | 42 | 12 | 11 |
+| Cleaned + semantic layer | 28 | 4 | 2 |
+
+- **The order of the setups is the same as on the 150 questions, for all three models.** Raw is
+  far below cleaned, docs on cleaned tables add a little, the semantic layer is below the docs.
+- **On the 14 trap questions, no model got a single raw-data answer right** (Gemini 0 of 42,
+  Qwen 7B 0 of 14, Qwen 3B 0 of 14).
+- With 15 questions, read these as counts, not rates. They support the direction of the main
+  results, not their exact sizes.
+
+**Two problems found in the blind set, and what was done:**
+
+- **Rounded gold answers (fixed).** The writer wrapped 8 of its gold queries in `round()`. That
+  put the gold up to 0.11% away from the exact value, just outside the grader's 0.1% tolerance,
+  so correct answers were graded wrong (b003: gold 4.40, exact 4.3952). The rounding was removed
+  from those gold and raw queries and the stored answers were re-graded with the same grader
+  (`scripts/regrade_blind.py`; no model was called again). 10 answers moved from silent error to
+  correct (9 of them b003), none the other way. The 150 main questions do not round their gold.
+- **One ambiguous question (not changed).** b013 ("for each pickup borough, the busiest zone")
+  has a gold answer that includes the placeholder boroughs `N/A` and `Unknown`. Gemini left them
+  out in all three repeats, which is a fair reading, and was graded wrong. The gold was not
+  changed a second time after seeing the results. This question needs a decision in the review.
+
 ## What the data says about the research question
 
 "Where does the accuracy come from: the model, the documentation, or the data engineering?"
 
 On this dataset:
 
-1. **Data engineering**, by far: +47 to +71 points from cleaning the tables, for every model,
-   and documentation could not stand in for it.
+1. **Data engineering**, by far: +47 to +71 points from cleaning the tables, for every model
+   (every 95% interval is above +37 points), and documentation could not stand in for it.
 2. **The model**, next: with the same cleaned tables and docs, 98.3% (Gemini) vs 82.9% (Qwen 7B)
    vs 55.0% (Qwen 3B), a 43-point spread. Most of it is on harder questions.
-3. **Documentation**, last: +1.4 to +5.8 points on top of cleaned tables, and no rescue for raw
-   data.
+3. **Documentation**, last: +1.4 to +5.7 points on top of cleaned tables (clearly above zero only
+   for Gemini), and no rescue for raw data.
 4. A compiled semantic layer did **not** add accuracy over equally informative docs. It cost 29
    to 33 points, mostly through interface mistakes and questions outside its coverage.
 
@@ -219,11 +262,12 @@ tried on the real warehouse through the HTTP API and the MCP server
 - **Only Gemini has repeats.** The two Qwen runs are single passes. Gemini's run-to-run spread
   is 1 to 2 questions out of 140 in most setups, 5 for the semantic layer and 10 for raw + docs
   (RESULTS 8b). Treat differences of a few points for the Qwen models with care.
-- **No confidence intervals across questions yet.** The repeats measure the model's own noise,
-  not how much the results depend on which 140 questions were chosen. A bootstrap over
-  questions would be the next step for the paper.
+- **Confidence intervals treat the 140 questions as a sample** (RESULTS 12 and 13; 2,000
+  bootstrap resamples, seed 0, a question's repeats kept together). They say how much the result
+  depends on which questions were asked from a similar pool. They cannot fix a biased pool.
 - **All 150 questions were written by Claude** and are not yet reviewed by the project owner.
-  None were written blind. The author knew the data problems and the metric list.
+  The author knew the data problems and the metric list. The 15-question blind set (finding 7)
+  was written by a model, not a person, and its gold was corrected once after its first run.
 - **The raw-vs-cleaned gap is partly true by construction** (see finding 1).
 - **One dataset; one small cloud model and two small local models**; temperature 0; one attempt
   per question with no repair loop. A repair loop would likely fix many loud errors, especially

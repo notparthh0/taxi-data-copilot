@@ -32,7 +32,7 @@ blind:              ## gold answers for the blind set (benchmark/blind) -> resul
 MODEL ?= gemini-flash-lite
 REPEATS ?= 1
 eval:               ## run the experiment for one model (resumable): make eval MODEL=qwen-coder-7b
-	$(PY) scripts/run_eval.py --model $(MODEL) --repeats $(REPEATS)
+	$(PY) scripts/run_eval.py --model $(MODEL) --repeats $(REPEATS) $(if $(BLIND),--blind)
 
 summary:            ## results/runs/*.jsonl -> results/summary.json + docs/RESULTS.md
 	$(PY) scripts/summarise.py

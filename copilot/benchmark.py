@@ -65,6 +65,6 @@ def month_spellings(month_number: int) -> tuple:
     return (f"2023-{m:02d}", f"2023-{m:02d}-01", calendar.month_name[m], calendar.month_abbr[m])
 
 
-def load_gold() -> dict:
+def load_gold(path: Path = GOLD_FILE) -> dict:
     """question id -> {'columns', 'rows', 'raw_rows', 'raw_diverges', ...} written by scripts/build_gold.py."""
-    return json.loads(GOLD_FILE.read_text())["questions"]
+    return json.loads(path.read_text())["questions"]
