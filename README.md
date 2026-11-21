@@ -1,5 +1,7 @@
 # Taxi Data Copilot
 
+[![ci](https://github.com/notparthh0/taxi-data-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/notparthh0/taxi-data-copilot/actions/workflows/ci.yml)
+
 An LLM that answers business questions about NYC Yellow Taxi data, and an experiment
 that measures **where its accuracy comes from: the model, the documentation, or the
 data engineering underneath**.
