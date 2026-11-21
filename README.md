@@ -172,8 +172,14 @@ the file they came in (104 of them not in 2023 at all).
 A known limit of the cleaned layer: the 7 rules do not cap trip distance, so the
 longest "cleaned" trip is still 161,726 miles. Clean does not mean perfect.
 
-## Rules of this repo
+## How the numbers are kept honest
 
-- No invented numbers. Every number is written to `results/` by a script.
-- `../nyc-taxi-aws` is read, never written.
-- `.env` is never committed.
+- Every number in this README and in `docs/` comes from a file in `results/` written by a script.
+  Nothing is typed in by hand.
+- CI regenerates `docs/RESULTS.md` from the committed run files and fails if anyone edited the
+  tables by hand.
+- The grader and its 0.1% tolerance were committed before any model ran. The two corrections made
+  after a run are documented, with the script that applied each one (`scripts/regrade_refusals.py`,
+  `scripts/regrade_blind.py`).
+- The source lakehouse ([nyc-taxi-elt-pipeline](https://github.com/notparthh0/nyc-taxi-elt-pipeline))
+  is only read, never modified. API keys live in a local `.env` that is never committed.
