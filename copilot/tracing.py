@@ -5,12 +5,14 @@ Always: one JSON line per agent run in logs/traces.jsonl (latency, tokens, attem
 Also, when LANGFUSE_PUBLIC_KEY and LANGFUSE_SECRET_KEY are set (`make langfuse-up` runs a local,
 self-hosted Langfuse and writes them to .env): each run is a Langfuse trace with one observation
 per model call (model, prompt, reply, tokens) and per SQL run (query, row count or error).
-Without the keys, observe() does nothing, so tests and CI never need Langfuse.
+Without the keys, or when the server is not running, observe() does nothing, so tests and CI
+never need Langfuse.
 """
 
 import datetime as dt
 import json
 import os
+import sys
 from contextlib import contextmanager
 
 from copilot import config
@@ -23,11 +25,17 @@ def langfuse():
     """The Langfuse client, or None when no keys are configured."""
     global _client
     if _client is None:
+        _client = False
         if os.getenv("LANGFUSE_PUBLIC_KEY") and os.getenv("LANGFUSE_SECRET_KEY"):
+            base = os.getenv("LANGFUSE_BASE_URL", "http://localhost:3000").rstrip("/")
+            try:                       # keys but no server (Docker stopped): stay quiet, log locally only
+                import httpx
+                httpx.get(f"{base}/api/public/health", timeout=1.0).raise_for_status()
+            except Exception:  # noqa: BLE001
+                print(f"Langfuse not reachable at {base}; tracing to logs/traces.jsonl only", file=sys.stderr)
+                return None
             from langfuse import Langfuse
             _client = Langfuse()           # reads LANGFUSE_PUBLIC_KEY / _SECRET_KEY / _BASE_URL
-        else:
-            _client = False
     return _client or None
 
 
