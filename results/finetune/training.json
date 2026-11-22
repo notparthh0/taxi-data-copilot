@@ -1,0 +1,13 @@
+{
+  "config": "# QLoRA on this Mac with MLX: a LoRA adapter on the 4-bit Qwen2.5-Coder 3B. Run: make ft-train\n# Settings are mlx_lm's defaults except where a comment says why.\nmodel: mlx-community/Qwen2.5-Coder-3B-Instruct-4bit   # the same 4-bit model as the experiment\ntrain: true\ndata: finetune/data                 # train.jsonl / valid.jsonl from scripts/ft_filter.py\nfine_tune_type: lora\nmask_prompt: true                   # learn only the answer, not the 2.2k-token context\nnum_layers: 16\nlora_parameters: {rank: 8, dropout: 0.0, scale: 20.0}\nlearning_rate: 1.0e-5\nbatch_size: 1                       # 16 GB of memory at ~2,300 tokens per example\ngrad_checkpoint: true\nmax_seq_length: 3072                # default 2048 would cut the answers off (longest example: 2,425 tokens)\niters: 400                          # about one pass over the 411 training pairs\nsteps_per_report: 20\nsteps_per_eval: 100                 # validation loss every 100 steps...\nsave_every: 100                     # ...with a checkpoint at the same steps; the lowest val loss is kept\nval_batches: 25\nadapter_path: finetune/adapters/qwen3b-qlora\nseed: 0\n",
+  "minutes": 152.8,
+  "val_loss_by_step": {
+    "1": 0.714,
+    "100": 0.118,
+    "200": 0.121,
+    "300": 0.12,
+    "400": 0.105
+  },
+  "chosen_step": 400,
+  "chosen_val_loss": 0.105
+}
