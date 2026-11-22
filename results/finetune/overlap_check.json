@@ -1,0 +1,3758 @@
+{
+  "candidates": 680,
+  "passed_second_opinion": 573,
+  "benchmark_questions_checked": 165,
+  "dropped_close_in_meaning": 70,
+  "dropped_same_answer": 46,
+  "dropped_duplicate_wording": 0,
+  "kept": 457,
+  "train": 411,
+  "valid": 46,
+  "kept_unanswerable": 29,
+  "similarity_threshold": 0.85,
+  "kept_nearest_similarity": {
+    "max": 0.849,
+    "median": 0.77
+  },
+  "dropped": {
+    "close_in_meaning": [
+      {
+        "q": "What is the date with the highest number of trips in 2023? Give the date and the trip count.",
+        "benchmark_id": "q074",
+        "similarity": 0.862
+      },
+      {
+        "q": "Find the top 5 pickup zones with the highest total trip counts in 2023. Give the zone name and trip count.",
+        "benchmark_id": "q052",
+        "similarity": 0.918
+      },
+      {
+        "q": "What is the total number of trips paid by 'Credit card' during the month of '2023-01'?",
+        "benchmark_id": "q014",
+        "similarity": 0.927
+      },
+      {
+        "q": "What is the name of the pickup zone with the highest total revenue in 2023, and what is that revenue? Give the zone name and total revenue.",
+        "benchmark_id": "q080",
+        "similarity": 0.935
+      },
+      {
+        "q": "List the top 5 pickup boroughs by total number of trips originating from them in 2023, excluding unknown zones. Give the pickup borough and the trip count.",
+        "benchmark_id": "q052",
+        "similarity": 0.856
+      },
+      {
+        "q": "What is the total number of trips that started in the borough of Manhattan in 2023?",
+        "benchmark_id": "q015",
+        "similarity": 0.955
+      },
+      {
+        "q": "Which zone in Brooklyn had the highest number of pickups in 2023? Give the zone name and trip count.",
+        "benchmark_id": "q079",
+        "similarity": 0.929
+      },
+      {
+        "q": "How many trips started in Manhattan during the hour of 08:00 (pickup_hour = 8) across the entire year of 2023?",
+        "benchmark_id": "q040",
+        "similarity": 0.871
+      },
+      {
+        "q": "What is the total revenue generated from trips starting at JFK Airport in 2023?",
+        "benchmark_id": "q108",
+        "similarity": 0.857
+      },
+      {
+        "q": "What is the average trip distance and average fare for trips that used the 'JFK' rate code in 2023?",
+        "benchmark_id": "q030",
+        "similarity": 0.921
+      },
+      {
+        "q": "What percentage of trips from LaGuardia Airport were paid using 'Credit card' in 2023?",
+        "benchmark_id": "q106",
+        "similarity": 0.87
+      },
+      {
+        "q": "What is the total amount of tolls paid across all trips originating from JFK Airport in 2023?",
+        "benchmark_id": "q032",
+        "similarity": 0.856
+      },
+      {
+        "q": "What is the total revenue across all trips in 2023?",
+        "benchmark_id": "q021",
+        "similarity": 0.919
+      },
+      {
+        "q": "What is the total fare amount for credit card payments across all trips in 2023?",
+        "benchmark_id": "q014",
+        "similarity": 0.918
+      },
+      {
+        "q": "What is the total tip amount recorded for credit card payments in 2023?",
+        "benchmark_id": "q034",
+        "similarity": 0.899
+      },
+      {
+        "q": "What is the tip rate (total credit card tips divided by total credit card fare) for trips in 2023?",
+        "benchmark_id": "q088",
+        "similarity": 0.939
+      },
+      {
+        "q": "What is the overall revenue per mile (total revenue divided by total distance) for all trips in 2023?",
+        "benchmark_id": "q087",
+        "similarity": 0.953
+      },
+      {
+        "q": "What are the top 5 pickup zones by total revenue in Manhattan? Return the pickup zone name and total revenue.",
+        "benchmark_id": "q080",
+        "similarity": 0.887
+      },
+      {
+        "q": "What is the total tolls amount paid across all trips in 2023?",
+        "benchmark_id": "q032",
+        "similarity": 0.946
+      },
+      {
+        "q": "What is the overall tip rate on credit-card trips?",
+        "benchmark_id": "b003",
+        "similarity": 0.871
+      },
+      {
+        "q": "What is the average trip distance in miles across all trips in 2023?",
+        "benchmark_id": "q004",
+        "similarity": 0.974
+      },
+      {
+        "q": "What is the overall average trip duration in minutes for all trips in 2023?",
+        "benchmark_id": "q005",
+        "similarity": 0.973
+      },
+      {
+        "q": "What is the maximum trip distance recorded in miles during 2023?",
+        "benchmark_id": "q010",
+        "similarity": 0.949
+      },
+      {
+        "q": "Compare average trip distance between weekday trips and weekend trips, returning is_weekend and the average distance in miles.",
+        "benchmark_id": "b012",
+        "similarity": 0.87
+      },
+      {
+        "q": "What is the total amount of tolls paid across all trips in 2023?",
+        "benchmark_id": "q032",
+        "similarity": 0.956
+      },
+      {
+        "q": "What is the average tolls amount per trip for all trips in 2023?",
+        "benchmark_id": "q032",
+        "similarity": 0.943
+      },
+      {
+        "q": "What is the maximum tolls amount paid on a single trip in 2023?",
+        "benchmark_id": "q032",
+        "similarity": 0.916
+      },
+      {
+        "q": "What is the total tolls amount paid on trips that started at JFK Airport in 2023?",
+        "benchmark_id": "q017",
+        "similarity": 0.854
+      },
+      {
+        "q": "What is the total tolls amount paid during each hour of the day across all of 2023?",
+        "benchmark_id": "q008",
+        "similarity": 0.908
+      },
+      {
+        "q": "Which 5 pickup zones had the highest total revenue in the trips_hourly_demand table? Return the zone name and total revenue.",
+        "benchmark_id": "q080",
+        "similarity": 0.875
+      },
+      {
+        "q": "What are the top 5 pickup zones by total revenue for trips starting during weekend hours (Saturday and Sunday)? Give the zone name and total revenue.",
+        "benchmark_id": "q080",
+        "similarity": 0.877
+      },
+      {
+        "q": "What is the overall average passenger count for all trips in 2023?",
+        "benchmark_id": "q006",
+        "similarity": 0.953
+      },
+      {
+        "q": "What percentage of total trips in 2023 were single-passenger trips?",
+        "benchmark_id": "q006",
+        "similarity": 0.889
+      },
+      {
+        "q": "Which pickup zone has the highest average tip amount for credit card payments?",
+        "benchmark_id": "q122",
+        "similarity": 0.857
+      },
+      {
+        "q": "What is the total number of trips recorded for each month in 2023?",
+        "benchmark_id": "q127",
+        "similarity": 0.869
+      },
+      {
+        "q": "Which 5 days of the week had the highest total number of trips in 2023?",
+        "benchmark_id": "q061",
+        "similarity": 0.858
+      },
+      {
+        "q": "How many trips were paid by 'Credit card' for each month of 2023?",
+        "benchmark_id": "q014",
+        "similarity": 0.969
+      },
+      {
+        "q": "Find the average daily trip count for each month in 2023.",
+        "benchmark_id": "q128",
+        "similarity": 0.857
+      },
+      {
+        "q": "Show the top 3 pickup zones in Brooklyn that had the highest average tip amount for trips in July 2023.",
+        "benchmark_id": "q100",
+        "similarity": 0.854
+      },
+      {
+        "q": "Rank the top 10 pickup zones by the total number of passengers transported in 2023.",
+        "benchmark_id": "q112",
+        "similarity": 0.857
+      },
+      {
+        "q": "What is the share of total trips that started in Manhattan as a percentage of all trips in 2023?",
+        "benchmark_id": "q107",
+        "similarity": 0.955
+      },
+      {
+        "q": "How many trips started in Brooklyn and ended in Queens during March 2023?",
+        "benchmark_id": "q016",
+        "similarity": 0.917
+      },
+      {
+        "q": "How many trips started in a borough other than Manhattan during the month of December 2023?",
+        "benchmark_id": "q015",
+        "similarity": 0.898
+      },
+      {
+        "q": "What is the total number of trips that started at 'JFK Airport' in 2023?",
+        "benchmark_id": "q017",
+        "similarity": 0.925
+      },
+      {
+        "q": "What was the average fare for trips using the 'JFK' rate code?",
+        "benchmark_id": "q030",
+        "similarity": 0.855
+      },
+      {
+        "q": "What is the total revenue for the entire year of 2023?",
+        "benchmark_id": "q002",
+        "similarity": 0.873
+      },
+      {
+        "q": "What are the top 5 boroughs by total revenue in 2023?",
+        "benchmark_id": "q093",
+        "similarity": 0.875
+      },
+      {
+        "q": "What is the median fare amount for all trips in 2023?",
+        "benchmark_id": "q009",
+        "similarity": 0.948
+      },
+      {
+        "q": "Calculate the tip rate for credit-card trips for each month in 2023.",
+        "benchmark_id": "q034",
+        "similarity": 0.851
+      },
+      {
+        "q": "Find the zone with the highest average tip rate (card_tips / card_fare) where at least 1000 credit-card trips occurred.",
+        "benchmark_id": "q122",
+        "similarity": 0.86
+      },
+      {
+        "q": "Compare the average distance of weekday versus weekend trips.",
+        "benchmark_id": "b012",
+        "similarity": 0.886
+      },
+      {
+        "q": "What is the 90th percentile of trip duration for all trips?",
+        "benchmark_id": "b015",
+        "similarity": 0.933
+      },
+      {
+        "q": "Find the average distance per trip for each month in 2023.",
+        "benchmark_id": "q004",
+        "similarity": 0.898
+      },
+      {
+        "q": "What is the average passenger count across all trips in 2023?",
+        "benchmark_id": "q006",
+        "similarity": 0.962
+      },
+      {
+        "q": "What is the total number of passengers transported in 2023?",
+        "benchmark_id": "q042",
+        "similarity": 0.966
+      },
+      {
+        "q": "What is the average passenger count for trips that occurred on weekends (Saturday or Sunday) versus weekdays?",
+        "benchmark_id": "q109",
+        "similarity": 0.85
+      },
+      {
+        "q": "For trips starting at JFK Airport, what is the average passenger count for each month in 2023?",
+        "benchmark_id": "q017",
+        "similarity": 0.857
+      },
+      {
+        "q": "What is the percentage share of total trips for each passenger count value in Manhattan during March 2023, ordered by passenger count?",
+        "benchmark_id": "q107",
+        "similarity": 0.87
+      },
+      {
+        "q": "Which top 5 pickup zones have the highest total revenue according to the trips_hourly_demand table combined with dim_zones? Return the zone name and total revenue.",
+        "benchmark_id": "q080",
+        "similarity": 0.889
+      },
+      {
+        "q": "Rank the top 5 pickup boroughs by total revenue in March 2023. Return the pickup borough and total revenue.",
+        "benchmark_id": "q093",
+        "similarity": 0.855
+      },
+      {
+        "q": "Find the top 5 pickup zones with the highest average fare for credit card trips in September 2023, considering only zones with at least 1,000 trips. Return pickup zone and average fare.",
+        "benchmark_id": "q122",
+        "similarity": 0.858
+      },
+      {
+        "q": "Find the top 5 busiest pickup zones (highest trip count) during the morning rush hour (pickup hour = 8) across the entire year of 2023. Return pickup zone and trip count.",
+        "benchmark_id": "q052",
+        "similarity": 0.864
+      },
+      {
+        "q": "Give the top 5 pickup zones with the highest total revenue in 2023, including their zone name and borough.",
+        "benchmark_id": "q080",
+        "similarity": 0.902
+      },
+      {
+        "q": "Which specific driver completed the highest number of trips in Manhattan during 2023?",
+        "benchmark_id": "u002",
+        "similarity": 0.893
+      },
+      {
+        "q": "How much total cash tip money was collected by drivers across all trips in 2023?",
+        "benchmark_id": "u001",
+        "similarity": 0.903
+      },
+      {
+        "q": "Which 5 pickup boroughs had the highest total tolls amount in 2023?",
+        "benchmark_id": "b013",
+        "similarity": 0.856
+      },
+      {
+        "q": "For the month of March 2023, what were the total tolls per payment type?",
+        "benchmark_id": "b004",
+        "similarity": 0.895
+      },
+      {
+        "q": "What was the average trip duration in minutes on Thanksgiving Day (November 23, 2023)?",
+        "benchmark_id": "q005",
+        "similarity": 0.853
+      },
+      {
+        "q": "How many trips ended in 'LaGuardia Airport' on the day after Thanksgiving (November 24, 2023)?",
+        "benchmark_id": "q018",
+        "similarity": 0.861
+      },
+      {
+        "q": "Which specific drivers earned the most revenue in 2023?",
+        "benchmark_id": "u002",
+        "similarity": 0.874
+      }
+    ],
+    "same_answer": [
+      {
+        "q": "Give the total number of trips across the entire dataset.",
+        "same_answer_as": "q001"
+      },
+      {
+        "q": "List the month key and the total number of trips for each month in 2023, ordered chronologically.",
+        "same_answer_as": "q056"
+      },
+      {
+        "q": "List the pickup hour (0-23) and the total number of trips starting at each hour, ordered by hour.",
+        "same_answer_as": "q065"
+      },
+      {
+        "q": "Calculate the ratio of weekend trips to total trips expressed as a percentage. Return a single row with the percentage.",
+        "same_answer_as": "q109"
+      },
+      {
+        "q": "For each payment type, give the total number of trips and the percentage share of total trips, ordered by trip count descending.",
+        "same_answer_as": "q067"
+      },
+      {
+        "q": "Give the pickup borough, dropoff borough, and the count of trips for trips that started in Queens and ended in Manhattan.",
+        "same_answer_as": "q054"
+      },
+      {
+        "q": "What is the median fare amount for trips where the pickup borough is Queens and the dropoff borough is Queens?",
+        "same_answer_as": "q011"
+      },
+      {
+        "q": "What is the average tip amount and tip rate for credit card trips originating at Newark Airport?",
+        "same_answer_as": "q009"
+      },
+      {
+        "q": "What is the average fare amount per trip across all trips?",
+        "same_answer_as": "q003"
+      },
+      {
+        "q": "What is the median fare amount per trip across all trips?",
+        "same_answer_as": "q009"
+      },
+      {
+        "q": "What is the average fare amount for trips during each hour of the day? Return the pickup hour and average fare, ordered by hour.",
+        "same_answer_as": "b007"
+      },
+      {
+        "q": "What is the total revenue for each month in 2023? Return the month key and total revenue, ordered by month key.",
+        "same_answer_as": "q057"
+      },
+      {
+        "q": "What is the average trip distance and average fare for trips where the passenger count is 5 or more? Return average distance and average fare.",
+        "same_answer_as": "q022"
+      },
+      {
+        "q": "Give the pickup zone name and total tips collected for the top 5 pickup zones by total tips.",
+        "same_answer_as": "q080"
+      },
+      {
+        "q": "What is the overall average speed in miles per hour across all trips in 2023? Use the formula total_distance / (total_duration_minutes / 60).",
+        "same_answer_as": "q086"
+      },
+      {
+        "q": "What is the average trip duration in minutes for trips with a dropoff at Newark Airport ('Newark Airport' dropoff zone)?",
+        "same_answer_as": "q134"
+      },
+      {
+        "q": "What is the total number of trips recorded in the trips_hourly_demand table across all zone-hours?",
+        "same_answer_as": "q001"
+      },
+      {
+        "q": "What is the overall average fare in the trips_hourly_demand table, weighted by trip count? Formula: SUM(avg_fare * trip_count) / SUM(trip_count).",
+        "same_answer_as": "q003"
+      },
+      {
+        "q": "Which borough generated the most total revenue according to the trips_hourly_demand table joined with dim_zones? Return the borough and total revenue, ordered descending.",
+        "same_answer_as": "b009"
+      },
+      {
+        "q": "What is the average trip distance across all records in trips_hourly_demand, weighted by trip count? Formula: SUM(avg_trip_distance * trip_count) / SUM(trip_count).",
+        "same_answer_as": "q004"
+      },
+      {
+        "q": "How many unique pickup dates are present in the trips_hourly_demand table?",
+        "same_answer_as": "q047"
+      },
+      {
+        "q": "What is the distribution of trip counts by pickup hour across the entire trips_hourly_demand table? Return the pickup hour and total trip count, ordered by hour.",
+        "same_answer_as": "q065"
+      },
+      {
+        "q": "What is the overall average revenue per trip across the trips_hourly_demand table, calculated as total revenue divided by total trips?",
+        "same_answer_as": "q011"
+      },
+      {
+        "q": "What are the 5 pickup zones with the most 6-passenger trips?",
+        "same_answer_as": "q052"
+      },
+      {
+        "q": "What is the total number of trips for each payment type?",
+        "same_answer_as": "q067"
+      },
+      {
+        "q": "Which payment type had the highest average fare in 'Manhattan' during '2023-01' between 13:00 and 14:00? Return the payment type and avg_fare.",
+        "same_answer_as": "q099"
+      },
+      {
+        "q": "Count the number of trips with more than 3 passengers for 'Cash' payments in 'Brooklyn' during '2023-05' at 22:00.",
+        "same_answer_as": "q060"
+      },
+      {
+        "q": "Get the total number of trips starting at 'EWR' borough in '2023-06' for 'Credit card' payments during the early morning (0-5).",
+        "same_answer_as": "q059"
+      },
+      {
+        "q": "How many trips took place on Independence Day (2023-07-04) for each borough in Manhattan?",
+        "same_answer_as": "q094"
+      },
+      {
+        "q": "Find the median fare amount on Juneteenth (2023-06-19).",
+        "same_answer_as": "q089"
+      },
+      {
+        "q": "Find the median fare amount for trips starting in 'Manhattan' during the hour of 17:00 (5 PM).",
+        "same_answer_as": "q089"
+      },
+      {
+        "q": "Count the number of unique pickup boroughs that have at least 1,000,000 total trips in 2023.",
+        "same_answer_as": "q139"
+      },
+      {
+        "q": "Calculate the average fare amount for each pickup hour of the day across all trips.",
+        "same_answer_as": "b007"
+      },
+      {
+        "q": "What is the total fare amount and total tip amount for 'Credit card' payments?",
+        "same_answer_as": "q007"
+      },
+      {
+        "q": "What is the average trip speed in miles per hour for the entire dataset?",
+        "same_answer_as": "q086"
+      },
+      {
+        "q": "What is the total number of trips recorded in the trips_hourly_demand table across the entire year of 2023? Return just the total trip count.",
+        "same_answer_as": "q001"
+      },
+      {
+        "q": "Which borough recorded the highest total revenue in the trips_hourly_demand table? Return the borough name and total revenue.",
+        "same_answer_as": "q094"
+      },
+      {
+        "q": "How many unique dates have data recorded in the trips_hourly_demand table? Return the count of unique dates.",
+        "same_answer_as": "q047"
+      },
+      {
+        "q": "For trips originating in Queens, what is the total revenue recorded in the trips_hourly_demand table? Return the total revenue.",
+        "same_answer_as": "q036"
+      },
+      {
+        "q": "Using a window function with LAG, calculate the difference in total revenue between the current month and the previous month for every month in 2023. Return month key, total revenue, and previous month revenue.",
+        "same_answer_as": "q057"
+      },
+      {
+        "q": "Count how many zones belong to the 'Unknown' or 'N/A' borough classification in dim_zones.",
+        "same_answer_as": "q139"
+      },
+      {
+        "q": "What is the total tolls amount paid for all trips in the dataset?",
+        "same_answer_as": "q008"
+      },
+      {
+        "q": "Which zone pair (pickup, dropoff) generated the highest aggregate toll revenue?",
+        "same_answer_as": "q051"
+      },
+      {
+        "q": "What is the total number of trips for each payment type?",
+        "same_answer_as": "q067"
+      },
+      {
+        "q": "What is the share of trips paid by 'Credit card' out of the total trips, expressed as a percentage?",
+        "same_answer_as": "q106"
+      },
+      {
+        "q": "What was the median fare on Veterans Day (November 11, 2023)?",
+        "same_answer_as": "q009"
+      }
+    ]
+  },
+  "kept_pairs": [
+    {
+      "q": "Compare weekend versus weekday: give is_weekend, trip count, and average tip amount.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.788
+    },
+    {
+      "q": "How many complaints were filed regarding traffic incidents during these trips?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q043",
+      "similarity": 0.763
+    },
+    {
+      "q": "Count the number of trips that were 'Standard rate' but resulted in a total amount greater than the 95th percentile of all trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b015",
+      "similarity": 0.727
+    },
+    {
+      "q": "How many trips were completed by specific drivers during the year?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u002",
+      "similarity": 0.794
+    },
+    {
+      "q": "What is the ratio of trips paid by credit card vs cash on Veterans Day (2023-11-11)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q106",
+      "similarity": 0.805
+    },
+    {
+      "q": "What is the average trip distance across all zone-hour records in trips_hourly_demand for pickups in the borough of 'Manhattan'? Return the average distance.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.734
+    },
+    {
+      "q": "Using a CTE to filter trips with a distance greater than 10 miles, find the top 3 boroughs by total count of long-distance trips in 2023. Return pickup borough and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b005",
+      "similarity": 0.755
+    },
+    {
+      "q": "Calculate the ratio of total tolls to total revenue for each month in 2023.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q008",
+      "similarity": 0.776
+    },
+    {
+      "q": "List the top 10 pickup zones with the most trips on weekends.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.823
+    },
+    {
+      "q": "Give the passenger count and the median fare amount for each passenger count, ordered by passenger count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q058",
+      "similarity": 0.64
+    },
+    {
+      "q": "What is the average trip duration for trips starting at 'Newark Airport' and ending in 'Manhattan'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q069",
+      "similarity": 0.728
+    },
+    {
+      "q": "What is the total passenger count and trip count for each hour of the day during weekends? Return the pickup hour, total passengers, and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.767
+    },
+    {
+      "q": "What is the median fare amount for trips where the tip amount is greater than $10.00?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "u001",
+      "similarity": 0.758
+    },
+    {
+      "q": "What is the average trip duration in minutes for trips that both started and ended within Brooklyn?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.819
+    },
+    {
+      "q": "Using a CTE, find the average trip duration in minutes for each month of 2023, and return the month key and average trip duration ordered chronologically.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q005",
+      "similarity": 0.764
+    },
+    {
+      "q": "What was the total revenue on New Year's Day (2023-01-01)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q126",
+      "similarity": 0.826
+    },
+    {
+      "q": "How many trips occurred during 'rush hour' (8 AM and 5 PM) for each borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.764
+    },
+    {
+      "q": "Give the passenger count and the average trip duration in minutes for each passenger count, ordered by passenger count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b015",
+      "similarity": 0.679
+    },
+    {
+      "q": "Compare boroughs by their average fare amount in 2023. Return the pickup borough and avg_fare, sorted highest first.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q054",
+      "similarity": 0.818
+    },
+    {
+      "q": "What are the top 5 pickup zones with the highest average speed (avg_speed_mph) during weekday rush hours (hours 7-9), requiring at least 100 trips? Return the pickup zone and average speed.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.79
+    },
+    {
+      "q": "Calculate the total revenue generated on weekends versus weekdays.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.751
+    },
+    {
+      "q": "Which 5 zones had the highest trip volume on Independence Day (July 4, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b008",
+      "similarity": 0.781
+    },
+    {
+      "q": "For the hour with the highest trip volume (overall), what was the average trip speed?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q005",
+      "similarity": 0.714
+    },
+    {
+      "q": "Which zone in Queens had the highest average fare for trips in 2023, considering only zones with at least 1,000 trips? Give the zone name, trip count, and average fare.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q105",
+      "similarity": 0.826
+    },
+    {
+      "q": "How do total annual revenues and trip volumes in 2023 compare to those from 2022 and 2024?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q021",
+      "similarity": 0.836
+    },
+    {
+      "q": "Rank the hours of the day (0-23) by total revenue generated across all of 2023. Return pickup hour, total revenue, and the rank.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.722
+    },
+    {
+      "q": "What is the median tip amount for credit card trips originating in Queens during July 2023? Return the median tip amount.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q034",
+      "similarity": 0.807
+    },
+    {
+      "q": "What is the average fare amount for nighttime trips (hours 0 to 5) split by whether it's a weekend or weekday? Return the weekend flag and the average fare.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.803
+    },
+    {
+      "q": "Give the passenger count and the average trip distance in miles for each passenger count, ordered by passenger count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q136",
+      "similarity": 0.665
+    },
+    {
+      "q": "Find the top 10 pickup zones with the highest average toll amount per trip, considering only zones with more than 1000 trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q096",
+      "similarity": 0.804
+    },
+    {
+      "q": "Find the average total amount per passenger for each rate code where the passenger count is greater than 2.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q006",
+      "similarity": 0.722
+    },
+    {
+      "q": "What are the top 10 zone-hours by total revenue where the average trip distance was greater than 10 miles? Return the date, hour, zone name, trip count, and total revenue.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.73
+    },
+    {
+      "q": "How many trips started at 0:00 (midnight) in each of the NYC boroughs?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.802
+    },
+    {
+      "q": "Find the peak hour (0-23) for 'Upper East Side South' in terms of total trip count across the year. Return the hour and total trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.764
+    },
+    {
+      "q": "Calculate the average speed in MPH on Martin Luther King Jr. Day (2023-01-16) for trips starting in 'Brooklyn'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.743
+    },
+    {
+      "q": "What was the single highest recorded trip_count for a single zone-hour in the trips_hourly_demand table? Return the date, hour, zone name, and trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q048",
+      "similarity": 0.735
+    },
+    {
+      "q": "Calculate the total revenue for 'Manhattan' trips that ended in 'Brooklyn'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.783
+    },
+    {
+      "q": "What was the average speed in mph for trips starting in Manhattan in November 2023 between 8:00 and 9:00 (pickup_hour 8) paid by Credit card? Formula: total_distance / (total_duration_minutes / 60).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q089",
+      "similarity": 0.821
+    },
+    {
+      "q": "Which single hour of the day sees the highest trip count for pickups in 'Garret Mountain' or other Staten Island/Bronx zones? Let's look specifically at pickups in 'Allerton/Pelham Gardens' in the Bronx. Give the pickup hour and trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q054",
+      "similarity": 0.748
+    },
+    {
+      "q": "What is the average tip amount for trips where the fare amount was greater than 50 dollars?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b003",
+      "similarity": 0.803
+    },
+    {
+      "q": "For trips starting in Brooklyn, list the day of the week name and the total trip count for each day name, ordered from Monday to Sunday using pickup_day_of_week.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q062",
+      "similarity": 0.822
+    },
+    {
+      "q": "Give the rate code and the average tip amount for each rate code, ordered by average tip descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q068",
+      "similarity": 0.643
+    },
+    {
+      "q": "What is the average fare amount for each payment type? Return the payment type and average fare, ordered by average fare descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.751
+    },
+    {
+      "q": "List the top 3 payment types by the median fare amount.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q009",
+      "similarity": 0.741
+    },
+    {
+      "q": "List each pickup hour and the average trip count per day for that hour across all dates in 2023, ordered by hour.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q125",
+      "similarity": 0.783
+    },
+    {
+      "q": "Give the pickup borough and the total revenue generated for each borough where the pickup borough is known.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.81
+    },
+    {
+      "q": "What was the ratio of total_revenue to total_distance on Columbus Day (October 9, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q087",
+      "similarity": 0.778
+    },
+    {
+      "q": "What are the top 5 zones with the highest average speed (avg_speed_mph) for trips starting there? Return pickup zone and avg_speed_mph.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.793
+    },
+    {
+      "q": "Compare average trip duration between weekday trips and weekend trips, returning is_weekend and the average duration in minutes.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.801
+    },
+    {
+      "q": "What is the overall average tip amount across all trips?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "u001",
+      "similarity": 0.813
+    },
+    {
+      "q": "For each rate code, what is the average total amount charged?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q011",
+      "similarity": 0.723
+    },
+    {
+      "q": "Calculate the tip rate (card_tips / card_fare) for all trips categorized under the 'JFK' rate code.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.745
+    },
+    {
+      "q": "What was the total revenue for trips starting in Manhattan during January 2023 between the hours of 8 and 9 (pickup_hour 8) paid by Credit card?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q040",
+      "similarity": 0.796
+    },
+    {
+      "q": "What is the average tip amount across all trips recorded in the database?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q031",
+      "similarity": 0.763
+    },
+    {
+      "q": "What is the total revenue generated during weekend trips versus weekday trips? Return is_weekend and total revenue.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.755
+    },
+    {
+      "q": "Compare the average total amount of 'Standard rate' trips between weekends and weekdays.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.786
+    },
+    {
+      "q": "What was the total toll amount paid on Thanksgiving (2023-11-23) aggregated by payment type?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q008",
+      "similarity": 0.832
+    },
+    {
+      "q": "What is the revenue per mile (total_revenue / total_distance) for weekend trips versus weekday trips in 2023? Give the weekend status and revenue per mile.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.845
+    },
+    {
+      "q": "What is the average customer satisfaction rating for trips in Manhattan?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q107",
+      "similarity": 0.758
+    },
+    {
+      "q": "What is the ratio of average tip amount to average fare amount for the whole dataset?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q116",
+      "similarity": 0.73
+    },
+    {
+      "q": "How does the performance of ride-hailing apps compare to traditional yellow taxi services in this dataset?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u003",
+      "similarity": 0.716
+    },
+    {
+      "q": "Calculate the ratio of tolls amount to total revenue for each payment type.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q008",
+      "similarity": 0.67
+    },
+    {
+      "q": "For trips originating from 'JFK Airport', what are the top 5 dates with the highest total revenue? Return the date and total revenue.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q075",
+      "similarity": 0.722
+    },
+    {
+      "q": "List the pickup borough and the average fare per trip, sorted by average fare descending, for all boroughs except EWR.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.708
+    },
+    {
+      "q": "What is the average trip distance for trips with 1 passenger compared to trips with 5 or more passengers?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.762
+    },
+    {
+      "q": "For each month in 2023, what is the maximum total amount charged for a single trip? Return month key and max total amount using a window function or GROUP BY.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q057",
+      "similarity": 0.758
+    },
+    {
+      "q": "List the top 5 dropoff boroughs for trips originating at JFK Airport along with their corresponding trip counts.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q094",
+      "similarity": 0.777
+    },
+    {
+      "q": "What is the total revenue for trips starting in 'JFK Airport' per month?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q108",
+      "similarity": 0.776
+    },
+    {
+      "q": "Return the count of trips for each borough of pickup where the payment type was 'Cash'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b009",
+      "similarity": 0.751
+    },
+    {
+      "q": "Find the top 5 dropoff zones in Brooklyn ranked by total revenue during May 2023. Return dropoff zone and total revenue.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.816
+    },
+    {
+      "q": "Which zones are the top 5 'drop-off' destinations for trips originating from 'JFK Airport'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q094",
+      "similarity": 0.794
+    },
+    {
+      "q": "What is the hourly trip count distribution on Mondays? Give pickup_hour and trip_count, ordered by pickup_hour.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q062",
+      "similarity": 0.81
+    },
+    {
+      "q": "What is the average fare amount for each payment type, excluding 'No charge' and 'Dispute'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q044",
+      "similarity": 0.804
+    },
+    {
+      "q": "What is the average passenger count for trips starting in 'LaGuardia Airport' compared to 'JFK Airport'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q108",
+      "similarity": 0.817
+    },
+    {
+      "q": "For trips originating from Newark Airport, what are the top 3 most common dropoff boroughs? Give the dropoff borough and the trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q132",
+      "similarity": 0.795
+    },
+    {
+      "q": "Find the maximum trip distance for any trip that started at 'Newark Airport'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q048",
+      "similarity": 0.651
+    },
+    {
+      "q": "List the top 5 zones in 'Queens' by total number of trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.757
+    },
+    {
+      "q": "Comparing credit card payments versus cash payments, which has a higher average passenger count?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q106",
+      "similarity": 0.73
+    },
+    {
+      "q": "Calculate the total number of trips per month for 'Standard rate' trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q056",
+      "similarity": 0.739
+    },
+    {
+      "q": "What is the tip rate for 'Credit card' trips in 'JFK Airport' during '2023-03' in the hour 15?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q072",
+      "similarity": 0.803
+    },
+    {
+      "q": "What is the total revenue generated on January 1st, 2023, according to the trips_hourly_demand table? Return the total revenue.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q057",
+      "similarity": 0.827
+    },
+    {
+      "q": "What is the overall average fare per zone-hour in the trips_hourly_demand table? Note that averages in this table are unweighted zone-hour averages. Return the value rounded to 2 decimal places.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.736
+    },
+    {
+      "q": "Find the average speed of trips starting in Queens that ended in Manhattan.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q107",
+      "similarity": 0.77
+    },
+    {
+      "q": "What is the average rating given by passengers for their trips?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u003",
+      "similarity": 0.791
+    },
+    {
+      "q": "Find the top 5 pickup zones in Manhattan by total tolls paid.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q120",
+      "similarity": 0.784
+    },
+    {
+      "q": "List the top 5 hours of the day (0-23) based on the highest total tolls collected.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.682
+    },
+    {
+      "q": "Find the percentage of 'Credit card' payment trips compared to total trips per borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q106",
+      "similarity": 0.787
+    },
+    {
+      "q": "List the boroughs and the total number of 'No charge' trips in '2023-05' during the lunch hour (12:00).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b006",
+      "similarity": 0.74
+    },
+    {
+      "q": "Find the average trip distance for trips that both started and ended at 'LaGuardia Airport'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q041",
+      "similarity": 0.752
+    },
+    {
+      "q": "What is the total distance traveled for trips ending in 'JFK Airport' broken down by the pickup borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q094",
+      "similarity": 0.767
+    },
+    {
+      "q": "What are the top 5 dates with the highest total number of trips in the trips_hourly_demand table? Return the date and total trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q048",
+      "similarity": 0.718
+    },
+    {
+      "q": "What is the average speed in miles per hour for trips where the dropoff zone was Newark Airport?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q089",
+      "similarity": 0.695
+    },
+    {
+      "q": "Find the average fare for credit card payments per zone in Staten Island.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q054",
+      "similarity": 0.75
+    },
+    {
+      "q": "Which vehicle models or specific taxi cab IDs were most fuel-efficient?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q051",
+      "similarity": 0.65
+    },
+    {
+      "q": "Which 5 pickup zones have the highest ratio of average toll amount to average fare amount?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q105",
+      "similarity": 0.801
+    },
+    {
+      "q": "What are the top 5 zones in the Bronx by average trip duration in minutes for all trips starting in that zone in 2023, considering only zones with at least 500 trips? Give the zone name and average trip duration.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.779
+    },
+    {
+      "q": "For trips originating in Manhattan, list each month_key and its corresponding trip count, ordered chronologically.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q047",
+      "similarity": 0.737
+    },
+    {
+      "q": "Give the top 5 pickup zones by total passenger count, including the zone name and total passengers, ordered by total passengers descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.796
+    },
+    {
+      "q": "What was the average speed (mph) of trips in Brooklyn on New Year's Eve (December 31, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.839
+    },
+    {
+      "q": "What are the total tolls for 'Standard rate' trips by borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b009",
+      "similarity": 0.736
+    },
+    {
+      "q": "Calculate the average speed (mph) for all trips starting in 'Central Park'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q086",
+      "similarity": 0.673
+    },
+    {
+      "q": "For trips where both pickup and dropoff zones are in 'Penn Station/Madison Sq West', what is the total number of such trips and total revenue in 2023? Give trip count and total revenue.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.73
+    },
+    {
+      "q": "Give the pickup hour and the credit-card tip rate for morning rush hour (hours 7 to 9), ordered by hour.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q122",
+      "similarity": 0.642
+    },
+    {
+      "q": "Compare the total tolls paid on 'Credit card' versus 'Cash' trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q106",
+      "similarity": 0.756
+    },
+    {
+      "q": "For trips starting in 'Brooklyn', find the top 5 dropoff boroughs and the trip count for each.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.792
+    },
+    {
+      "q": "Find the ratio of total tips to total fares (tip rate) for credit card transactions.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q088",
+      "similarity": 0.816
+    },
+    {
+      "q": "Give the pickup hour and the average tip amount for trips in March 2023, ordered by pickup hour.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q022",
+      "similarity": 0.788
+    },
+    {
+      "q": "Were these trips completed using electric, hybrid, or gasoline-powered vehicles?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q001",
+      "similarity": 0.611
+    },
+    {
+      "q": "Get the top 5 days in 2023 with the highest total number of trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q050",
+      "similarity": 0.809
+    },
+    {
+      "q": "Calculate the average trip duration for each day of the week, ordered by duration descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q062",
+      "similarity": 0.713
+    },
+    {
+      "q": "How many trips started in the 'Manhattan' borough during each hour of the day across the entire year?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q015",
+      "similarity": 0.826
+    },
+    {
+      "q": "What is the fuel efficiency of the taxi fleet throughout the year?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u003",
+      "similarity": 0.727
+    },
+    {
+      "q": "What is the total tolls amount paid during weekend trips versus weekday trips?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.779
+    },
+    {
+      "q": "For trips starting in 'JFK Airport' in December 2023 between 12:00 and 15:00 (pickup_hour 12, 13, 14) paid by Credit card, what was the average tip amount?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b003",
+      "similarity": 0.816
+    },
+    {
+      "q": "What was the average customer star rating given for trips originating from JFK Airport?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.753
+    },
+    {
+      "q": "Calculate the average tip amount for credit card trips, broken down by pickup borough, restricted to trips exceeding 10 miles.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b003",
+      "similarity": 0.754
+    },
+    {
+      "q": "Which 5 zones in Queens have the highest total trip count in the trips_hourly_demand table? Return the zone name and total trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q053",
+      "similarity": 0.752
+    },
+    {
+      "q": "What is the median fare for trips starting during the midnight hour (hour 0) on weekends versus weekdays? Give the weekend status and median fare.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.799
+    },
+    {
+      "q": "What were the exact street-by-street GPS routes taken by vehicles during trips longer than 10 miles?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b005",
+      "similarity": 0.726
+    },
+    {
+      "q": "Show the average passenger count for the top 5 hours of the day that have the most total trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.684
+    },
+    {
+      "q": "Show the average tip amount for each hour of the day (0-23).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.686
+    },
+    {
+      "q": "Find the average fare for trips that were longer than 10 miles, grouped by pickup borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q096",
+      "similarity": 0.739
+    },
+    {
+      "q": "Compare the number of trips on weekends versus weekdays for the entire year.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b014",
+      "similarity": 0.775
+    },
+    {
+      "q": "Find the total revenue from 'Cash' payments on July 4th, 2023.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q101",
+      "similarity": 0.826
+    },
+    {
+      "q": "List the top 5 pickup zones across all boroughs that had the highest average speed in miles per hour (total distance divided by total duration in hours) in 2023, among zones with at least 1,000 trips. Give the zone name and average speed in mph.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.795
+    },
+    {
+      "q": "Find the total distance traveled in trips that were 'Credit card' payments starting in 'La Guardia Airport' during '2023-04' at 10 AM.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q095",
+      "similarity": 0.76
+    },
+    {
+      "q": "How does the average passenger count for 'Standard rate' trips compare to 'JFK' rate trips?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.773
+    },
+    {
+      "q": "Find the 5 dates in 2023 with the lowest number of trips (excluding days with zero if any, but since we query fct_trips we just take the bottom 5 dates by count). Give pickup_date and trip_count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.775
+    },
+    {
+      "q": "What is the median toll amount for trips that actually paid a toll (tolls_amount > 0)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.787
+    },
+    {
+      "q": "For each pickup borough, what is the total number of tolls paid for trips ending in 'Queens'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.809
+    },
+    {
+      "q": "Find the top 10 pickup zones with the highest average passenger counts for trips longer than 10 miles.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q096",
+      "similarity": 0.828
+    },
+    {
+      "q": "Which 5 dropoff boroughs have the highest total tolls paid?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q054",
+      "similarity": 0.759
+    },
+    {
+      "q": "What are the bottom 5 zones by trip count for trips ending in the Bronx?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.774
+    },
+    {
+      "q": "Give the month key and the credit-card tip rate for each month in 2023, ordered by month key.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q139",
+      "similarity": 0.748
+    },
+    {
+      "q": "Give the trip count and total revenue for trips where both the pickup zone and dropoff zone are named 'JFK Airport'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q108",
+      "similarity": 0.713
+    },
+    {
+      "q": "What is the average tolls amount per trip for weekend trips compared to weekday trips for pickups in JFK Airport zone? Give the weekend status and average tolls amount.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.719
+    },
+    {
+      "q": "Give the pickup borough and the average tip-to-fare ratio (average of tip_amount / fare_amount) for credit card trips in each pickup borough.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q088",
+      "similarity": 0.761
+    },
+    {
+      "q": "Give the breakdown of trip counts by pickup borough for all trips in March 2023 ('2023-03'), ordered by trip count descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b006",
+      "similarity": 0.806
+    },
+    {
+      "q": "Identify the top 3 zones that generated the most revenue per mile on Christmas (2023-12-25).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.765
+    },
+    {
+      "q": "What are the top 10 zone-hours (date, hour, zone name) with the longest average trip distance in the trips_hourly_demand table, considering only zone-hours with at least 50 trips? Return the date, hour, zone name, and average trip distance.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q096",
+      "similarity": 0.74
+    },
+    {
+      "q": "Identify the top 5 zones with the highest median fare amount, considering only trips with more than 1 passenger.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q105",
+      "similarity": 0.691
+    },
+    {
+      "q": "Find the average trip duration in minutes for trips originating in 'LaGuardia Airport' during October 2023 between 6:00 and 9:00 (pickup_hour 6 to 8) paid by Credit card.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q041",
+      "similarity": 0.821
+    },
+    {
+      "q": "Give the passenger count and the average total amount charged for trips with that passenger count, ordered by passenger count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q006",
+      "similarity": 0.696
+    },
+    {
+      "q": "Identify the top 5 zones with the highest 'Credit card' tip amounts for 'Standard rate' trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q122",
+      "similarity": 0.823
+    },
+    {
+      "q": "What are the top 5 pickup zones by average trip distance, returning the pickup zone name and average distance in miles?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.821
+    },
+    {
+      "q": "What was the average passenger count per trip on St. Patrick's Day (March 17, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q006",
+      "similarity": 0.829
+    },
+    {
+      "q": "What is the average trip distance in miles for trips originating in EWR (Newark Airport)?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q004",
+      "similarity": 0.661
+    },
+    {
+      "q": "What is the total toll amount paid for each rate code?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q008",
+      "similarity": 0.771
+    },
+    {
+      "q": "What is the total toll amount paid for trips originating from 'JFK Airport' in 2023? Give the total tolls in dollars.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.843
+    },
+    {
+      "q": "List the top 3 zones in 'Brooklyn' by 'total_revenue' for 'Credit card' trips in '2023-11' during the hour 17.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q079",
+      "similarity": 0.744
+    },
+    {
+      "q": "What is the average trip duration for 'Negotiated fare' trips during weekend hours vs weekday hours?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.793
+    },
+    {
+      "q": "What is the total number of trips where the rate code is 'Group ride' for each month?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q068",
+      "similarity": 0.752
+    },
+    {
+      "q": "What are the top 5 rate codes by total revenue? Return the rate code and total revenue.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q135",
+      "similarity": 0.693
+    },
+    {
+      "q": "What are the top 5 hours of the day by trip count during weekends (Saturday and Sunday)? Return the pickup hour and the number of trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.788
+    },
+    {
+      "q": "Give the month key (e.g. '2023-01') and the average trip distance in miles for each month, ordered by month key.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q056",
+      "similarity": 0.75
+    },
+    {
+      "q": "List the count of trips for each month, but only for trips that traveled more than 20 miles.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q060",
+      "similarity": 0.708
+    },
+    {
+      "q": "Compare total revenue of 'Manhattan' vs 'Brooklyn' zones for the entire year.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.756
+    },
+    {
+      "q": "What is the total distance traveled for each borough in the month of December 2023 ('2023-12')?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.785
+    },
+    {
+      "q": "What is the total trip count per borough for the month of December 2023?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b006",
+      "similarity": 0.83
+    },
+    {
+      "q": "Identify the top 3 zones in Brooklyn with the highest revenue per mile (total revenue divided by total distance) for trips originating there in 2023, among zones with at least 1,000 trips. Give the zone name and revenue per mile.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.82
+    },
+    {
+      "q": "What is the average passenger count per trip during morning rush hours (hours 7 to 9) on weekdays versus weekends? Return the weekend flag and average passengers.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.751
+    },
+    {
+      "q": "Did rain or snow have a significant impact on trip demand?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u008",
+      "similarity": 0.719
+    },
+    {
+      "q": "Find the top 5 zones with the highest total tips on Thanksgiving (2023-11-23).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q100",
+      "similarity": 0.745
+    },
+    {
+      "q": "Find the bottom 5 pickup zones in Brooklyn by trip count among zones that had at least one trip in March 2023. Give the pickup zone name and trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.836
+    },
+    {
+      "q": "What is the average passenger count for trips during evening rush hours (hours 17-18) on Fridays (pickup_day_of_week = 5) compared to Mondays (pickup_day_of_week = 1)? Give the day name and average passengers.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q117",
+      "similarity": 0.777
+    },
+    {
+      "q": "What is the average rating given by passengers to drivers?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u003",
+      "similarity": 0.773
+    },
+    {
+      "q": "What is the average trip distance in miles for trips originating from JFK Airport ('JFK Airport' pickup zone)?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q017",
+      "similarity": 0.725
+    },
+    {
+      "q": "For each hour of the day, calculate the ratio of the total revenue to the total trip duration in minutes.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b015",
+      "similarity": 0.68
+    },
+    {
+      "q": "Using the trips_hourly_demand table, find the top 5 zone-hours (pickup_date, pickup_hour, pickup_zone_id) with the highest trip counts. Join with dim_zones to include zone_name.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.789
+    },
+    {
+      "q": "What was the total passenger count on Columbus Day (2023-10-09) during peak hours (17:00-19:00)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q040",
+      "similarity": 0.732
+    },
+    {
+      "q": "What is the month-over-month growth rate in total trips between October 2023 and November 2023? Return October trips, November trips, and the percentage change.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q118",
+      "similarity": 0.818
+    },
+    {
+      "q": "What is the average passenger count for trips that started in Manhattan and ended in Brooklyn?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q069",
+      "similarity": 0.802
+    },
+    {
+      "q": "What are the top 5 zones with the highest average fare per zone-hour in trips_hourly_demand, considering only zone-hours with at least 100 trips? Return zone name and average fare.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q053",
+      "similarity": 0.762
+    },
+    {
+      "q": "What is the distribution of total trips by passenger count (e.g., count of trips for 1 passenger, 2 passengers, etc.)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q024",
+      "similarity": 0.774
+    },
+    {
+      "q": "On President's Day (2023-02-20), what was the average trip duration in minutes for each borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q005",
+      "similarity": 0.776
+    },
+    {
+      "q": "What was the total revenue for 'Cash' payment trips on Independence Day (2023-07-04)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q101",
+      "similarity": 0.826
+    },
+    {
+      "q": "For each payment type, calculate the average trip duration and total revenue in April 2023. Return payment type, average duration, and total revenue, ordered by total revenue descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q067",
+      "similarity": 0.729
+    },
+    {
+      "q": "What was the average fare for trips starting in Brooklyn during March 2023 between midnight and 5 AM (pickup_hour 0 to 5) paid by Credit card?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q022",
+      "similarity": 0.832
+    },
+    {
+      "q": "What was the total distance covered on New Year's Eve (2023-12-31)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q004",
+      "similarity": 0.761
+    },
+    {
+      "q": "What is the tip rate (card_tips / card_fare) for trips categorized by whether they occurred on a weekend or a weekday? Return the weekend status and the tip rate.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.757
+    },
+    {
+      "q": "Compare the average trip distance for 'Credit card' payments versus 'Cash' payments for trips starting in Manhattan.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.69
+    },
+    {
+      "q": "How many trips were paid with 'Credit card' on Valentine's Day (February 14, 2023) in Manhattan?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q014",
+      "similarity": 0.817
+    },
+    {
+      "q": "What was the total revenue generated on New Year's Day (January 1st, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q126",
+      "similarity": 0.844
+    },
+    {
+      "q": "Compare the average fare on Christmas Day (2023-12-25) versus the day before (2023-12-24).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q115",
+      "similarity": 0.803
+    },
+    {
+      "q": "Compare the average tip amount between 'Credit card' and 'Cash' payment types.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b003",
+      "similarity": 0.782
+    },
+    {
+      "q": "What is the distribution of payment types for trips in the 'Queens' borough during March 2023?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q016",
+      "similarity": 0.809
+    },
+    {
+      "q": "For the zone-hour entries where pickup_hour is between 2 and 5 (inclusive), what is the total trip count in trips_hourly_demand? Return the trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.784
+    },
+    {
+      "q": "What was the average age of the passengers in the vehicle?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u009",
+      "similarity": 0.773
+    },
+    {
+      "q": "Find the average trip duration for each rate code, excluding 'Unknown' rate codes.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q068",
+      "similarity": 0.728
+    },
+    {
+      "q": "Calculate the average speed (mph) for all trips starting in 'Bronx' and ending in 'Manhattan'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.696
+    },
+    {
+      "q": "For each month, what is the count of trips that used the 'Newark' rate code?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.742
+    },
+    {
+      "q": "Give the pickup hour and the average passenger count for trips during that hour, ordered by pickup hour.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.724
+    },
+    {
+      "q": "What are the top 3 hours of the day with the highest average fare for weekend trips? Give the pickup hour and average fare.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.802
+    },
+    {
+      "q": "List the top 10 dropoff zones by total number of trips ending in them across all of 2023, including dropoff zone name and dropoff borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q053",
+      "similarity": 0.835
+    },
+    {
+      "q": "Give the payment type and the average tip amount for each payment type, ordered by average tip descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q067",
+      "similarity": 0.655
+    },
+    {
+      "q": "List the top 5 pickup zones in Queens, ranked by the total distance of all trips originating there.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q078",
+      "similarity": 0.739
+    },
+    {
+      "q": "Compare the average trip duration in minutes between trips starting at JFK Airport, LaGuardia Airport, and Newark Airport.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q041",
+      "similarity": 0.728
+    },
+    {
+      "q": "What was the maximum trip distance on New Year's Day (January 1, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q004",
+      "similarity": 0.831
+    },
+    {
+      "q": "Find the average passenger count per trip for each borough, excluding unknown zones.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.772
+    },
+    {
+      "q": "What is the revenue per mile (total revenue divided by total distance) for all trips with the 'JFK' rate code?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q087",
+      "similarity": 0.791
+    },
+    {
+      "q": "What are the top 10 pickup zones by total revenue for trips where the payment type was 'Credit card'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q122",
+      "similarity": 0.802
+    },
+    {
+      "q": "Calculate the total tolls for each rate code type, ordered by the total amount descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q068",
+      "similarity": 0.665
+    },
+    {
+      "q": "Give the hourly trip counts for trips starting in Manhattan during March 2023 between 7:00 and 10:00 (pickup_hour 7, 8, 9) paid by Cash, returning the pickup hour and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q040",
+      "similarity": 0.775
+    },
+    {
+      "q": "What is the total tip amount collected in 'Manhattan' during the weekend compared to weekdays?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u001",
+      "similarity": 0.726
+    },
+    {
+      "q": "What are the top 5 zone-hours in the trips_hourly_demand table with the highest total revenue during the midnight hour (pickup_hour = 0)? Return the date, zone name, and total revenue.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.803
+    },
+    {
+      "q": "List the top 10 zones by trip count on Memorial Day (2023-05-29).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.732
+    },
+    {
+      "q": "Which 5 pickup zones had the highest number of trips ending at 'LaGuardia Airport'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b008",
+      "similarity": 0.791
+    },
+    {
+      "q": "Find the average revenue per mile for each pickup borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.796
+    },
+    {
+      "q": "What are the total tips collected in each borough for trips that lasted more than 30 minutes?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.691
+    },
+    {
+      "q": "What is the average speed in miles per hour (avg_speed_mph) for trips starting in Manhattan and ending in Brooklyn?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.798
+    },
+    {
+      "q": "Find the total amount of tolls paid on Juneteenth (June 19, 2023).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q008",
+      "similarity": 0.84
+    },
+    {
+      "q": "Give the top 5 pickup zones in Brooklyn for trips in April 2023 between 20:00 and 23:00 (pickup_hour 20 to 22) paid by Credit card, returning zone name and total revenue.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q079",
+      "similarity": 0.828
+    },
+    {
+      "q": "What is the tip rate (total tips / total fare) for credit card trips in each borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q088",
+      "similarity": 0.808
+    },
+    {
+      "q": "How many trips from 'Newark Airport' (pickup_zone) were paid via 'Credit card'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b002",
+      "similarity": 0.76
+    },
+    {
+      "q": "Calculate the average fare per mile (revenue per mile) for 'Credit card' trips in 'Manhattan' during '2023-03' in the afternoon (14:00).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.78
+    },
+    {
+      "q": "Give the pickup hour and total tips for each hour of the day, ordered by total tips descending, limit 5.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q117",
+      "similarity": 0.633
+    },
+    {
+      "q": "For each hour of the day, what is the percentage of trips paid by 'Cash'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b011",
+      "similarity": 0.842
+    },
+    {
+      "q": "Give the total tolls paid for each month in 2023, ordered by month.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q008",
+      "similarity": 0.822
+    },
+    {
+      "q": "Give the breakdown of trip count by payment type for trips starting in Manhattan during May 2023 between 12:00 and 13:00 (pickup_hour 12), ordered by trip count descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q107",
+      "similarity": 0.785
+    },
+    {
+      "q": "Which 3 hours had the lowest average fare on Christmas Eve (2023-12-24)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q045",
+      "similarity": 0.788
+    },
+    {
+      "q": "Give the month key and the average passenger count for each month in 2023, ordered by month key.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q058",
+      "similarity": 0.75
+    },
+    {
+      "q": "Find the peak pickup hour (0-23) for trips originating in Brooklyn, along with the trip count for that hour.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.777
+    },
+    {
+      "q": "What was the exact path or route taken by the taxi for each trip?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q012",
+      "similarity": 0.736
+    },
+    {
+      "q": "Calculate the average passenger count for trips that lasted more than 60 minutes.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q028",
+      "similarity": 0.773
+    },
+    {
+      "q": "List the top 10 pickup zones with the longest average trip duration for weekend trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q096",
+      "similarity": 0.839
+    },
+    {
+      "q": "What is the total number of trips where the pickup borough is the same as the dropoff borough, broken down by borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q132",
+      "similarity": 0.77
+    },
+    {
+      "q": "For trips starting in Manhattan and ending in Queens, what is the average trip distance in miles and average trip duration in minutes?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.784
+    },
+    {
+      "q": "Which 5 pickup zones have the highest average tip amount for trips exceeding 10 miles?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q096",
+      "similarity": 0.8
+    },
+    {
+      "q": "Which specific drivers are earning the highest daily revenue?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u002",
+      "similarity": 0.716
+    },
+    {
+      "q": "What are the top 5 dropoff boroughs for trips originating in Manhattan during weekday morning rush hours (hours 7-9)? Give the dropoff borough and trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q132",
+      "similarity": 0.765
+    },
+    {
+      "q": "What is the average trip speed in miles per hour (avg_speed_mph) for trips on weekends versus weekdays? Return whether it is a weekend, and the average speed.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.787
+    },
+    {
+      "q": "List all unique zone names located in the 'Staten Island' borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q120",
+      "similarity": 0.735
+    },
+    {
+      "q": "What is the share of trips with exactly 1 passenger vs 2+ passengers for each month?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q024",
+      "similarity": 0.8
+    },
+    {
+      "q": "What is the median fare for trips that used the 'Newark' rate code?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q103",
+      "similarity": 0.782
+    },
+    {
+      "q": "What is the average tip amount for trips with a passenger count of 5 or more?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b003",
+      "similarity": 0.769
+    },
+    {
+      "q": "For each hour in '2023-02', calculate the total revenue of 'Credit card' trips originating from 'Central Park'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b002",
+      "similarity": 0.763
+    },
+    {
+      "q": "What is the median fare amount for weekday evening rush hour trips (hours 16 to 19) compared to weekend evening trips for the same hours? Return the weekend flag and median fare.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.762
+    },
+    {
+      "q": "How much did individual taxi medallions sell for on the open market during 2023?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "u007",
+      "similarity": 0.848
+    },
+    {
+      "q": "Give the top 5 dropoff zones with the highest average tolls amount per trip, along with their dropoff borough.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q053",
+      "similarity": 0.773
+    },
+    {
+      "q": "What is the average trip duration in minutes for each pickup day name, ordered from Monday to Sunday? Return the pickup day name and the average trip duration.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q062",
+      "similarity": 0.778
+    },
+    {
+      "q": "Give the pickup hour (0 to 23) and the average speed in miles per hour for each hour of the day, ordered by hour.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q123",
+      "similarity": 0.743
+    },
+    {
+      "q": "For each pickup borough, calculate the total number of trips that lasted longer than 30 minutes.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.712
+    },
+    {
+      "q": "Find the top 3 pickup zones that contribute the most to the 'total_tolls' collected across all of 2023.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q100",
+      "similarity": 0.84
+    },
+    {
+      "q": "What is the median tip amount for all recorded trips?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q031",
+      "similarity": 0.796
+    },
+    {
+      "q": "Find the average passenger count for trips that had tolls greater than $10.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.759
+    },
+    {
+      "q": "What is the ratio of weekend trips to total trips for each pickup borough in Manhattan and Brooklyn? Return the borough, weekend trips, and total trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.775
+    },
+    {
+      "q": "Did rain or snow affect the total number of trips on specific dates?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q047",
+      "similarity": 0.781
+    },
+    {
+      "q": "What is the total number of 'Credit card' trips with a distance over 10 miles in 'Queens' during '2023-09' at 23:00?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b005",
+      "similarity": 0.787
+    },
+    {
+      "q": "What is the month-over-month percentage change in total revenue from January 2023 to February 2023? Return the January revenue, February revenue, and the percentage change.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q057",
+      "similarity": 0.788
+    },
+    {
+      "q": "For trips starting at JFK Airport during 2023, list the month_key and trip count, ordered by month_key.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q017",
+      "similarity": 0.787
+    },
+    {
+      "q": "For trips using the 'JFK' rate code, show the breakdown of trip counts by payment type.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.75
+    },
+    {
+      "q": "Which 5 dates in 2023 had the highest total passenger demand (sum of trip_count) recorded in trips_hourly_demand? Return the pickup date and total trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.786
+    },
+    {
+      "q": "What is the median trip distance for 'Credit card' payments compared to 'Cash' payments?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q106",
+      "similarity": 0.729
+    },
+    {
+      "q": "Identify the top 5 pickup boroughs ranked by the total tip amount collected on credit card trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q122",
+      "similarity": 0.791
+    },
+    {
+      "q": "How many trips used the 'Newark' rate code, grouped by pickup borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.78
+    },
+    {
+      "q": "What is the average tip amount for trips that started at JFK Airport in 2023?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q017",
+      "similarity": 0.841
+    },
+    {
+      "q": "How many passengers were wheelchair users or required accessible vehicle features?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q025",
+      "similarity": 0.666
+    },
+    {
+      "q": "Find the average tip amount for 'Credit card' trips in 'Manhattan' in '2023-12' for each hour of the day.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q034",
+      "similarity": 0.814
+    },
+    {
+      "q": "Give the rate code and the average trip duration in minutes for each rate code, ordered by average duration descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q068",
+      "similarity": 0.706
+    },
+    {
+      "q": "Give the payment type and the average trip distance in miles for each payment type, ordered by average distance descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q067",
+      "similarity": 0.715
+    },
+    {
+      "q": "What percentage of all trips starting in Staten Island are paid using Credit card? Return the percentage as a decimal or float.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q088",
+      "similarity": 0.722
+    },
+    {
+      "q": "Give the revenue per mile (total_revenue / total_distance) for trips originating in Queens during September 2023 between 6:00 and 9:00 (pickup_hour 6 to 8) paid by Credit card.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q087",
+      "similarity": 0.804
+    },
+    {
+      "q": "Give the top 10 pickup zones with the highest total tolls paid, including the zone name and borough.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.762
+    },
+    {
+      "q": "Compare the average tip amount for 'JFK' rate code trips vs 'Newark' rate code trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.705
+    },
+    {
+      "q": "Did rain or snow have a significant impact on trip demand during December?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u008",
+      "similarity": 0.707
+    },
+    {
+      "q": "Give the top 5 dropoff zones for trips originating in 'Penn Station/Madison Sq West' in June 2023 between 8:00 and 9:00 (pickup_hour 8) paid by Credit card, returning dropoff zone and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q130",
+      "similarity": 0.704
+    },
+    {
+      "q": "What is the total revenue and total trip count for Manhattan zones during the 8 AM hour (pickup_hour = 8)?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.766
+    },
+    {
+      "q": "What are the top 3 hours of the day with the highest average trip distance during weekends? Return the pickup hour and average trip distance.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.769
+    },
+    {
+      "q": "Find the average trip duration in minutes for trips starting in Manhattan during the month of May 2023 ('2023-05').",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q005",
+      "similarity": 0.831
+    },
+    {
+      "q": "What routes did drivers take between the pickup and dropoff points?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q130",
+      "similarity": 0.739
+    },
+    {
+      "q": "What is the total revenue generated from trips starting at 'LaGuardia Airport' broken down by month?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q108",
+      "similarity": 0.784
+    },
+    {
+      "q": "Which 5 pickup zones had the highest average fare amount for trips starting during the morning rush hour (8 AM)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q066",
+      "similarity": 0.771
+    },
+    {
+      "q": "For trips over 10 miles, what is the average duration per passenger count?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b005",
+      "similarity": 0.775
+    },
+    {
+      "q": "What percentage of total revenue across all trips came from tolls?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.797
+    },
+    {
+      "q": "What is the median fare amount for trips starting at 'World Trade Center' and ending in 'Brooklyn'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q072",
+      "similarity": 0.776
+    },
+    {
+      "q": "Calculate the total revenue from 'EWR' (Newark Airport) trips per month in 2023.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q002",
+      "similarity": 0.786
+    },
+    {
+      "q": "List all zones where the zone name starts with the letter 'J', returning the zone id, zone name, and borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q053",
+      "similarity": 0.643
+    },
+    {
+      "q": "Give the top 5 pickup zones outside of airports that generated the highest total revenue for trips where the dropoff zone was JFK Airport.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.766
+    },
+    {
+      "q": "How many trips were booked through ride-hailing apps compared to street hails?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q047",
+      "similarity": 0.711
+    },
+    {
+      "q": "What is the ratio of credit card tips to total credit card fares (tip rate) for each month in the fourth quarter (October, November, December 2023)? Return month key and tip rate.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q139",
+      "similarity": 0.832
+    },
+    {
+      "q": "Using a CTE, find the average speed in miles per hour for each borough of pickup in February 2023. Return pickup borough and average speed, ordered by average speed descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q048",
+      "similarity": 0.707
+    },
+    {
+      "q": "What was the average passenger count per trip for trips starting in Brooklyn in October 2023 between 22:00 and 23:00 (pickup_hour 22) paid by Cash?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.819
+    },
+    {
+      "q": "What is the total number of trips originating from 'JFK Airport' that were paid with 'Credit card' during the weekend?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.782
+    },
+    {
+      "q": "What percentage of the taxi fleet consists of hybrid or fully electric vehicles?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q111",
+      "similarity": 0.674
+    },
+    {
+      "q": "What is the average duration of trips that were 'Negotiated fare' type?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q005",
+      "similarity": 0.777
+    },
+    {
+      "q": "Find the single busiest zone-hour (combination of pickup date, pickup hour, and zone name) in terms of trip count in 2023. Return the pickup date, pickup hour, zone name, and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.841
+    },
+    {
+      "q": "What is the total revenue generated during evening rush hour (pickup_hours 17 and 18) across all zones?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.724
+    },
+    {
+      "q": "What is the median fare amount for trips ending at 'Newark Airport' during the month of December 2023?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q009",
+      "similarity": 0.823
+    },
+    {
+      "q": "What is the total revenue for trips starting on weekends compared to weekdays in 2023? Return whether it is a weekend or weekday and the total revenue.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.797
+    },
+    {
+      "q": "What was the total distance traveled in miles for trips originating in Bronx during June 2023 between 22:00 and 23:00 (pickup_hour 22) paid by Cash?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q123",
+      "similarity": 0.775
+    },
+    {
+      "q": "What are the top 5 hours of the day by total trip count across the entire trips_hourly_demand table? Return the pickup hour and total trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.746
+    },
+    {
+      "q": "What are the top 3 dropoff zones in Manhattan by total revenue for trips that started in JFK Airport? Give the dropoff zone name and total revenue.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.77
+    },
+    {
+      "q": "Which taxi zone in Staten Island had the highest total tip amount in 2023 on credit card payments? Give the zone name and total tips.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q122",
+      "similarity": 0.801
+    },
+    {
+      "q": "Find the top 5 zones in Brooklyn by total trip count in trips_hourly_demand. Return the zone name and total trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q053",
+      "similarity": 0.774
+    },
+    {
+      "q": "On Valentine's Day (2023-02-14), what was the average number of passengers per trip in the 'Queens' borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q016",
+      "similarity": 0.777
+    },
+    {
+      "q": "Which 3 zones in Manhattan had the lowest average trip distance for their pickups? Return zone name and avg_trip_distance.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q096",
+      "similarity": 0.75
+    },
+    {
+      "q": "Find the top 3 dropoff boroughs in terms of total toll amount paid during December 2023. Return dropoff borough and total tolls.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.749
+    },
+    {
+      "q": "Give the day of week name and the credit-card tip rate for each day, ordered by tip rate descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q062",
+      "similarity": 0.686
+    },
+    {
+      "q": "What was the median fare for trips starting in Staten Island in September 2023 between 15:00 and 18:00 (pickup_hour 15 to 17) paid by Cash?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q033",
+      "similarity": 0.804
+    },
+    {
+      "q": "Give the top 3 dropoff boroughs for trips starting in the 'Upper East Side South' zone during February 2023 between 7:00 and 9:00 (pickup_hour 7 and 8) paid by Cash, returning the dropoff borough and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q132",
+      "similarity": 0.762
+    },
+    {
+      "q": "Find all zones that had zero pickups across all of 2023. Return the zone id, zone name, and borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q131",
+      "similarity": 0.764
+    },
+    {
+      "q": "What is the average trip distance for trips starting in 'Upper East Side South' during weekday morning rush hours (pickup hour between 7 and 9, Monday to Friday)? Give the average trip distance in miles.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q089",
+      "similarity": 0.725
+    },
+    {
+      "q": "List the top 3 hours of the day by total revenue on Memorial Day (May 29, 2023).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q075",
+      "similarity": 0.739
+    },
+    {
+      "q": "Identify the top 10 zones by total tip amount collected, excluding unknown zones (264 and 265).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q100",
+      "similarity": 0.677
+    },
+    {
+      "q": "Give the passenger count and the total number of trips for each passenger count value in 2023, ordered by passenger count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q006",
+      "similarity": 0.823
+    },
+    {
+      "q": "What are the top 5 dropoff boroughs for trips that originated in 'Financial District North' in 2023? Give the dropoff borough and trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q132",
+      "similarity": 0.796
+    },
+    {
+      "q": "What are the top 10 hours of the day (0-23) ranked by average trip distance in the trips_hourly_demand table? Return the pickup hour and average trip distance.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.767
+    },
+    {
+      "q": "Give the pickup borough and the average trip distance in miles for each borough, ordered by average distance descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.72
+    },
+    {
+      "q": "Determine the number of 'Credit card' vs 'Cash' payments for trips with more than 3 passengers.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q067",
+      "similarity": 0.779
+    },
+    {
+      "q": "What are the top 5 zones with the highest percentage of 'Cash' payment trips?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q122",
+      "similarity": 0.746
+    },
+    {
+      "q": "For each borough, what is the average trip duration for trips that started between 7 AM and 9 AM inclusive?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q098",
+      "similarity": 0.729
+    },
+    {
+      "q": "Give the total number of taxi zones in the dim_zones table.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q138",
+      "similarity": 0.695
+    },
+    {
+      "q": "What is the average tolls amount per trip for each payment type, ordered from highest to lowest?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.793
+    },
+    {
+      "q": "What is the tip rate for credit card payments on Labor Day (2023-09-04)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q034",
+      "similarity": 0.818
+    },
+    {
+      "q": "What is the average speed in miles per hour for weekend trips starting in Manhattan versus weekday trips starting in Manhattan? Give the weekend status and average speed in mph.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.766
+    },
+    {
+      "q": "What are the top 5 hours of the day by trip count during weekdays (Monday through Friday)? Return the pickup hour and the number of trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.786
+    },
+    {
+      "q": "For each month, what was the average passenger count for trips starting on Mondays?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q062",
+      "similarity": 0.763
+    },
+    {
+      "q": "List the date and trip count for each day in December 2023 ('2023-12') where the trip count exceeded 100,000, ordered by date.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q037",
+      "similarity": 0.796
+    },
+    {
+      "q": "How does the average toll amount compare between weekend and weekday trips?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.799
+    },
+    {
+      "q": "What were the average traffic congestion levels at the time of each trip?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q005",
+      "similarity": 0.73
+    },
+    {
+      "q": "What is the ratio of total tips to total revenue for 'Credit card' trips in 'Bronx' in '2023-04' at 18:00?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q088",
+      "similarity": 0.788
+    },
+    {
+      "q": "What was the total tolls paid for trips starting in Manhattan during July 2023 between 16:00 and 18:00 (pickup_hour 16 and 17) paid by Credit card?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b009",
+      "similarity": 0.807
+    },
+    {
+      "q": "What is the revenue per mile for trips starting at 'Newark Airport'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q087",
+      "similarity": 0.715
+    },
+    {
+      "q": "Give the pickup zone name and the average tip amount for trips starting in Manhattan, limiting to the top 10 zones by average tip.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.736
+    },
+    {
+      "q": "What is the average fare amount for trips starting in 'JFK Airport' on Christmas Day (December 25, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q072",
+      "similarity": 0.839
+    },
+    {
+      "q": "What percentage of trips had a toll amount greater than 0?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.759
+    },
+    {
+      "q": "Find the top 5 dropoff zones for trips that originated at LaGuardia Airport, ordered by trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q053",
+      "similarity": 0.792
+    },
+    {
+      "q": "Show the top 10 zones with the highest total tolls paid for pickups in 2023.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q112",
+      "similarity": 0.833
+    },
+    {
+      "q": "Find the 5 pickup zones with the highest total tolls during the hour of 17:00 (5 PM).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.766
+    },
+    {
+      "q": "Find the top 3 boroughs by total distance traveled for trips ending in 'EWR'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.735
+    },
+    {
+      "q": "Display the count of trips with more than 3 passengers for each borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q025",
+      "similarity": 0.772
+    },
+    {
+      "q": "Give the pickup borough and the average passenger count for trips starting in that borough, ordered by average passenger count descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.776
+    },
+    {
+      "q": "How many trips were recorded for each passenger count, filtered for the month of July?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q020",
+      "similarity": 0.784
+    },
+    {
+      "q": "Give the pickup day name and the average passenger count for each day of the week, ordered by day of week number.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q062",
+      "similarity": 0.739
+    },
+    {
+      "q": "What is the total revenue for trips starting on weekends versus weekdays in 2023? Give the weekend status (true/false) and the total revenue.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.777
+    },
+    {
+      "q": "What are the peak 3 hours for total toll amounts paid during weekends? Give the pickup hour and total tolls.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.718
+    },
+    {
+      "q": "What is the overall tip rate for credit-card payments in 2023? Formula: total card_tips / total card_fare.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q088",
+      "similarity": 0.838
+    },
+    {
+      "q": "For trips with a total amount greater than $50, what is the average passenger count?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.778
+    },
+    {
+      "q": "How does the tip rate (card_tips / card_fare) differ between 'Standard rate' and 'JFK' rate code trips?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q088",
+      "similarity": 0.727
+    },
+    {
+      "q": "Get the maximum trip distance recorded on New Year's Day (2023-01-01) for the 'JFK Airport' zone.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q017",
+      "similarity": 0.729
+    },
+    {
+      "q": "Identify the top 5 days of the week by total tolls collected.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q047",
+      "similarity": 0.697
+    },
+    {
+      "q": "For each borough, give the total passenger count for trips originating in that borough during 2023.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.797
+    },
+    {
+      "q": "What are the top 5 pickup zones in Manhattan for weekend trips (Saturday and Sunday) measured by total trip count in 2023? Give the zone name and trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.845
+    },
+    {
+      "q": "Give the pickup borough and the average speed in miles per hour for each borough, ordered by average speed descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.731
+    },
+    {
+      "q": "What is the average tip amount for trips classified under the 'JFK' rate code?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.813
+    },
+    {
+      "q": "What is the maximum trip distance recorded for any trip starting at Newark Airport?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.678
+    },
+    {
+      "q": "What is the maximum trip distance recorded for any trip that started in Queens and ended in Manhattan?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.766
+    },
+    {
+      "q": "What is the total toll amount paid for trips originating from 'JFK Airport' on weekends?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.769
+    },
+    {
+      "q": "Compare the average fare amount between 'Standard rate' and 'JFK' rate code trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.758
+    },
+    {
+      "q": "Find the top 3 pickup zones in Manhattan by trip count during the month of June 2023. Return the pickup zone name and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.827
+    },
+    {
+      "q": "What is the average toll amount for trips with a passenger count greater than 4?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.77
+    },
+    {
+      "q": "Compare the total revenue generated by trips starting in 'LaGuardia Airport' versus 'JFK Airport' in 2023. Give the pickup zone name and total revenue for both.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q108",
+      "similarity": 0.834
+    },
+    {
+      "q": "List the top 5 months in 2023 with the highest total tolls paid.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q032",
+      "similarity": 0.832
+    },
+    {
+      "q": "What is the average trip distance and average tolls amount for trips where tolls were greater than zero?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.777
+    },
+    {
+      "q": "What is the total tolls amount paid on trips that started in Newark Airport (EWR)?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.727
+    },
+    {
+      "q": "What is the median fare amount for 'JFK' rate code trips compared to 'Standard rate'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.818
+    },
+    {
+      "q": "List the top 10 hours of the day (0-23) by total revenue, but only for trips occurring on weekends.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.671
+    },
+    {
+      "q": "What percentage of all trips in 2023 had exactly 1 passenger? Give the result as a decimal share.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q024",
+      "similarity": 0.795
+    },
+    {
+      "q": "Which 5 zones in 'Queens' had the most trips in '2023-06' during the evening rush (17:00-19:00)? Return zone name and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q078",
+      "similarity": 0.793
+    },
+    {
+      "q": "Are there trends in taxi demand comparing 2023 to 2022 or 2024?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u003",
+      "similarity": 0.828
+    },
+    {
+      "q": "Give the dropoff borough and the average passenger count for trips ending in that borough, ordered by average passenger count descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.744
+    },
+    {
+      "q": "List all distinct boroughs present in the dim_zones table along with the count of zones in each, ordered alphabetically by borough name.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.656
+    },
+    {
+      "q": "For trips starting in 'Bronx', what is the average total_amount per borough of destination?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.813
+    },
+    {
+      "q": "For trips starting in Manhattan, what are the top 3 rate codes by average tip amount?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b003",
+      "similarity": 0.752
+    },
+    {
+      "q": "Give the rate code and the total number of passengers for each rate code in 2023, ordered by total passengers descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q006",
+      "similarity": 0.775
+    },
+    {
+      "q": "List the zone names located in the 'EWR' borough.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q053",
+      "similarity": 0.649
+    },
+    {
+      "q": "Which 5 zones had the highest average fare on Earth Day (April 22, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q066",
+      "similarity": 0.781
+    },
+    {
+      "q": "What is the total revenue for each payment type in the 'Brooklyn' borough?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.838
+    },
+    {
+      "q": "What is the tip rate on credit-card trips starting in Brooklyn for each day of the week?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q034",
+      "similarity": 0.752
+    },
+    {
+      "q": "Which dropoff zone has the highest total tolls for trips that originated in 'Manhattan'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b009",
+      "similarity": 0.74
+    },
+    {
+      "q": "Calculate the total revenue generated by each rate code for trips occurring on weekends.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q109",
+      "similarity": 0.716
+    },
+    {
+      "q": "Give the dropoff borough and the average tip amount for trips ending in each borough, ordered by average tip descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.701
+    },
+    {
+      "q": "Calculate the average tip amount on New Year's Day (January 1, 2023).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q007",
+      "similarity": 0.791
+    },
+    {
+      "q": "List the payment types and their average trip distance, sorted by average distance descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q067",
+      "similarity": 0.693
+    },
+    {
+      "q": "How many trips were paid by 'Credit card' for each hour of the day across all months?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b002",
+      "similarity": 0.837
+    },
+    {
+      "q": "Display the payment type and the total tolls collected, but only for payment types with over 100,000 trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q067",
+      "similarity": 0.713
+    },
+    {
+      "q": "What is the total revenue generated on Mondays in the borough of Brooklyn?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.774
+    },
+    {
+      "q": "For trips starting at 'LaGuardia Airport', show the number of trips per borough of dropoff.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b006",
+      "similarity": 0.719
+    },
+    {
+      "q": "For each rate code, what is the average total amount per trip?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q068",
+      "similarity": 0.803
+    },
+    {
+      "q": "Find the average trip duration for 'Cash' payments in 'Brooklyn' during '2023-12' for trips starting at 2 AM.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.75
+    },
+    {
+      "q": "List the top 3 hours of the day with the highest average total amount for trips starting at LaGuardia Airport.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q041",
+      "similarity": 0.71
+    },
+    {
+      "q": "Find the total revenue generated on weekends (Saturday and Sunday) for trips originating from JFK Airport.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q109",
+      "similarity": 0.745
+    },
+    {
+      "q": "Calculate the average fare amount for trips originating in Staten Island during the weekend vs weekdays.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.795
+    },
+    {
+      "q": "Calculate the average tip amount for trips that ended in 'LaGuardia Airport'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q095",
+      "similarity": 0.777
+    },
+    {
+      "q": "What is the correlation or average tip for trips with distance greater than 10 miles?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.755
+    },
+    {
+      "q": "What is the 90th percentile of trip distances for each borough in the 'Manhattan' and 'Queens' areas?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q055",
+      "similarity": 0.756
+    },
+    {
+      "q": "What is the average fare amount for trips starting during evening rush hours (hours 16 to 19) broken down by day of the week name? Give the day name and average fare.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q073",
+      "similarity": 0.767
+    },
+    {
+      "q": "Show the number of trips and average duration for each passenger count group for trips longer than 20 minutes.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.705
+    },
+    {
+      "q": "What is the total tolls amount paid on trips where the rate code was 'JFK'?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.838
+    },
+    {
+      "q": "Find the top 3 dropoff zones in Queens for trips originating from Manhattan, along with their trip counts.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q132",
+      "similarity": 0.779
+    },
+    {
+      "q": "How many passengers in total were transported from 'Times Square/Theatre District' in August 2023 between 19:00 and 21:00 (pickup_hour 19 and 20) paid by Credit card?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.773
+    },
+    {
+      "q": "What is the average number of passengers for trips in 'Staten Island' paid by 'Cash' in '2023-10' during the hour 23?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.807
+    },
+    {
+      "q": "Did passengers wait longer for pickups on days with subway strikes?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q117",
+      "similarity": 0.689
+    },
+    {
+      "q": "Find the average fare per month for trips categorized as 'JFK' rate code, showing the trend over the entire year 2023.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.838
+    },
+    {
+      "q": "Calculate the average speed in mph for 'Credit card' trips in 'Manhattan' during '2023-08' at 9 AM.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q089",
+      "similarity": 0.756
+    },
+    {
+      "q": "Show the average total amount per trip, grouped by payment type.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q067",
+      "similarity": 0.745
+    },
+    {
+      "q": "For trips starting in 'JFK Airport', what is the average fare per zone-hour in the trips_hourly_demand table? Return the average fare.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q072",
+      "similarity": 0.719
+    },
+    {
+      "q": "Compare the total number of trips between weekends and weekdays. Give is_weekend and the trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b014",
+      "similarity": 0.765
+    },
+    {
+      "q": "What is the average trip count per zone-hour entry in the trips_hourly_demand table? Return the average trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.742
+    },
+    {
+      "q": "Using a window function, assign a row number to each month ordered by total passenger count descending. Return month key, total passengers, and row number.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q056",
+      "similarity": 0.711
+    },
+    {
+      "q": "What was the maximum trip distance for trips originating in Queens during February 2023 between 1:00 and 4:00 (pickup_hour 1 to 3) paid by Credit card?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q016",
+      "similarity": 0.769
+    },
+    {
+      "q": "What is the daily trip count for the first week of January 2023 (Jan 1st to Jan 7th)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q019",
+      "similarity": 0.848
+    },
+    {
+      "q": "What was the total fare amount for trips starting in the Bronx during January 2023 between 14:00 and 16:00 (pickup_hour 14 and 15) paid by Cash?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b007",
+      "similarity": 0.793
+    },
+    {
+      "q": "What is the average passenger count for trips that had a dropoff at LaGuardia Airport?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q041",
+      "similarity": 0.76
+    },
+    {
+      "q": "Find the top 3 hours of the day with the highest total trip counts across the entire year of 2023. Give pickup_hour and trip_count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.849
+    },
+    {
+      "q": "Which 5 pickup zones have the highest average trip distance?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b008",
+      "similarity": 0.829
+    },
+    {
+      "q": "For trips originating in the Bronx during weekend days, what is the total revenue collected?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.776
+    },
+    {
+      "q": "List the average passenger count for each hour of the day (0-23) for trips that took place on weekends.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q065",
+      "similarity": 0.813
+    },
+    {
+      "q": "Calculate the average tip amount for trips that started in 'JFK Airport' during the month of March 2023.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.779
+    },
+    {
+      "q": "List the top 5 boroughs where trips ended, along with the total revenue generated from those dropoffs.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.756
+    },
+    {
+      "q": "How does the performance of electric vehicles compare to gasoline-powered vehicles?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u003",
+      "similarity": 0.494
+    },
+    {
+      "q": "Calculate the average speed in MPH for trips ending at JFK Airport, broken down by hour of the day.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.676
+    },
+    {
+      "q": "Which 5 zones in Brooklyn have the highest average fare across all their recorded hourly demand rows? Return the zone name and average of avg_fare.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q105",
+      "similarity": 0.741
+    },
+    {
+      "q": "What are the top 5 pickup boroughs for trips occurring during rush hours (defined as hours 7, 8, 9, 16, 17, 18 on weekdays)? Return the pickup borough and the trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.773
+    },
+    {
+      "q": "What is the total revenue generated during the evening rush hour (pickup_hour = 18) across all zones in the trips_hourly_demand table? Return the total revenue.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.695
+    },
+    {
+      "q": "What is the total revenue for credit card trips in 'Manhattan' during '2023-01' between 8 AM and 9 AM?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q072",
+      "similarity": 0.783
+    },
+    {
+      "q": "Calculate the total revenue generated from trips starting in Manhattan on weekdays, broken down by the hour of the day.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q093",
+      "similarity": 0.691
+    },
+    {
+      "q": "List the number of zones per borough that have a zone_id higher than 200.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q120",
+      "similarity": 0.624
+    },
+    {
+      "q": "What is the average total amount (revenue per trip) for trips originating from JFK Airport ('JFK Airport')?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q072",
+      "similarity": 0.772
+    },
+    {
+      "q": "Find the average speed of trips that lasted between 30 and 60 minutes.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q028",
+      "similarity": 0.759
+    },
+    {
+      "q": "Find the top 3 boroughs that account for the most trips to 'JFK Airport'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q094",
+      "similarity": 0.767
+    },
+    {
+      "q": "What is the maximum trip distance for 'Cash' trips in 'Brooklyn' during '2023-07' between 20:00 and 22:00?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q035",
+      "similarity": 0.816
+    },
+    {
+      "q": "Give the top 5 pickup zones in Queens for trips occurring in July 2023 between 17:00 and 19:00 (pickup_hour 17 and 18) paid by Cash, ordered by trip count descending, returning the zone name and trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q078",
+      "similarity": 0.811
+    },
+    {
+      "q": "Find the monthly total revenue and trip count for trips starting at Newark Airport (EWR) during the first half of 2023.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q002",
+      "similarity": 0.735
+    },
+    {
+      "q": "Give the number of unique zones that had at least one pickup during the month of '2023-12'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q046",
+      "similarity": 0.789
+    },
+    {
+      "q": "What is the total revenue generated in the month of March 2023?",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q075",
+      "similarity": 0.84
+    },
+    {
+      "q": "Return the payment type and the average trip distance, but only for trips that started in the 'JFK Airport' zone.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q072",
+      "similarity": 0.674
+    },
+    {
+      "q": "Give the pickup borough and the average trip duration in minutes for each borough, ordered by average duration descending.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q092",
+      "similarity": 0.724
+    },
+    {
+      "q": "What are the top 3 busiest hours of the day (pickup_hour) by total trip count in the trips_hourly_demand table? Return the pickup hour and the total trip count.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.781
+    },
+    {
+      "q": "Calculate the average passenger count for 'Cash' trips vs 'Credit card' trips.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q088",
+      "similarity": 0.767
+    },
+    {
+      "q": "What was the tip rate (card_tips / card_fare) for trips starting in EWR in December 2023 between 10:00 and 14:00 (pickup_hour 10 to 13) paid by Credit card?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q034",
+      "similarity": 0.797
+    },
+    {
+      "q": "Find the average tip amount for trips with more than 3 passengers.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "u001",
+      "similarity": 0.772
+    },
+    {
+      "q": "For trips involving 3 or more passengers, show the breakdown of the top 3 most popular payment types.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q099",
+      "similarity": 0.748
+    },
+    {
+      "q": "For 'Credit card' payments, what is the tip rate (total tips / total fare) grouped by month?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q139",
+      "similarity": 0.817
+    },
+    {
+      "q": "What is the highest single zone-hour total revenue recorded in the trips_hourly_demand table? Return the total revenue amount.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.683
+    },
+    {
+      "q": "List the top 5 pickup zones that had the highest number of trips ending at Newark Airport.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q052",
+      "similarity": 0.786
+    },
+    {
+      "q": "What was the demographic breakdown (age and gender) of passengers utilizing yellow taxis in Brooklyn?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "b001",
+      "similarity": 0.733
+    },
+    {
+      "q": "How does 2023 trip volume compare to 2022 or 2024 trends?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b012",
+      "similarity": 0.795
+    },
+    {
+      "q": "List the average passenger count for each day of the week name.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q062",
+      "similarity": 0.702
+    },
+    {
+      "q": "Give the pickup zone and average tip amount for zones in Brooklyn with at least 1,000 trips, ordered by average tip descending, limit 10.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q122",
+      "similarity": 0.749
+    },
+    {
+      "q": "What is the total toll amount paid per month, sorted chronologically?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q008",
+      "similarity": 0.763
+    },
+    {
+      "q": "What are the top 5 busiest hours of the day (0-23) by trip count for weekday trips? Give the pickup hour and trip count.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q124",
+      "similarity": 0.82
+    },
+    {
+      "q": "Give the payment type and the average passenger count for each payment type, ordered by average passenger count descending.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q067",
+      "similarity": 0.719
+    },
+    {
+      "q": "Return the count of zones in the dim_zones table that are not associated with any borough (i.e., borough is 'N/A').",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q130",
+      "similarity": 0.6
+    },
+    {
+      "q": "List the average passenger count per trip for each of the three major airport zones.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q006",
+      "similarity": 0.739
+    },
+    {
+      "q": "What is the total revenue for each payment type specifically for trips longer than 10 miles?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b005",
+      "similarity": 0.75
+    },
+    {
+      "q": "What was the tip rate (card_tips / card_fare) on Labor Day (September 4, 2023)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q034",
+      "similarity": 0.818
+    },
+    {
+      "q": "Calculate the average toll amount for trips longer than 50 miles.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q091",
+      "similarity": 0.754
+    },
+    {
+      "q": "What is the total trip count for each day of the week, broken down by whether the trip was on a weekend or not?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b014",
+      "similarity": 0.775
+    },
+    {
+      "q": "Return the count of trips for each rate code where the pickup was 'JFK Airport'.",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.827
+    },
+    {
+      "q": "Which pickup borough generated the highest average tip amount per trip?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b009",
+      "similarity": 0.796
+    },
+    {
+      "q": "For trips starting in Manhattan during July ('2023-07'), what is the average passenger count per payment type?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q107",
+      "similarity": 0.824
+    },
+    {
+      "q": "What is the average passenger count for trips originating from 'Astoria' in 2023? Give a single number representing the average passengers.",
+      "judge": "gemini-3.5-flash-lite",
+      "gen_model": "gemini-3.5-flash-lite",
+      "benchmark_id": "q006",
+      "similarity": 0.823
+    },
+    {
+      "q": "Which 10 zones have the lowest total revenue for trips ending there, excluding zones with 'Unknown' or 'N/A' boroughs?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q080",
+      "similarity": 0.687
+    },
+    {
+      "q": "What is the average toll amount per trip for trips starting in 'JFK Airport'?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q030",
+      "similarity": 0.768
+    },
+    {
+      "q": "How many trips had a duration of more than 60 minutes on St. Patrick's Day (2023-03-17)?",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "q028",
+      "similarity": 0.832
+    },
+    {
+      "q": "List the count of trips for each borough on Martin Luther King Jr. Day (January 16, 2023).",
+      "judge": "gemini-3.1-flash-lite",
+      "gen_model": "gemini-3.1-flash-lite",
+      "benchmark_id": "b006",
+      "similarity": 0.759
+    }
+  ]
+}

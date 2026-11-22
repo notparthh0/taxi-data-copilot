@@ -17,3 +17,6 @@ paper/
 docs/PLAN.md
 docs/NEXT_STEPS.md
 graphify-out/
+
+# The QLoRA training pairs are small and are committed (the big DuckDB files in data/ are not)
+!finetune/data/
