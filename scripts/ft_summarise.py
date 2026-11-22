@@ -127,7 +127,7 @@ def main() -> None:
               f"- Checkpoint chosen by validation loss only (step {out['training']['chosen_step']}, "
               f"loss {out['training']['chosen_val_loss']}); the benchmark was run once, after that choice.",
               "", "## Limits", "",
-              "- The benchmark questions are not yet reviewed by the owner (same caveat as the main results).",
+              "- The benchmark questions were written by Claude; the owner reviewed all 165 on 22 Nov 2026 and changed none.",
               "- The training questions come from Gemini, so this is distillation from a larger model, on one dataset.",
               "- One run per model at temperature 0; no repeats for the local models."]
     (config.REPO / "docs" / "FINETUNE.md").write_text("\n".join(lines) + "\n")

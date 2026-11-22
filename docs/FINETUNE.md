@@ -33,6 +33,6 @@ Blind set (15 questions): base 11/15, tuned 13/15 correct.
 
 ## Limits
 
-- The benchmark questions are not yet reviewed by the owner (same caveat as the main results).
+- The benchmark questions were written by Claude; the owner reviewed all 165 on 22 Nov 2026 and changed none.
 - The training questions come from Gemini, so this is distillation from a larger model, on one dataset.
 - One run per model at temperature 0; no repeats for the local models.

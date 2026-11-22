@@ -9,10 +9,10 @@ data engineering underneath**.
 It sits on top of my lakehouse ([nyc-taxi-elt-pipeline](https://github.com/notparthh0/nyc-taxi-elt-pipeline)):
 38.3 million raw 2023 trips, cleaned by PySpark into Apache Iceberg (35.6 million trips).
 
-> Status (21 Nov 2026): **experiment run, results in.** 3,750 graded answers from
+> Status (22 Nov 2026): **experiment run, results in.** 3,750 graded answers from
 > three models, plus 375 on a 15-question blind set written by a fresh model instance (same
-> ladder; not a human blind set). The questions are not yet reviewed by me, so treat the numbers
-> as preliminary. Results: [docs/RESULTS.md](docs/RESULTS.md)
+> ladder; not a human blind set). The questions were written by Claude; I reviewed all 165 on
+> 22 Nov 2026 and changed none (open point: the ambiguous blind question b013, FINDINGS 7). Results: [docs/RESULTS.md](docs/RESULTS.md)
 > (generated tables), [docs/FINDINGS.md](docs/FINDINGS.md) (what they mean), and
 > [docs/literature_check.md](docs/literature_check.md) (what is and is not new here).
 
