@@ -1,6 +1,6 @@
 PY := .venv/bin/python
 
-.PHONY: install setups check profile test check-llm all gold blind eval summary api mcp try-api try-mcp
+.PHONY: install setups check profile test check-llm all gold blind eval summary api mcp try-api try-mcp langfuse-up langfuse-down try-langfuse
 
 install:            ## create the Python 3.12 venv and install everything
 	uv venv --python 3.12 .venv
@@ -48,3 +48,14 @@ try-api:            ## needs `make api` running: 12 benchmark questions + 4 atta
 
 try-mcp:            ## starts the MCP server over stdio and calls every tool -> results/mcp_trial.json
 	$(PY) scripts/try_mcp.py
+
+LF := docker compose --env-file langfuse/.env -f langfuse/docker-compose.yml -p taxi-langfuse
+langfuse-up:        ## local self-hosted Langfuse on http://localhost:3000; the agent then sends traces there
+	$(PY) scripts/langfuse_setup.py
+	$(LF) up -d --wait
+
+langfuse-down:      ## stop Langfuse (traces are kept in Docker volumes)
+	$(LF) down
+
+try-langfuse:       ## needs `make langfuse-up`: 14 agent runs, then reads the traces back -> results/langfuse_check.json
+	$(PY) scripts/try_langfuse.py

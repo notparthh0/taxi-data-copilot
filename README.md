@@ -92,7 +92,12 @@ Built on the same code, after the experiment was frozen. Nothing here changes th
   file) and DuckDB runs with file access switched off. `tests/test_agent.py` includes
   prompt-injection tests where a fake model **obeys** the attacker, and the guard must still hold.
 - **Tracing:** each run is logged to `logs/traces.jsonl` (model seconds, query seconds, tokens,
-  retries). Langfuse is not connected: it needs keys this project does not have yet.
+  retries). With `make langfuse-up`, a self-hosted Langfuse runs locally in Docker
+  (`langfuse/docker-compose.yml`, no account needed) and every run also becomes a Langfuse trace:
+  one observation per model call (prompt, reply, tokens) and per SQL run (query, rows or error).
+  `make try-langfuse` runs 14 questions and reads the traces back through Langfuse's API
+  (`results/langfuse_check.json`: 14 of 14 found, with 38,692 tokens across the model calls and
+  14 SQL runs). Without the keys, tracing to Langfuse is off; tests and CI never need it.
 
 Tried on the real warehouse (`results/api_trial.json`, `results/mcp_trial.json`): 12 of 12 sample
 benchmark questions answered correctly over HTTP; 4 of 4 attack prompts refused; 6 of 6 attack
@@ -105,6 +110,7 @@ curl -s localhost:8000/ask -H 'content-type: application/json' \
      -d '{"question": "How many trips started at JFK Airport in 2023?"}'
 make try-api    # (with `make api` running) 12 questions + 4 attacks -> results/api_trial.json
 make mcp        # MCP server on stdio, for Claude Desktop / Claude Code
+make langfuse-up # local Langfuse on http://localhost:3000 (login in langfuse/.env); make langfuse-down
 make try-mcp    # a real MCP client calls every tool -> results/mcp_trial.json
 ```
 

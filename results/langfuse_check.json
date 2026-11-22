@@ -1,0 +1,216 @@
+{
+  "at_utc": "2026-11-21T22:57:35+00:00",
+  "model": "qwen-coder-7b",
+  "langfuse": "self-hosted, local Docker (langfuse/docker-compose.yml)",
+  "runs": 14,
+  "traces_found": 14,
+  "all_have_model_calls_with_tokens": true,
+  "traces": [
+    {
+      "trace_id": "29f12e52329352906d5110035590bd34",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2390,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "8c737863626e761b7e3e3dd66013c8bf",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2385,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "4377de5244475b75e853f07e72aa643a",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2403,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "c4ab4caf507f14109d283f76bb4f645e",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2381,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "fb6cd4fef3533495bcd4c910e161845b",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2957,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "d8b4b304a7212debba665fef626d49a7",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2400,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "f1e270c9cd4b865fdccdda6a04306ebe",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2409,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "f72c78195e20f9d47f1563cedd9c1fd0",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2384,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "45007d1cbc5d36360a90728d321cce1c",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2452,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "3b7844ab676cba49018a008c728674ca",
+      "found": true,
+      "observations": 7,
+      "generations": 3,
+      "sql_runs": 2,
+      "tokens": 4884,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "14837416182d5b2a7fc647c26c7f66ca",
+      "found": true,
+      "observations": 5,
+      "generations": 2,
+      "sql_runs": 1,
+      "tokens": 2402,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "3effa9b5c72bd36c093985d9380ba86e",
+      "found": true,
+      "observations": 7,
+      "generations": 3,
+      "sql_runs": 2,
+      "tokens": 4759,
+      "names": [
+        "copilot.ask",
+        "explain",
+        "run_sql",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "d380567433c6d3c3e89b205eea42258d",
+      "found": true,
+      "observations": 3,
+      "generations": 1,
+      "sql_runs": 0,
+      "tokens": 2235,
+      "names": [
+        "copilot.ask",
+        "try-langfuse",
+        "write_sql"
+      ]
+    },
+    {
+      "trace_id": "08c06f0916dcf13834714e5bca4f5d69",
+      "found": true,
+      "observations": 3,
+      "generations": 1,
+      "sql_runs": 0,
+      "tokens": 2251,
+      "names": [
+        "copilot.ask",
+        "try-langfuse",
+        "write_sql"
+      ]
+    }
+  ]
+}

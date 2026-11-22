@@ -63,10 +63,16 @@ def refusal_reason(reply: str) -> str:
 def build_agent(client, setup=None):
     """client: anything with generate(system, user) -> (text, info). setup: a copilot Setup."""
     setup = setup or get_setups()["s3_docs"]
+    model_name = getattr(client, "name", type(client).__name__)
 
-    def _call(state, system, user):
+    def _call(state, step, system, user):
         start = time.perf_counter()
-        text, info = client.generate(system, user)
+        messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
+        with tracing.observe(step, as_type="generation", model=model_name, input=messages) as obs:
+            text, info = client.generate(system, user)
+            if obs:
+                obs.update(output=text, usage_details={"input": info.get("tokens_in") or 0,
+                                                       "output": info.get("tokens_out") or 0})
         return text, {"tokens_in": state.get("tokens_in", 0) + (info.get("tokens_in") or 0),
                       "tokens_out": state.get("tokens_out", 0) + (info.get("tokens_out") or 0),
                       "llm_seconds": state.get("llm_seconds", 0) + (time.perf_counter() - start),
@@ -77,7 +83,7 @@ def build_agent(client, setup=None):
         if state.get("error"):          # repair: show the failed SQL and the error
             user += (f"\n\n# Your previous query failed\n```sql\n{state.get('sql', '')}\n```\n"
                      f"Error: {state['error'][:500]}\nWrite a corrected query.")
-        text, usage = _call(state, system, user)
+        text, usage = _call(state, "write_sql", system, user)
         return {"reply": text, "attempts": state.get("attempts", 0) + 1, **usage}
 
     def run_sql(state: State) -> dict:
@@ -87,7 +93,11 @@ def build_agent(client, setup=None):
         if kind == "unparseable":
             return {"error": "The reply was not a SQL query.", "sql": ""}
         start = time.perf_counter()
-        result = setup.execute(action)
+        with tracing.observe("run_sql", as_type="tool", input=action) as obs:
+            result = setup.execute(action)
+            if obs:
+                obs.update(output={"status": result.status, "rows": len(result.rows), "error": result.error[:300]},
+                           level="DEFAULT" if result.status == "ok" else "ERROR")
         took = {"sql_seconds": state.get("sql_seconds", 0) + (time.perf_counter() - start)}
         if result.status == "ok":
             return {"sql": result.sql, "columns": result.columns, "rows": result.rows, "error": "", **took}
@@ -104,7 +114,7 @@ def build_agent(client, setup=None):
         shown = state["rows"][:MAX_ROWS_SHOWN]
         user = (f"Question: {state['question']}\nColumns: {state['columns']}\n"
                 f"Rows ({len(state['rows'])} in total, first {len(shown)} shown): {shown}")
-        text, usage = _call(state, ANSWER_SYSTEM, user)
+        text, usage = _call(state, "explain", ANSWER_SYSTEM, user)
         return {"answer": text.strip(), **usage}
 
     def refuse(state: State) -> dict:
@@ -132,7 +142,12 @@ def build_agent(client, setup=None):
 def ask(agent, question: str, model_name: str = "") -> dict:
     """Run the agent once and return a plain dict (also written to logs/traces.jsonl)."""
     start = time.perf_counter()
-    state = agent.invoke({"question": question})
+    with tracing.observe("copilot.ask", as_type="agent", input=question) as obs:
+        state = agent.invoke({"question": question})
+        if obs:
+            obs.update(output={"answer": state.get("answer", ""), "sql": state.get("sql", "")},
+                       metadata={"model": model_name, "attempts": state.get("attempts", 0),
+                                 "refused": bool(state.get("refused")), "failed": bool(state.get("error"))})
     out = {"question": question, "answer": state.get("answer", ""), "sql": state.get("sql", ""),
            "columns": state.get("columns", []), "rows": state.get("rows", []),   # already capped by config.MAX_RESULT_ROWS
            "row_count": len(state.get("rows", [])), "refused": bool(state.get("refused")),
