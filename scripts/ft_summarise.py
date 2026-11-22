@@ -53,6 +53,26 @@ def paired(base, tuned, draws=10_000):
             "fixed": sum(d == 1 for d in diff), "broken": sum(d == -1 for d in diff)}
 
 
+def closeness_check(base, tuned):
+    """Were the fixed questions closer to the training pairs than the rest? (bge-small cosine, as in ft_filter)"""
+    import numpy as np
+    from fastembed import TextEmbedding
+    from copilot.benchmark import load_questions
+    text = {q.id: q.question for q in load_questions()}
+    b = {r["question_id"]: r["grade"] == "correct" for r in base if r["answerable"]}
+    t = {r["question_id"]: r["grade"] == "correct" for r in tuned if r["answerable"]}
+    ids = sorted(set(b) & set(t))
+    fixed = {i for i in ids if t[i] and not b[i]}
+    pairs = [p["q"] for p in json.loads((FT / "overlap_check.json").read_text())["kept_pairs"]]
+    model = TextEmbedding("BAAI/bge-small-en-v1.5")
+    emb = lambda xs: (lambda v: v / np.linalg.norm(v, axis=1, keepdims=True))(np.array(list(model.embed(xs))))  # noqa: E731
+    near = dict(zip(ids, (emb([text[i] for i in ids]) @ emb(pairs).T).max(axis=1).tolist()))
+    med = lambda xs: round(statistics.median(xs), 3)  # noqa: E731
+    return {"fixed_median_similarity": med([near[i] for i in fixed]),
+            "others_median_similarity": med([near[i] for i in ids if i not in fixed]),
+            "n_fixed": len(fixed), "n_others": len(ids) - len(fixed)}
+
+
 def main() -> None:
     base, tuned = load(FT / "runs" / f"{BASE}.jsonl"), load(FT / "runs" / f"{TUNED}.jsonl")
     out = {"generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
@@ -62,7 +82,8 @@ def main() -> None:
            "reference": {k: rates(load(config.RESULTS_DIR / "runs" / f"{k}.jsonl")) for k in REFERENCE},
            "data": json.loads((FT / "overlap_check.json").read_text()) | {"dropped": "see overlap_check.json",
                                                                          "kept_pairs": "see overlap_check.json"},
-           "training": json.loads((FT / "training.json").read_text())}
+           "training": json.loads((FT / "training.json").read_text()),
+           "closeness": closeness_check(base, tuned)}
     (FT / "summary.json").write_text(json.dumps(out, indent=2) + "\n")
 
     p, d = out["paired"], out["data"]
@@ -80,6 +101,11 @@ def main() -> None:
     lines += ["", f"**Paired change, tuned minus base:** {p['points']:+} points "
                   f"(95% bootstrap interval {p['ci95_points'][0]:+} to {p['ci95_points'][1]:+}; "
                   f"{p['fixed']} questions fixed, {p['broken']} broken, {p['questions']} compared).", "",
+              "**Did it just learn near-copies of the test questions?** For each benchmark question, take its "
+              "closest training question (embedding similarity). Fixed questions: median "
+              f"{out['closeness']['fixed_median_similarity']} (n={out['closeness']['n_fixed']}); all the others: "
+              f"{out['closeness']['others_median_similarity']} (n={out['closeness']['n_others']}). The fixed ones are "
+              "no closer to the training data than the rest.", "",
               "By difficulty (correct %, levels 1 / 2 / 3): base "
               + " / ".join(str(out['base']['by_difficulty'][k]) for k in (1, 2, 3)) + ", tuned "
               + " / ".join(str(out['tuned']['by_difficulty'][k]) for k in (1, 2, 3)) + ".", "",

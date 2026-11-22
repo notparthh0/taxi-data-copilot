@@ -117,6 +117,24 @@ make try-mcp    # a real MCP client calls every tool -> results/mcp_trial.json
 To use it from Claude Code: `claude mcp add taxi -- /path/to/taxi-data-copilot/.venv/bin/python -m copilot.mcp_server`
 (run from the repo folder so `.env` and `data/` are found).
 
+## Follow-up: a fine-tuned local model (QLoRA)
+
+Run after the experiment was frozen; it does not change the tables above. A LoRA adapter on the
+4-bit Qwen2.5-Coder 3B, trained on this MacBook Air with MLX (153 min) on 411 question-SQL pairs
+written by Gemini, checked by a second opinion, and filtered so that none is close in meaning to,
+or has the same answer as, any of the 165 benchmark questions ([finetune/README.md](finetune/README.md)).
+Same setup (cleaned tables + docs), same grader, one run:
+
+| Qwen2.5-Coder 3B | Correct (of 140) | Silent errors | Unanswerable refused |
+|---|---:|---:|---:|
+| base | 55.0% | 17.9% | 3/10 |
+| **+ QLoRA adapter** | **80.0%** | 15.0% | 6/10 |
+| (7B, for reference) | 82.9% | 6.4% | 6/10 |
+
++25.0 points, 95% bootstrap interval +17.9 to +32.1 (35 questions fixed, 0 broken); blind set
+11/15 to 13/15. It mostly fixed failing and unsafe queries; it is still far more often silently
+wrong than the 7B. Details and limits: [docs/FINETUNE.md](docs/FINETUNE.md).
+
 ## Run it
 
 Needs `../nyc-taxi-aws` with the 2023 raw files and the Iceberg table (read-only), and [uv](https://docs.astral.sh/uv/).
@@ -128,7 +146,7 @@ make setups             # build data/raw.duckdb and data/warehouse.duckdb (about
 make gold               # gold answers -> results/gold_answers.json
 make blind              # 15 model-written blind questions -> results/gold_blind.json (not in the 150)
 make eval MODEL=gemini-flash-lite REPEATS=3 BLIND=1   # blind set -> results/runs_blind/
-make test               # 73 tests (8 skip when the data is not built)
+make test               # 74 tests (8 skip when the data is not built)
 
 make eval MODEL=gemini-flash-lite REPEATS=3   # resumable; results/runs/<model>.jsonl
 make eval MODEL=qwen-coder-7b                 # local, needs: uv pip install -r requirements-local-models.txt
