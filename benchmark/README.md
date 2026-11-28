@@ -23,6 +23,8 @@
 | `ordered`, `skip`, `percent`, `month_answer`, `also_accept` | Grading hints: row order matters; label columns not compared; a 0-1 fraction is also accepted; other spellings of a month or value. |
 | `author`, `written_blind`, `checked_by` | Who wrote it, whether they had seen the data problems, who checked it. |
 
+**Review record:** all 165 questions (150 + 15 blind) were read and approved by the project owner on 22 Nov 2026. No question, gold query or answer was changed in that review, so no result had to be re-run. The `checked_by` fields were left empty on purpose: editing the frozen question files for metadata was not worth the risk.
+
 Gold answers are never typed by hand. `make gold` (and `make blind`) run the gold and raw SQL
 and write `results/gold_answers.json` (`results/gold_blind.json`). A question is a **trap** when
 the naive raw answer differs from the gold one: measured, not asserted.

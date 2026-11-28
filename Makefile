@@ -1,6 +1,6 @@
 PY := .venv/bin/python
 
-.PHONY: install setups check profile test check-llm all gold blind eval summary api mcp try-api try-mcp
+.PHONY: install setups check profile test check-llm all gold blind eval summary api mcp try-api try-mcp langfuse-up langfuse-down try-langfuse ft-pairs ft-filter ft-train ft-eval ft-summary
 
 install:            ## create the Python 3.12 venv and install everything
 	uv venv --python 3.12 .venv
@@ -48,3 +48,33 @@ try-api:            ## needs `make api` running: 12 benchmark questions + 4 atta
 
 try-mcp:            ## starts the MCP server over stdio and calls every tool -> results/mcp_trial.json
 	$(PY) scripts/try_mcp.py
+
+LF := docker compose --env-file langfuse/.env -f langfuse/docker-compose.yml -p taxi-langfuse
+langfuse-up:        ## local self-hosted Langfuse on http://localhost:3000; the agent then sends traces there
+	$(PY) scripts/langfuse_setup.py
+	$(LF) up -d --wait
+
+langfuse-down:      ## stop Langfuse (traces are kept in Docker volumes)
+	$(LF) down
+
+try-langfuse:       ## needs `make langfuse-up`: 14 agent runs, then reads the traces back -> results/langfuse_check.json
+	$(PY) scripts/try_langfuse.py
+
+# QLoRA follow-up (finetune/README.md). Product side: never writes results/runs/ or docs/RESULTS.md.
+ft-pairs:           ## Gemini writes new training questions + SQL, checked by a second opinion -> results/finetune/candidates.jsonl
+	$(PY) scripts/ft_generate.py --rounds 2
+
+ft-filter:          ## drop overlap with the 165 benchmark questions -> finetune/data/, results/finetune/overlap_check.json
+	$(PY) scripts/ft_filter.py
+
+ft-train:           ## QLoRA with MLX (about 2 h on an M4 Air) -> finetune/adapters/qwen3b-qlora
+	$(PY) scripts/ft_train.py
+
+ft-eval:            ## base vs tuned 3B on setup s3_docs, the 150 + the 15 blind questions -> results/finetune/runs*/
+	$(PY) scripts/run_eval.py --model qwen-coder-3b --setups s3_docs --out results/finetune/runs/qwen-coder-3b-base-control.jsonl
+	$(PY) scripts/run_eval.py --model qwen-coder-3b-qlora --setups s3_docs --out results/finetune/runs/qwen-coder-3b-qlora.jsonl
+	$(PY) scripts/run_eval.py --model qwen-coder-3b --setups s3_docs --blind --out results/finetune/runs_blind/qwen-coder-3b-base-control.jsonl
+	$(PY) scripts/run_eval.py --model qwen-coder-3b-qlora --setups s3_docs --blind --out results/finetune/runs_blind/qwen-coder-3b-qlora.jsonl
+
+ft-summary:         ## -> results/finetune/summary.json + docs/FINETUNE.md
+	$(PY) scripts/ft_summarise.py

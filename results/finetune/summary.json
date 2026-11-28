@@ -1,0 +1,140 @@
+{
+  "generated_at_utc": "2026-11-22T17:08:31+00:00",
+  "setup": "s3_docs",
+  "base": {
+    "n_answerable": 140,
+    "correct_pct": 55.0,
+    "correct": 77,
+    "silent_error_pct": 17.9,
+    "error_or_refusal_pct": 27.1,
+    "unanswerable_refused": "3/10",
+    "median_llm_seconds": 1.28,
+    "by_difficulty": {
+      "1": 82.0,
+      "2": 54.5,
+      "3": 17.1
+    }
+  },
+  "tuned": {
+    "n_answerable": 140,
+    "correct_pct": 80.0,
+    "correct": 112,
+    "silent_error_pct": 15.0,
+    "error_or_refusal_pct": 5.0,
+    "unanswerable_refused": "6/10",
+    "median_llm_seconds": 1.36,
+    "by_difficulty": {
+      "1": 96.0,
+      "2": 89.1,
+      "3": 42.9
+    }
+  },
+  "paired": {
+    "questions": 140,
+    "points": 25.0,
+    "ci95_points": [
+      17.9,
+      32.1
+    ],
+    "fixed": 35,
+    "broken": 0
+  },
+  "blind": {
+    "base": {
+      "n_answerable": 15,
+      "correct_pct": 73.3,
+      "correct": 11,
+      "silent_error_pct": 0.0,
+      "error_or_refusal_pct": 26.7,
+      "unanswerable_refused": "0/0",
+      "median_llm_seconds": 2.19,
+      "by_difficulty": {
+        "1": 100.0,
+        "2": 80.0,
+        "3": 40.0
+      }
+    },
+    "tuned": {
+      "n_answerable": 15,
+      "correct_pct": 86.7,
+      "correct": 13,
+      "silent_error_pct": 13.3,
+      "error_or_refusal_pct": 0.0,
+      "unanswerable_refused": "0/0",
+      "median_llm_seconds": 1.7,
+      "by_difficulty": {
+        "1": 100.0,
+        "2": 100.0,
+        "3": 60.0
+      }
+    }
+  },
+  "reference": {
+    "qwen-coder-7b": {
+      "n_answerable": 140,
+      "correct_pct": 82.9,
+      "correct": 116,
+      "silent_error_pct": 6.4,
+      "error_or_refusal_pct": 10.7,
+      "unanswerable_refused": "6/10",
+      "median_llm_seconds": 2.52,
+      "by_difficulty": {
+        "1": 100.0,
+        "2": 81.8,
+        "3": 60.0
+      }
+    },
+    "gemini-flash-lite": {
+      "n_answerable": 420,
+      "correct_pct": 98.3,
+      "correct": 413,
+      "silent_error_pct": 1.7,
+      "error_or_refusal_pct": 0.0,
+      "unanswerable_refused": "29/30",
+      "median_llm_seconds": 1.47,
+      "by_difficulty": {
+        "1": 95.3,
+        "2": 100.0,
+        "3": 100.0
+      }
+    }
+  },
+  "data": {
+    "candidates": 680,
+    "passed_second_opinion": 573,
+    "benchmark_questions_checked": 165,
+    "dropped_close_in_meaning": 70,
+    "dropped_same_answer": 46,
+    "dropped_duplicate_wording": 0,
+    "kept": 457,
+    "train": 411,
+    "valid": 46,
+    "kept_unanswerable": 29,
+    "similarity_threshold": 0.85,
+    "kept_nearest_similarity": {
+      "max": 0.849,
+      "median": 0.77
+    },
+    "dropped": "see overlap_check.json",
+    "kept_pairs": "see overlap_check.json"
+  },
+  "training": {
+    "config": "# QLoRA on this Mac with MLX: a LoRA adapter on the 4-bit Qwen2.5-Coder 3B. Run: make ft-train\n# Settings are mlx_lm's defaults except where a comment says why.\nmodel: mlx-community/Qwen2.5-Coder-3B-Instruct-4bit   # the same 4-bit model as the experiment\ntrain: true\ndata: finetune/data                 # train.jsonl / valid.jsonl from scripts/ft_filter.py\nfine_tune_type: lora\nmask_prompt: true                   # learn only the answer, not the 2.2k-token context\nnum_layers: 16\nlora_parameters: {rank: 8, dropout: 0.0, scale: 20.0}\nlearning_rate: 1.0e-5\nbatch_size: 1                       # 16 GB of memory at ~2,300 tokens per example\ngrad_checkpoint: true\nmax_seq_length: 3072                # default 2048 would cut the answers off (longest example: 2,425 tokens)\niters: 400                          # about one pass over the 411 training pairs\nsteps_per_report: 20\nsteps_per_eval: 100                 # validation loss every 100 steps...\nsave_every: 100                     # ...with a checkpoint at the same steps; the lowest val loss is kept\nval_batches: 25\nadapter_path: finetune/adapters/qwen3b-qlora\nseed: 0\n",
+    "minutes": 152.8,
+    "val_loss_by_step": {
+      "1": 0.714,
+      "100": 0.118,
+      "200": 0.121,
+      "300": 0.12,
+      "400": 0.105
+    },
+    "chosen_step": 400,
+    "chosen_val_loss": 0.105
+  },
+  "closeness": {
+    "fixed_median_similarity": 0.804,
+    "others_median_similarity": 0.803,
+    "n_fixed": 35,
+    "n_others": 105
+  }
+}

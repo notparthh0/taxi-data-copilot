@@ -9,10 +9,10 @@ data engineering underneath**.
 It sits on top of my lakehouse ([nyc-taxi-elt-pipeline](https://github.com/notparthh0/nyc-taxi-elt-pipeline)):
 38.3 million raw 2023 trips, cleaned by PySpark into Apache Iceberg (35.6 million trips).
 
-> Status (21 Nov 2026): **experiment run, results in.** 3,750 graded answers from
+> Status (22 Nov 2026): **experiment run, results in.** 3,750 graded answers from
 > three models, plus 375 on a 15-question blind set written by a fresh model instance (same
-> ladder; not a human blind set). The questions are not yet reviewed by me, so treat the numbers
-> as preliminary. Results: [docs/RESULTS.md](docs/RESULTS.md)
+> ladder; not a human blind set). The questions were written by Claude; I reviewed all 165 on
+> 22 Nov 2026 and changed none (open point: the ambiguous blind question b013, FINDINGS 7). Results: [docs/RESULTS.md](docs/RESULTS.md)
 > (generated tables), [docs/FINDINGS.md](docs/FINDINGS.md) (what they mean), and
 > [docs/literature_check.md](docs/literature_check.md) (what is and is not new here).
 
@@ -92,7 +92,12 @@ Built on the same code, after the experiment was frozen. Nothing here changes th
   file) and DuckDB runs with file access switched off. `tests/test_agent.py` includes
   prompt-injection tests where a fake model **obeys** the attacker, and the guard must still hold.
 - **Tracing:** each run is logged to `logs/traces.jsonl` (model seconds, query seconds, tokens,
-  retries). Langfuse is not connected: it needs keys this project does not have yet.
+  retries). With `make langfuse-up`, a self-hosted Langfuse runs locally in Docker
+  (`langfuse/docker-compose.yml`, no account needed) and every run also becomes a Langfuse trace:
+  one observation per model call (prompt, reply, tokens) and per SQL run (query, rows or error).
+  `make try-langfuse` runs 14 questions and reads the traces back through Langfuse's API
+  (`results/langfuse_check.json`: 14 of 14 found, with 38,692 tokens across the model calls and
+  14 SQL runs). Without the keys, tracing to Langfuse is off; tests and CI never need it.
 
 Tried on the real warehouse (`results/api_trial.json`, `results/mcp_trial.json`): 12 of 12 sample
 benchmark questions answered correctly over HTTP; 4 of 4 attack prompts refused; 6 of 6 attack
@@ -105,11 +110,30 @@ curl -s localhost:8000/ask -H 'content-type: application/json' \
      -d '{"question": "How many trips started at JFK Airport in 2023?"}'
 make try-api    # (with `make api` running) 12 questions + 4 attacks -> results/api_trial.json
 make mcp        # MCP server on stdio, for Claude Desktop / Claude Code
+make langfuse-up # local Langfuse on http://localhost:3000 (login in langfuse/.env); make langfuse-down
 make try-mcp    # a real MCP client calls every tool -> results/mcp_trial.json
 ```
 
 To use it from Claude Code: `claude mcp add taxi -- /path/to/taxi-data-copilot/.venv/bin/python -m copilot.mcp_server`
 (run from the repo folder so `.env` and `data/` are found).
+
+## Follow-up: a fine-tuned local model (QLoRA)
+
+Run after the experiment was frozen; it does not change the tables above. A LoRA adapter on the
+4-bit Qwen2.5-Coder 3B, trained on this MacBook Air with MLX (153 min) on 411 question-SQL pairs
+written by Gemini, checked by a second opinion, and filtered so that none is close in meaning to,
+or has the same answer as, any of the 165 benchmark questions ([finetune/README.md](finetune/README.md)).
+Same setup (cleaned tables + docs), same grader, one run:
+
+| Qwen2.5-Coder 3B | Correct (of 140) | Silent errors | Unanswerable refused |
+|---|---:|---:|---:|
+| base | 55.0% | 17.9% | 3/10 |
+| **+ QLoRA adapter** | **80.0%** | 15.0% | 6/10 |
+| (7B, for reference) | 82.9% | 6.4% | 6/10 |
+
++25.0 points, 95% bootstrap interval +17.9 to +32.1 (35 questions fixed, 0 broken); blind set
+11/15 to 13/15. It mostly fixed failing and unsafe queries; it is still far more often silently
+wrong than the 7B. Details and limits: [docs/FINETUNE.md](docs/FINETUNE.md).
 
 ## Run it
 
@@ -122,7 +146,7 @@ make setups             # build data/raw.duckdb and data/warehouse.duckdb (about
 make gold               # gold answers -> results/gold_answers.json
 make blind              # 15 model-written blind questions -> results/gold_blind.json (not in the 150)
 make eval MODEL=gemini-flash-lite REPEATS=3 BLIND=1   # blind set -> results/runs_blind/
-make test               # 73 tests (8 skip when the data is not built)
+make test               # 74 tests (8 skip when the data is not built)
 
 make eval MODEL=gemini-flash-lite REPEATS=3   # resumable; results/runs/<model>.jsonl
 make eval MODEL=qwen-coder-7b                 # local, needs: uv pip install -r requirements-local-models.txt

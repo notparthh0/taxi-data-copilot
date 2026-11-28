@@ -374,8 +374,8 @@ def main():
         md.append(table(["Setup"] + [f"{m}: original vs blind" for m in bmodels], body) + "\n")
 
     md.append("## Limits\n\n- One dataset (NYC yellow taxi 2023).\n"
-              "- All 150 questions so far were written by Claude and are not yet reviewed by the project "
-              "owner. The separate 15-question blind set (table 14) was written by a fresh model "
+              "- All 150 questions were written by Claude. The project owner reviewed them all on 22 Nov 2026 "
+              "and changed none. The separate 15-question blind set (table 14) was written by a fresh model "
               "instance, not a person, and had its gold round() calls removed after its first run "
               "(`scripts/regrade_blind.py`).\n"
               "- One cloud model and local models, temperature 0, one attempt per question (no repair loop).\n"

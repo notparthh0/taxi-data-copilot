@@ -219,7 +219,8 @@ was run with the same protocol (all 5 setups; Gemini 3 repeats, Qwen 1). (RESULT
 - **One ambiguous question (not changed).** b013 ("for each pickup borough, the busiest zone")
   has a gold answer that includes the placeholder boroughs `N/A` and `Unknown`. Gemini left them
   out in all three repeats, which is a fair reading, and was graded wrong. The gold was not
-  changed a second time after seeing the results. This question needs a decision in the review.
+  changed a second time after seeing the results. It stays as it is and is reported as ambiguous; the
+  owner's 22 Nov review did not change it.
 
 ## What the data says about the research question
 
@@ -265,7 +266,8 @@ tried on the real warehouse through the HTTP API and the MCP server
 - **Confidence intervals treat the 140 questions as a sample** (RESULTS 12 and 13; 2,000
   bootstrap resamples, seed 0, a question's repeats kept together). They say how much the result
   depends on which questions were asked from a similar pool. They cannot fix a biased pool.
-- **All 150 questions were written by Claude** and are not yet reviewed by the project owner.
+- **All 150 questions were written by Claude.** The project owner reviewed all 165 (including the blind
+  set) on 22 Nov 2026 and changed none.
   The author knew the data problems and the metric list. The 15-question blind set (finding 7)
   was written by a model, not a person, and its gold was corrected once after its first run.
 - **The raw-vs-cleaned gap is partly true by construction** (see finding 1).

@@ -10,11 +10,15 @@ Everything runs at temperature 0.
 import copy
 import os
 import time
+from pathlib import Path
 
 MODELS = {
     "gemini-flash-lite": "gemini:gemini-3.5-flash-lite",
     "qwen-coder-7b": "mlx:mlx-community/Qwen2.5-Coder-7B-Instruct-4bit",
     "qwen-coder-3b": "mlx:mlx-community/Qwen2.5-Coder-3B-Instruct-4bit",
+    # Product-side follow-up, not part of the frozen experiment: the 3B model plus a QLoRA adapter
+    # (finetune/README.md). "repo+path" loads a LoRA adapter from this repo on top of the base model.
+    "qwen-coder-3b-qlora": "mlx:mlx-community/Qwen2.5-Coder-3B-Instruct-4bit+finetune/adapters/qwen3b-qlora",
 }
 MAX_OUTPUT_TOKENS = 600
 
@@ -58,7 +62,9 @@ class MLXClient:
 
     def __init__(self, repo: str):
         from mlx_lm import load
-        self.model, self.tokenizer = load(repo)
+        repo, _, adapter = repo.partition("+")
+        adapter_path = str(Path(__file__).resolve().parents[1] / adapter) if adapter else None
+        self.model, self.tokenizer = load(repo, adapter_path=adapter_path)
         self._prefix_key, self._prefix_tokens, self._prefix_cache = None, None, None
 
     def _tokens(self, system: str, user: str):
@@ -108,7 +114,10 @@ def get_client(name: str):
     spec = MODELS.get(name, name)
     kind, _, model = spec.partition(":")
     if kind == "gemini":
-        return GeminiClient(model)
-    if kind == "mlx":
-        return MLXClient(model)
-    raise ValueError(f"unknown model: {name}")
+        client = GeminiClient(model)
+    elif kind == "mlx":
+        client = MLXClient(model)
+    else:
+        raise ValueError(f"unknown model: {name}")
+    client.name = name                 # shown in traces
+    return client
